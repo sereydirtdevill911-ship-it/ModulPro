@@ -123,7 +123,7 @@ body{
   font-family:'JetBrains Mono',monospace;
   letter-spacing:.04em;
 }
-.breadcrumb span{color:var(--accent);cursor:pointer;}
+.breadcrumb span{color:var(--accent2);cursor:pointer;}
 .breadcrumb span:hover{text-decoration:underline;}
 
 h1.legacy-hide{ display:none; }
@@ -258,8 +258,8 @@ select{
   cursor:pointer;
 }
 select:focus,input[type=number]:focus{
-  border-color:rgba(200,152,64,.5);
-  box-shadow:0 0 0 3px rgba(200,152,64,.12), inset 0 2px 6px rgba(0,0,0,.3);
+  border-color:rgba(0,200,255,.45);
+  box-shadow:0 0 0 3px rgba(0,200,255,.1), inset 0 2px 6px rgba(0,0,0,.3);
 }
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button{opacity:.3;}
@@ -321,9 +321,9 @@ button:active{ transform:translateY(1px) scale(.98); filter:brightness(.95); }
   font-size:.88rem;cursor:pointer;padding:12px;
 }
 .btn-view-active{
-  background:linear-gradient(160deg, #d4a840, #a07820)!important;
+  background:linear-gradient(160deg, #00c8ff, #0099cc)!important;
   color:#fff!important;
-  box-shadow:0 0 14px rgba(200,152,64,.4)!important;
+  box-shadow:0 0 14px rgba(0,200,255,.35)!important;
 }
 
 /* ── DRAWER BLOCK ── */
@@ -339,7 +339,7 @@ button:active{ transform:translateY(1px) scale(.98); filter:brightness(.95); }
 }
 .drawer-block:hover{
   border-left-color:var(--accent2);
-  box-shadow:0 4px 16px rgba(0,0,0,.3), 0 0 0 1px rgba(200,152,64,.1);
+  box-shadow:0 4px 16px rgba(0,0,0,.3), 0 0 0 1px rgba(0,200,255,.08);
 }
 .drawer-block strong{
   font-size:.75rem;
@@ -361,13 +361,9 @@ button:active{ transform:translateY(1px) scale(.98); filter:brightness(.95); }
   background:linear-gradient(90deg,transparent,rgba(0,200,255,.4),transparent);
 }
 .result-card h2{
-  font-size:.8rem;
-  text-transform:uppercase;
-  letter-spacing:.12em;
-  color:var(--text2);
-  margin-bottom:16px;
-  font-family:'JetBrains Mono',monospace;
-  display:flex; align-items:center; gap:10px;
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:1.1rem;letter-spacing:.08em;
+  color:var(--accent2);margin-bottom:10px;
 }
 .result-card h2::before{
   content:'';
@@ -404,7 +400,7 @@ td{
 }
 tr:last-child td{border-bottom:none;}
 tr:hover td{
-  background:rgba(200,152,64,.05);
+  background:rgba(0,200,255,.04);
   transition:background .12s;
 }
 
@@ -438,10 +434,10 @@ tr:hover td{
   box-shadow:0 2px 6px rgba(0,0,0,.2), inset 0 1px 0 rgba(255,255,255,.04);
 }
 .btn-tab.active{
-  background:linear-gradient(160deg,#d4a840,#a07820);
-  border-color:rgba(200,152,64,.4);
+  background:linear-gradient(160deg,#00c8ff,#0099cc);
+  border-color:rgba(0,200,255,.35);
   color:#fff;
-  box-shadow:0 0 16px rgba(200,152,64,.35), inset 0 1px 0 rgba(255,255,255,.2);
+  box-shadow:0 0 16px rgba(0,200,255,.3), inset 0 1px 0 rgba(255,255,255,.2);
   text-shadow:0 1px 2px rgba(0,0,0,.3);
 }
 
@@ -460,12 +456,12 @@ tr:hover td{
   text-align:center;
   box-shadow:0 2px 6px rgba(0,0,0,.2);
 }
-.layout-btn:hover{ border-color:rgba(200,152,64,.4); color:var(--accent2); }
+.layout-btn:hover{ border-color:rgba(0,200,255,.35); color:var(--accent2); }
 .layout-btn.active{
-  background:rgba(200,152,64,.12);
-  border-color:rgba(200,152,64,.4);
+  background:rgba(0,200,255,.1);
+  border-color:rgba(0,200,255,.35);
   color:var(--accent2);
-  box-shadow:0 0 12px rgba(200,152,64,.15), 0 2px 6px rgba(0,0,0,.2);
+  box-shadow:0 0 12px rgba(0,200,255,.12), 0 2px 6px rgba(0,0,0,.2);
 }
 
 /* ── TYPE PRESET BUTTONS ── */
@@ -482,10 +478,10 @@ tr:hover td{
   transition:all .18s;
   box-shadow:0 2px 4px rgba(0,0,0,.2);
 }
-.type-preset-btn:hover{ border-color:rgba(200,152,64,.35); color:var(--accent2); }
+.type-preset-btn:hover{ border-color:rgba(0,200,255,.3); color:var(--accent2); }
 .type-preset-btn.active{
-  background:rgba(200,152,64,.12);
-  border-color:rgba(200,152,64,.4);
+  background:rgba(0,200,255,.1);
+  border-color:rgba(0,200,255,.35);
   color:var(--accent2);
 }
 
@@ -506,8 +502,8 @@ tr:hover td{
 /* ── SCROLL ── */
 ::-webkit-scrollbar{width:5px;}
 ::-webkit-scrollbar-track{background:var(--bg2);}
-::-webkit-scrollbar-thumb{background:rgba(200,152,64,.25);border-radius:4px;}
-::-webkit-scrollbar-thumb:hover{background:rgba(200,152,64,.45);}
+::-webkit-scrollbar-thumb{background:rgba(0,200,255,.2);border-radius:4px;}
+::-webkit-scrollbar-thumb:hover{background:rgba(0,200,255,.4);}
 
 /* ── CATEGORY CARDS ── */
 .cat-card{
@@ -521,12 +517,11 @@ tr:hover td{
   background:transparent;
 }
 .cat-card:hover{
-  background:rgba(255,255,255,.03);
+  border-color:rgba(0,200,255,.2);
+  background:rgba(0,200,255,.03);
 }
 .cat-card-left{
-  display:flex;
-  align-items:center;
-  gap:10px;
+  display:flex;align-items:center;gap:10px;flex:1;min-width:0;
 }
 .cat-arrow{
   color:var(--muted);
@@ -542,9 +537,9 @@ tr:hover td{
   color:var(--text2);
 }
 .cat-thumb{
-  width:60px; height:36px;
-  opacity:.5;
-  flex-shrink:0;
+  width:72px;height:50px;flex-shrink:0;overflow:hidden;
+  border-radius:6px;background:var(--surface3);
+  border:1px solid var(--border);
 }
 .cat-sub{
   display:none;
@@ -562,15 +557,15 @@ tr:hover td{
   font-family:'JetBrains Mono',monospace;
 }
 .cat-sub-item:hover{
-  background:rgba(200,152,64,.06);
+  background:rgba(0,200,255,.04);
   color:var(--accent2);
-  border-left-color:rgba(200,152,64,.3);
+  border-left-color:rgba(0,200,255,.25);
 }
 .cat-sub-item.active{
-  background:rgba(200,152,64,.1);
   color:var(--accent2);
-  border-left-color:var(--accent2);
   font-weight:700;
+  border-left:2px solid var(--accent2);
+  background:rgba(0,200,255,.06);
 }
 
 /* ── ANIMATIONS ── */
@@ -579,8 +574,8 @@ tr:hover td{
   to{opacity:1;transform:translateY(0);}
 }
 @keyframes glowPulse{
-  0%,100%{box-shadow:0 0 8px rgba(200,152,64,.2);}
-  50%{box-shadow:0 0 20px rgba(200,152,64,.4);}
+  0%,100%{box-shadow:0 0 8px rgba(0,200,255,.15);}
+  50%{box-shadow:0 0 20px rgba(0,200,255,.35);}
 }
 
 /* ── MODULE COUNTER BADGE ── */
@@ -596,7 +591,7 @@ tr:hover td{
   font-size:.7rem;
   font-weight:900;
   border-radius:10px;
-  box-shadow:0 0 10px rgba(200,152,64,.4);
+  box-shadow:0 0 10px rgba(0,200,255,.35);
   margin-left:4px;
 }
 .result-card,.card{animation:fadeSlideIn .25s ease both;}
@@ -626,13 +621,12 @@ tr:hover td{
 }
 .cat-card:hover{
   background:linear-gradient(135deg, var(--surface3) 0%, var(--surface2) 100%);
-  box-shadow:inset 3px 0 0 rgba(200,152,64,.4);
+  box-shadow:inset 3px 0 0 rgba(0,200,255,.35);
 }
 .cat-card.cat-open{
-  background:linear-gradient(135deg, rgba(200,152,64,.1) 0%, var(--surface2) 100%);
-  border-left:3px solid var(--accent2);
-  padding-left:15px;
-  box-shadow:0 2px 12px rgba(0,0,0,.3);
+  border-color:rgba(0,200,255,.3);
+  background:rgba(0,200,255,.04);
+  box-shadow:0 0 16px rgba(0,200,255,.08);
 }
 .cat-card-left{
   display:flex;
@@ -649,7 +643,7 @@ tr:hover td{
 .cat-arrow.open{
   transform:rotate(90deg);
   color:var(--accent2);
-  text-shadow:0 0 8px rgba(200,152,64,.5);
+  text-shadow:0 0 8px rgba(0,200,255,.45);
 }
 .cat-label{
   font-family:'Barlow Condensed',sans-serif;
@@ -702,13 +696,13 @@ tr:hover td{
   color:var(--muted);
 }
 .cat-sub-item:hover{
-  background:rgba(200,152,64,.07);
+  background:rgba(0,200,255,.05);
   color:var(--text);
-  border-left-color:rgba(200,152,64,.5);
+  border-left-color:rgba(0,200,255,.45);
   padding-left:42px;
 }
 .cat-sub-item.active{
-  background:linear-gradient(90deg, rgba(200,152,64,.12), transparent);
+  background:linear-gradient(90deg, rgba(0,200,255,.1), transparent);
   color:var(--accent2);
   border-left-color:var(--accent2);
   font-weight:700;
@@ -724,8 +718,8 @@ input[type=text]{
   box-shadow:inset 0 2px 6px rgba(0,0,0,.3),inset 0 1px 0 rgba(0,0,0,.2);
 }
 input[type=text]:focus{
-  border-color:rgba(200,152,64,.5);
-  box-shadow:0 0 0 3px rgba(200,152,64,.1),inset 0 2px 6px rgba(0,0,0,.3);
+  border-color:rgba(0,200,255,.45);
+  box-shadow:0 0 0 3px rgba(0,200,255,.08),inset 0 2px 6px rgba(0,0,0,.3);
 }
 input[type=text]::placeholder{ color:var(--muted); }
 
@@ -738,7 +732,7 @@ input[type=text]::placeholder{ color:var(--muted); }
   padding:8px 12px;transition:all .18s;font-family:'JetBrains Mono',monospace!important;
   box-shadow:0 2px 6px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.03);
 }
-.chk-label:hover{border-color:rgba(200,152,64,.4);background:var(--surface2);color:var(--accent2)!important;}
+.chk-label:hover{border-color:rgba(0,200,255,.35);background:var(--surface2);color:var(--accent2)!important;}
 .chk-label input[type=checkbox]{width:15px;height:15px;accent-color:var(--accent2);cursor:pointer;flex-shrink:0;}
 
 /* ── QUICK ACTION BUTTONS ── */
@@ -749,7 +743,7 @@ input[type=text]::placeholder{ color:var(--muted); }
   font-size:.8rem;letter-spacing:.05em;cursor:pointer;
   padding:9px 4px;transition:all .15s;
 }
-.qa-btn:hover{border-color:rgba(200,152,64,.5);color:var(--accent2);transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,.35),0 0 0 1px rgba(200,152,64,.12);}
+.qa-btn:hover{border-color:rgba(0,200,255,.45);color:var(--accent2);transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,.35),0 0 0 1px rgba(0,200,255,.1);}
 .qa-btn:active{transform:translateY(0);}
 .qa-btn-blue:hover{border-color:rgba(74,159,234,.5)!important;color:var(--info)!important;box-shadow:0 4px 14px rgba(0,0,0,.35),0 0 0 1px rgba(74,159,234,.12)!important;}
 .qa-btn-green:hover{border-color:rgba(46,204,138,.5)!important;color:var(--success)!important;box-shadow:0 4px 14px rgba(0,0,0,.35),0 0 0 1px rgba(46,204,138,.12)!important;}
@@ -778,7 +772,7 @@ input[type=text]::placeholder{ color:var(--muted); }
   transition:all .18s;
   box-shadow:0 2px 8px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.04);
 }
-.proj-btn:hover{border-color:rgba(200,152,64,.4);color:var(--accent2);transform:translateY(-1px);}
+.proj-btn:hover{border-color:rgba(0,200,255,.35);color:var(--accent2);transform:translateY(-1px);}
 
 /* ── OUTLINE GOLD BUTTON ── */
 .btn-outline-gold{
@@ -951,10 +945,173 @@ button:active:not([disabled]){
   transform:scale(.97);
   transition:transform .08s;
 }
+
+/* ═══════════════════════════════════════════════════
+   ModulPRO UNIQUE STYLE —  
+   ═══════════════════════════════════════════════════ */
+
+/* Cat-card —     */
+.cat-card{
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:10px 14px;margin-bottom:6px;cursor:pointer;
+  transition:all .15s;position:relative;overflow:hidden;
+}
+.cat-card::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;
+  width:2px;background:var(--accent2);
+  transform:scaleY(0);transition:transform .15s;
+  box-shadow:0 0 8px var(--accent2);
+}
+.cat-card.cat-open::before{transform:scaleY(1);}
+.cat-card.cat-open{
+  border-color:rgba(0,200,255,.2);
+  background:rgba(0,200,255,.03);
+}
+.cat-card:active{transform:scale(.99);}
+.cat-label{
+  font-family:'Syne',sans-serif;font-weight:700;
+  font-size:.88rem;letter-spacing:.06em;color:var(--text);
+}
+.cat-arrow{
+  font-size:.7rem;color:var(--muted);
+  transition:transform .2s;display:inline-block;
+}
+.cat-card.cat-open .cat-arrow{transform:rotate(90deg);}
+.cat-sub{
+  display:none;margin:0 0 8px;
+  border-left:1px solid rgba(0,200,255,.15);
+  margin-left:14px;padding-left:12px;
+}
+.cat-sub-item{
+  padding:7px 10px;font-family:'Barlow Condensed',sans-serif;
+  font-size:.82rem;font-weight:600;letter-spacing:.04em;
+  color:var(--text2);cursor:pointer;border-radius:6px;
+  transition:all .1s;position:relative;
+}
+.cat-sub-item::before{
+  content:'·';position:absolute;left:-14px;color:var(--muted);
+}
+.cat-sub-item:hover{color:var(--accent2);background:rgba(0,200,255,.05);}
+.cat-sub-item.active{
+  color:var(--accent2);font-weight:700;
+  background:rgba(0,200,255,.08);
+}
+.cat-sub-item.active::before{color:var(--accent2);}
+
+/* Select —   */
+select{
+  background:var(--surface2) !important;
+  border:1px solid var(--border2) !important;
+  border-radius:var(--radius) !important;
+  color:var(--text) !important;
+  font-family:'Barlow Condensed',sans-serif !important;
+  font-size:.9rem !important;letter-spacing:.03em !important;
+  padding:10px 36px 10px 12px !important;
+  appearance:none;-webkit-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%2300c8ff' opacity='.5'/%3E%3C/svg%3E") !important;
+  background-repeat:no-repeat !important;
+  background-position:right 12px center !important;
+  width:100% !important;outline:none !important;
+  transition:border-color .15s !important;
+  cursor:pointer !important;
+}
+select:focus{
+  border-color:rgba(0,200,255,.4) !important;
+  box-shadow:0 0 0 3px rgba(0,200,255,.08) !important;
+}
+
+/* Input number —    */
+input[type=number]{
+  background:var(--surface2);
+  border:1px solid var(--border2);
+  border-radius:var(--radius);
+  color:var(--text);
+  font-family:'JetBrains Mono',monospace;
+  font-size:.95rem;font-weight:700;
+  padding:10px 12px;width:100%;outline:none;
+  transition:border-color .15s;
+  -moz-appearance:textfield;
+}
+input[type=number]:focus{
+  border-color:rgba(0,200,255,.4);
+  box-shadow:0 0 0 3px rgba(0,200,255,.08);
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{opacity:.4;}
+
+/* Label   */
+label{
+  font-family:'JetBrains Mono',monospace !important;
+  font-size:.58rem !important;font-weight:600 !important;
+  letter-spacing:.14em !important;text-transform:uppercase !important;
+  color:var(--text2) !important;display:block !important;
+  margin-bottom:5px !important;
+}
+
+/* Card h3 —   */
+.card h3{
+  font-family:'Syne',sans-serif;font-weight:700;
+  font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--text2);margin-bottom:12px;
+  display:flex;align-items:center;gap:8px;
+}
+.card h3::before{
+  content:'';width:3px;height:14px;
+  background:var(--accent2);border-radius:2px;
+  box-shadow:0 0 8px var(--accent2);flex-shrink:0;
+}
+
+/* Hint boxes — auto-logic */
+.al-hint{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.62rem;padding:5px 10px;border-radius:6px;
+  margin-top:4px;line-height:1.5;
+}
+[id^=al_]{
+  font-family:'JetBrains Mono',monospace !important;
+  font-size:.62rem !important;
+}
+
+/* BOM table  */
+table.bom-table{border-collapse:collapse;width:100%;}
+table.bom-table th{
+  font-family:'JetBrains Mono',monospace;font-size:.58rem;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--text2);padding:6px 8px;
+  border-bottom:1px solid rgba(0,200,255,.15);
+}
+table.bom-table td{
+  font-family:'JetBrains Mono',monospace;font-size:.72rem;
+  padding:5px 8px;border-bottom:1px solid var(--border);
+  color:var(--text);
+}
+table.bom-table tr:hover td{background:rgba(0,200,255,.03);}
+
+/* ZAMKNIJ bar  toolsPanel —  */
+#fixedCloseBar button,
+[onclick*="closeAllPanels"]{
+  background:rgba(255,61,90,.08) !important;
+  border:1px solid rgba(255,61,90,.2) !important;
+  color:rgba(255,61,90,.7) !important;
+  font-size:.78rem !important;
+  padding:8px !important;
+}
+
+/* Scrollbar cyan */
+::-webkit-scrollbar{width:3px;height:3px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{
+  background:rgba(0,200,255,.2);border-radius:2px;
+}
+::-webkit-scrollbar-thumb:hover{background:rgba(0,200,255,.4);}
+
 </style>
 
   <link rel="manifest" href="./manifest.json">
-  <meta name="theme-color" content="#0e1017">
+  <meta name="theme-color" content="var(--bg)">
   <link rel="canonical" href="https://devill911-ship-it.github.io/">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -1031,7 +1188,7 @@ body{padding-bottom:72px!important;}
 <div id="konfig-back-bar" style="position:sticky;top:0;z-index:100;padding:6px 14px;background:rgba(7,8,12,.97);border-bottom:1px solid rgba(0,200,255,.08);display:flex;align-items:center;gap:8px;backdrop-filter:blur(20px);">
 <button onclick="appNav('home')" style="padding:5px 10px;background:var(--surface2);border:1px solid var(--border);border-radius:7px;color:var(--text2);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;cursor:pointer;">🏠 Home</button>
 <button onclick="appNav('projects')" style="padding:5px 10px;background:var(--surface2);border:1px solid var(--border);border-radius:7px;color:var(--text2);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;cursor:pointer;">📁 Projekty</button>
-<button onclick="appShowAddModule()" style="padding:5px 10px;background:rgba(200,152,64,.1);border:1px solid rgba(200,152,64,.3);border-radius:7px;color:var(--accent2);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;cursor:pointer;">＋ Szafka</button>
+<button onclick="appShowAddModule()" style="padding:5px 10px;background:rgba(0,200,255,.08);border:1px solid rgba(0,200,255,.25);border-radius:7px;color:var(--accent2);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;cursor:pointer;">＋ Szafka</button>
 </div>
 
   <!-- Typ szafy — visual category cards -->
@@ -1085,26 +1242,26 @@ body{padding-bottom:72px!important;}
         </div>
         <div class="cat-thumb"><svg viewBox="0 0 140 85" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="wallG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a1e2b"/><stop offset="100%" stop-color="#0e1017"/></linearGradient>
-    <linearGradient id="cabG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#252a3d"/><stop offset="100%" stop-color="#1a1e2b"/></linearGradient>
-    <linearGradient id="cabHiG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d4a840"/><stop offset="100%" stop-color="#8a6418"/></linearGradient>
+    <linearGradient id="wallG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0a0b10"/><stop offset="100%" stop-color="#07080c"/></linearGradient>
+    <linearGradient id="cabG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#141720"/><stop offset="100%" stop-color="#0a0b10"/></linearGradient>
+    <linearGradient id="cabHiG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#00c8ff"/><stop offset="100%" stop-color="#007799"/></linearGradient>
   </defs>
   <rect width="140" height="85" fill="url(#wallG)"/>
   <!-- upper cabs -->
-  <rect x="5" y="8" width="38" height="28" rx="2" fill="url(#cabG)" stroke="#3a3f55" stroke-width=".8"/>
+  <rect x="5" y="8" width="38" height="28" rx="2" fill="url(#cabG)" stroke="rgba(255,255,255,.08)" stroke-width=".8"/>
   <rect x="5" y="8" width="38" height="1.5" rx="1" fill="rgba(255,255,255,.06)"/>
-  <rect x="45" y="8" width="38" height="28" rx="2" fill="url(#cabG)" stroke="#3a3f55" stroke-width=".8"/>
-  <rect x="85" y="8" width="50" height="28" rx="2" fill="url(#cabG)" stroke="#3a3f55" stroke-width=".8"/>
+  <rect x="45" y="8" width="38" height="28" rx="2" fill="url(#cabG)" stroke="rgba(255,255,255,.08)" stroke-width=".8"/>
+  <rect x="85" y="8" width="50" height="28" rx="2" fill="url(#cabG)" stroke="rgba(255,255,255,.08)" stroke-width=".8"/>
   <!-- countertop -->
-  <rect x="5" y="52" width="130" height="4" rx="1" fill="#3a3f55"/>
+  <rect x="5" y="52" width="130" height="4" rx="1" fill="rgba(255,255,255,.1)"/>
   <rect x="5" y="52" width="130" height="1" fill="rgba(255,255,255,.12)"/>
   <!-- base cabs — first highlighted -->
-  <rect x="5" y="57" width="38" height="24" rx="2" fill="url(#cabHiG)" stroke="#c89840" stroke-width=".8"/>
+  <rect x="5" y="57" width="38" height="24" rx="2" fill="url(#cabHiG)" stroke="#00c8ff" stroke-width=".8"/>
   <rect x="5" y="57" width="38" height="1.5" rx="1" fill="rgba(255,255,255,.2)"/>
-  <rect x="45" y="57" width="38" height="24" rx="2" fill="url(#cabG)" stroke="#3a3f55" stroke-width=".8"/>
-  <rect x="85" y="57" width="50" height="24" rx="2" fill="url(#cabG)" stroke="#3a3f55" stroke-width=".8"/>
+  <rect x="45" y="57" width="38" height="24" rx="2" fill="url(#cabG)" stroke="rgba(255,255,255,.08)" stroke-width=".8"/>
+  <rect x="85" y="57" width="50" height="24" rx="2" fill="url(#cabG)" stroke="rgba(255,255,255,.08)" stroke-width=".8"/>
   <!-- glow -->
-  <rect x="5" y="57" width="38" height="24" rx="2" fill="rgba(200,152,64,.08)"/>
+  <rect x="5" y="57" width="38" height="24" rx="2" fill="rgba(0,200,255,.06)"/>
 </svg></div>
       </div>
       <div class="cat-sub" id="cat-dolne">
@@ -1120,23 +1277,23 @@ body{padding-bottom:72px!important;}
         </div>
         <div class="cat-thumb"><svg viewBox="0 0 140 85" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="wallG2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a1e2b"/><stop offset="100%" stop-color="#0e1017"/></linearGradient>
-    <linearGradient id="cabG2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#252a3d"/><stop offset="100%" stop-color="#1a1e2b"/></linearGradient>
-    <linearGradient id="cabHiG2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d4a840"/><stop offset="100%" stop-color="#8a6418"/></linearGradient>
+    <linearGradient id="wallG2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0a0b10"/><stop offset="100%" stop-color="#07080c"/></linearGradient>
+    <linearGradient id="cabG2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#141720"/><stop offset="100%" stop-color="#0a0b10"/></linearGradient>
+    <linearGradient id="cabHiG2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#00c8ff"/><stop offset="100%" stop-color="#007799"/></linearGradient>
   </defs>
   <rect width="140" height="85" fill="url(#wallG2)"/>
   <!-- upper cabs — highlighted -->
-  <rect x="5" y="8" width="38" height="28" rx="2" fill="url(#cabHiG2)" stroke="#c89840" stroke-width=".8"/>
+  <rect x="5" y="8" width="38" height="28" rx="2" fill="url(#cabHiG2)" stroke="#00c8ff" stroke-width=".8"/>
   <rect x="5" y="8" width="38" height="1.5" rx="1" fill="rgba(255,255,255,.2)"/>
-  <rect x="45" y="8" width="38" height="28" rx="2" fill="url(#cabG2)" stroke="#3a3f55" stroke-width=".8"/>
-  <rect x="85" y="8" width="50" height="28" rx="2" fill="url(#cabG2)" stroke="#3a3f55" stroke-width=".8"/>
+  <rect x="45" y="8" width="38" height="28" rx="2" fill="url(#cabG2)" stroke="rgba(255,255,255,.08)" stroke-width=".8"/>
+  <rect x="85" y="8" width="50" height="28" rx="2" fill="url(#cabG2)" stroke="rgba(255,255,255,.08)" stroke-width=".8"/>
   <!-- countertop -->
-  <rect x="5" y="52" width="130" height="4" rx="1" fill="#3a3f55"/>
+  <rect x="5" y="52" width="130" height="4" rx="1" fill="rgba(255,255,255,.1)"/>
   <rect x="5" y="52" width="130" height="1" fill="rgba(255,255,255,.1)"/>
   <!-- base cabs -->
-  <rect x="5" y="57" width="130" height="24" rx="2" fill="url(#cabG2)" stroke="#3a3f55" stroke-width=".8"/>
+  <rect x="5" y="57" width="130" height="24" rx="2" fill="url(#cabG2)" stroke="rgba(255,255,255,.08)" stroke-width=".8"/>
   <rect x="5" y="57" width="130" height="1.5" rx="1" fill="rgba(255,255,255,.05)"/>
-  <rect x="5" y="8" width="38" height="28" rx="2" fill="rgba(200,152,64,.1)"/>
+  <rect x="5" y="8" width="38" height="28" rx="2" fill="rgba(0,200,255,.08)"/>
 </svg></div>
       </div>
       <div class="cat-sub" id="cat-wiszace">
@@ -1153,25 +1310,25 @@ body{padding-bottom:72px!important;}
         </div>
         <div class="cat-thumb"><svg viewBox="0 0 140 85" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="wallG3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a1e2b"/><stop offset="100%" stop-color="#0e1017"/></linearGradient>
-    <linearGradient id="cabHiG3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d4a840"/><stop offset="100%" stop-color="#8a6418"/></linearGradient>
-    <linearGradient id="cabG3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#252a3d"/><stop offset="100%" stop-color="#1a1e2b"/></linearGradient>
-    <linearGradient id="applianceG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2a2e40"/><stop offset="100%" stop-color="#13161f"/></linearGradient>
+    <linearGradient id="wallG3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0a0b10"/><stop offset="100%" stop-color="#07080c"/></linearGradient>
+    <linearGradient id="cabHiG3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#00c8ff"/><stop offset="100%" stop-color="#007799"/></linearGradient>
+    <linearGradient id="cabG3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#141720"/><stop offset="100%" stop-color="#0a0b10"/></linearGradient>
+    <linearGradient id="applianceG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#141720"/><stop offset="100%" stop-color="#0c0d12"/></linearGradient>
   </defs>
   <rect width="140" height="85" fill="url(#wallG3)"/>
   <!-- tall AGD cabinet -->
-  <rect x="5" y="8" width="130" height="48" rx="2" fill="url(#cabHiG3)" stroke="#c89840" stroke-width=".8"/>
+  <rect x="5" y="8" width="130" height="48" rx="2" fill="url(#cabHiG3)" stroke="#00c8ff" stroke-width=".8"/>
   <rect x="5" y="8" width="130" height="1.5" rx="1" fill="rgba(255,255,255,.2)"/>
   <!-- appliance opening -->
-  <rect x="10" y="12" width="120" height="38" rx="2" fill="url(#applianceG)" stroke="#3a3f55" stroke-width=".5"/>
+  <rect x="10" y="12" width="120" height="38" rx="2" fill="url(#applianceG)" stroke="rgba(255,255,255,.08)" stroke-width=".5"/>
   <!-- oven grill -->
-  <line x1="15" y1="22" x2="125" y2="22" stroke="#3a3f55" stroke-width=".7"/>
-  <line x1="15" y1="30" x2="125" y2="30" stroke="#3a3f55" stroke-width=".7"/>
-  <line x1="15" y1="38" x2="125" y2="38" stroke="#3a3f55" stroke-width=".7"/>
+  <line x1="15" y1="22" x2="125" y2="22" stroke="rgba(255,255,255,.08)" stroke-width=".7"/>
+  <line x1="15" y1="30" x2="125" y2="30" stroke="rgba(255,255,255,.08)" stroke-width=".7"/>
+  <line x1="15" y1="38" x2="125" y2="38" stroke="rgba(255,255,255,.08)" stroke-width=".7"/>
   <!-- handle -->
-  <rect x="50" y="44" width="40" height="3" rx="1.5" fill="#c89840" opacity=".7"/>
+  <rect x="50" y="44" width="40" height="3" rx="1.5" fill="#00c8ff" opacity=".7"/>
   <!-- drawer -->
-  <rect x="5" y="58" width="130" height="20" rx="2" fill="url(#cabG3)" stroke="#3a3f55" stroke-width=".8"/>
+  <rect x="5" y="58" width="130" height="20" rx="2" fill="url(#cabG3)" stroke="rgba(255,255,255,.08)" stroke-width=".8"/>
 </svg></div>
       </div>
       <div class="cat-sub" id="cat-agd">
@@ -1187,23 +1344,23 @@ body{padding-bottom:72px!important;}
         </div>
         <div class="cat-thumb"><svg viewBox="0 0 140 85" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="wallG4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a1e2b"/><stop offset="100%" stop-color="#0e1017"/></linearGradient>
-    <linearGradient id="cabHiG4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d4a840"/><stop offset="100%" stop-color="#8a6418"/></linearGradient>
-    <linearGradient id="cabG4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#252a3d"/><stop offset="100%" stop-color="#1a1e2b"/></linearGradient>
+    <linearGradient id="wallG4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0a0b10"/><stop offset="100%" stop-color="#07080c"/></linearGradient>
+    <linearGradient id="cabHiG4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#00c8ff"/><stop offset="100%" stop-color="#007799"/></linearGradient>
+    <linearGradient id="cabG4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#141720"/><stop offset="100%" stop-color="#0a0b10"/></linearGradient>
   </defs>
   <rect width="140" height="85" fill="url(#wallG4)"/>
   <!-- tall column highlighted -->
-  <rect x="5" y="8" width="28" height="72" rx="2" fill="url(#cabHiG4)" stroke="#c89840" stroke-width=".8"/>
+  <rect x="5" y="8" width="28" height="72" rx="2" fill="url(#cabHiG4)" stroke="#00c8ff" stroke-width=".8"/>
   <rect x="5" y="8" width="28" height="1.5" rx="1" fill="rgba(255,255,255,.2)"/>
-  <rect x="5" y="8" width="28" height="72" rx="2" fill="rgba(200,152,64,.08)"/>
+  <rect x="5" y="8" width="28" height="72" rx="2" fill="rgba(0,200,255,.06)"/>
   <!-- upper cabs -->
-  <rect x="36" y="8" width="36" height="28" rx="2" fill="url(#cabG4)" stroke="#3a3f55" stroke-width=".8"/>
-  <rect x="75" y="8" width="60" height="28" rx="2" fill="url(#cabG4)" stroke="#3a3f55" stroke-width=".8"/>
+  <rect x="36" y="8" width="36" height="28" rx="2" fill="url(#cabG4)" stroke="rgba(255,255,255,.08)" stroke-width=".8"/>
+  <rect x="75" y="8" width="60" height="28" rx="2" fill="url(#cabG4)" stroke="rgba(255,255,255,.08)" stroke-width=".8"/>
   <!-- countertop -->
-  <rect x="36" y="52" width="99" height="4" rx="1" fill="#3a3f55"/>
+  <rect x="36" y="52" width="99" height="4" rx="1" fill="rgba(255,255,255,.1)"/>
   <rect x="36" y="52" width="99" height="1" fill="rgba(255,255,255,.1)"/>
   <!-- base cabs -->
-  <rect x="36" y="57" width="99" height="23" rx="2" fill="url(#cabG4)" stroke="#3a3f55" stroke-width=".8"/>
+  <rect x="36" y="57" width="99" height="23" rx="2" fill="url(#cabG4)" stroke="rgba(255,255,255,.08)" stroke-width=".8"/>
 </svg></div>
       </div>
       <div class="cat-sub" id="cat-slupki">
@@ -1225,26 +1382,26 @@ body{padding-bottom:72px!important;}
         </div>
         <div class="cat-thumb"><svg viewBox="0 0 140 85" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="wallG5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a1e2b"/><stop offset="100%" stop-color="#0e1017"/></linearGradient>
-    <linearGradient id="cabHiG5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d4a840"/><stop offset="100%" stop-color="#8a6418"/></linearGradient>
-    <linearGradient id="cabG5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#252a3d"/><stop offset="100%" stop-color="#1a1e2b"/></linearGradient>
+    <linearGradient id="wallG5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0a0b10"/><stop offset="100%" stop-color="#07080c"/></linearGradient>
+    <linearGradient id="cabHiG5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#00c8ff"/><stop offset="100%" stop-color="#007799"/></linearGradient>
+    <linearGradient id="cabG5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#141720"/><stop offset="100%" stop-color="#0a0b10"/></linearGradient>
   </defs>
   <rect width="140" height="85" fill="url(#wallG5)"/>
   <!-- upper cabs -->
-  <rect x="5" y="8" width="130" height="28" rx="2" fill="url(#cabG5)" stroke="#3a3f55" stroke-width=".8"/>
+  <rect x="5" y="8" width="130" height="28" rx="2" fill="url(#cabG5)" stroke="rgba(255,255,255,.08)" stroke-width=".8"/>
   <rect x="5" y="8" width="130" height="1.5" fill="rgba(255,255,255,.05)"/>
   <!-- countertop -->
-  <rect x="5" y="52" width="130" height="4" rx="1" fill="#3a3f55"/>
+  <rect x="5" y="52" width="130" height="4" rx="1" fill="rgba(255,255,255,.1)"/>
   <rect x="5" y="52" width="130" height="1" fill="rgba(255,255,255,.1)"/>
   <!-- base cabs -->
-  <rect x="5" y="57" width="40" height="24" rx="2" fill="url(#cabG5)" stroke="#3a3f55" stroke-width=".8"/>
+  <rect x="5" y="57" width="40" height="24" rx="2" fill="url(#cabG5)" stroke="rgba(255,255,255,.08)" stroke-width=".8"/>
   <!-- corner highlighted -->
-  <rect x="47" y="57" width="30" height="24" rx="2" fill="url(#cabHiG5)" stroke="#c89840" stroke-width=".8"/>
+  <rect x="47" y="57" width="30" height="24" rx="2" fill="url(#cabHiG5)" stroke="#00c8ff" stroke-width=".8"/>
   <rect x="47" y="57" width="30" height="1.5" rx="1" fill="rgba(255,255,255,.2)"/>
-  <rect x="47" y="57" width="30" height="24" rx="2" fill="rgba(200,152,64,.1)"/>
-  <rect x="79" y="57" width="56" height="24" rx="2" fill="url(#cabG5)" stroke="#3a3f55" stroke-width=".8"/>
+  <rect x="47" y="57" width="30" height="24" rx="2" fill="rgba(0,200,255,.08)"/>
+  <rect x="79" y="57" width="56" height="24" rx="2" fill="url(#cabG5)" stroke="rgba(255,255,255,.08)" stroke-width=".8"/>
   <!-- L-corner joint line -->
-  <line x1="47" y1="57" x2="77" y2="57" stroke="#c89840" stroke-width="1" opacity=".6"/>
+  <line x1="47" y1="57" x2="77" y2="57" stroke="#00c8ff" stroke-width="1" opacity=".6"/>
 </svg></div>
       </div>
       <div class="cat-sub" id="cat-narozne">
@@ -1358,14 +1515,14 @@ body{padding-bottom:72px!important;}
         font-family:'JetBrains Mono',monospace;font-size:.85rem;"
         placeholder="0 = auto (głębokość-18)">
       <button onclick="alAutoBlindPanel()"
-        style="padding:8px 10px;background:rgba(200,152,64,.1);
-        border:1px solid rgba(200,152,64,.3);border-radius:7px;color:var(--accent2);
+        style="padding:8px 10px;background:rgba(0,200,255,.08);
+        border:1px solid rgba(0,200,255,.25);border-radius:7px;color:var(--accent2);
         font-family:'Barlow Condensed',sans-serif;font-weight:700;
         font-size:.72rem;cursor:pointer;white-space:nowrap;">AUTO</button>
     </div>
     <div id="al_zaslepka_hint" style="font-size:.65rem;font-family:'JetBrains Mono',monospace;
       margin-top:4px;padding:4px 8px;border-radius:4px;
-      background:rgba(200,152,64,.07);border-left:2px solid var(--accent2);
+      background:rgba(0,200,255,.05);border-left:2px solid var(--accent2);
       color:var(--accent2);display:none;"></div>
   </div>
 
@@ -1520,38 +1677,64 @@ body{padding-bottom:72px!important;}
      GŁÓWNE AKCJE
      ═══════════════════════════════════════════════════════ -->
 
-<!-- 1. GŁÓWNY PRZYCISK -->
+<!-- GŁÓWNY PRZYCISK -->
 <button class="btn-primary" onclick="calcAndAdd()"
   style="width:100%;padding:18px;font-size:1.15rem;letter-spacing:.14em;margin-bottom:10px;border-radius:12px;">
   + DODAJ SZAFKĘ
 </button>
 
-<!-- 2. POWTÓRZ + NOWY -->
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
-  <button class="btn-success" onclick="repeatLast()"
-    style="padding:15px 8px;font-size:.95rem;border-radius:10px;letter-spacing:.08em;">
-    &#8635; JESZCZE RAZ
-  </button>
-  <button class="btn-secondary" onclick="resetForm()"
-    style="padding:15px 8px;font-size:.95rem;border-radius:10px;letter-spacing:.08em;">
-    &#8635; NOWA
-  </button>
-</div>
+<!-- RZĄD AKCJI: Powtórz | Nowa | Projekt | Zapisz | Cofnij -->
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr auto auto;gap:6px;margin-bottom:14px;align-items:stretch;">
 
-<!-- 3. PROJEKT + SAVE + UNDO + TRASH -->
-<div style="display:grid;grid-template-columns:1fr auto auto auto;gap:8px;margin-bottom:14px;">
-  <button class="btn-secondary proj-btn" onclick="showProject()"
-    style="padding:14px;font-size:.95rem;border-radius:10px;letter-spacing:.08em;">
-    📊 PROJEKT <span id="projCountBadge" style="background:var(--accent);color:#000;border-radius:4px;padding:1px 6px;font-size:.8rem;margin-left:4px;font-weight:900;display:none;">0</span>
+  <!-- Powtórz -->
+  <button onclick="repeatLast()"
+    style="padding:11px 4px;background:rgba(0,230,118,.08);border:1px solid rgba(0,230,118,.2);
+    border-radius:10px;color:var(--success);font-family:'Barlow Condensed',sans-serif;
+    font-weight:700;font-size:.72rem;letter-spacing:.06em;cursor:pointer;
+    display:flex;flex-direction:column;align-items:center;gap:2px;">
+    <span style="font-size:1rem;">&#8635;</span>
+    <span>POWT.</span>
   </button>
+
+  <!-- Nowa -->
+  <button onclick="resetForm()"
+    style="padding:11px 4px;background:var(--surface2);border:1px solid var(--border2);
+    border-radius:10px;color:var(--text2);font-family:'Barlow Condensed',sans-serif;
+    font-weight:700;font-size:.72rem;letter-spacing:.06em;cursor:pointer;
+    display:flex;flex-direction:column;align-items:center;gap:2px;">
+    <span style="font-size:1rem;">&#8635;</span>
+    <span>NOWA</span>
+  </button>
+
+  <!-- Projekt -->
+  <button onclick="showProject()"
+    style="padding:11px 4px;background:var(--surface2);border:1px solid var(--border2);
+    border-radius:10px;color:var(--text2);font-family:'Barlow Condensed',sans-serif;
+    font-weight:700;font-size:.72rem;letter-spacing:.06em;cursor:pointer;
+    display:flex;flex-direction:column;align-items:center;gap:2px;position:relative;">
+    <span style="font-size:1rem;">📊</span>
+    <span>PROJ.</span>
+    <span id="projCountBadge" style="position:absolute;top:4px;right:4px;
+    background:var(--accent2);color:#000;border-radius:3px;
+    padding:0px 4px;font-size:.52rem;font-weight:900;display:none;line-height:1.4;">0</span>
+  </button>
+
+  <!-- Zapisz -->
   <button id="btnSaveProject" onclick="saveProject()"
-    style="padding:14px 14px;background:rgba(0,200,255,.1);border:1px solid rgba(0,200,255,.25);border-radius:10px;color:var(--accent2);font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:.9rem;cursor:pointer;"
+    style="padding:11px 10px;background:rgba(0,200,255,.07);
+    border:1px solid rgba(0,200,255,.2);border-radius:10px;
+    color:var(--accent2);font-size:.95rem;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;"
     title="Zapisz projekt">💾</button>
+
+  <!-- Cofnij — bez trash, bezpieczny -->
   <button id="btnUndo" onclick="_historyUndo()" disabled
-    style="padding:14px 14px;background:rgba(127,140,141,.1);border:1px solid rgba(127,140,141,.3);border-radius:10px;color:#7f8c8d;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:.9rem;cursor:pointer;opacity:.35;"
-    title="Cofnij">↩</button>
-  <button class="btn-danger" onclick="clearProjectLS()"
-    style="padding:14px 16px;border-radius:10px;font-size:1rem;">🗑</button>
+    style="padding:11px 10px;background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);border-radius:10px;
+    color:var(--muted);font-size:.95rem;cursor:pointer;opacity:.4;
+    display:flex;align-items:center;justify-content:center;"
+    title="Cofnij ostatnią akcję">↩</button>
+
 </div>
 
 
@@ -1606,12 +1789,17 @@ body{padding-bottom:72px!important;}
     </div>
   </div>
 
-  <!-- Kopia modułu -->
-  <div style="margin-bottom:8px;">
+  <!-- Kopia modułu + Usuń projekt -->
+  <div style="display:grid;grid-template-columns:1fr auto;gap:6px;margin-bottom:8px;">
     <button class="btn-success" onclick="copyModule()"
-      style="width:100%;padding:10px;font-size:.8rem;border-radius:8px;">
+      style="padding:10px;font-size:.8rem;border-radius:8px;">
       📋 KOPIA MODUŁU
     </button>
+    <button onclick="clearProjectLS()"
+      style="padding:10px 12px;background:rgba(255,61,90,.08);
+      border:1px solid rgba(255,61,90,.2);border-radius:8px;
+      color:rgba(255,61,90,.6);font-size:.85rem;cursor:pointer;"
+      title="Usuń cały projekt">🗑</button>
   </div>
 
 
@@ -1621,7 +1809,7 @@ body{padding-bottom:72px!important;}
     <div class="micro-label" style="margin-bottom:6px;">JSON / pliki</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:6px;">
       <button onclick="exportProjectJSON()"
-        style="padding:10px 6px;background:rgba(46,204,113,.12);border:1px solid rgba(46,204,113,.35);border-radius:7px;color:#2ecc71;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.06em;cursor:pointer;">
+        style="padding:10px 6px;background:rgba(46,204,113,.12);border:1px solid rgba(0,200,255,.3);border-radius:7px;color:#2ecc71;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.06em;cursor:pointer;">
         📤 EXPORT .json
       </button>
       <button onclick="importProjectJSON()"
@@ -1819,7 +2007,7 @@ body{padding-bottom:72px!important;}
 <button id="floatRenderBtn" onclick="toggleRenderDrawer()"
   style="position:fixed;bottom:20px;right:20px;z-index:200;
     width:56px;height:56px;border-radius:50%;border:none;cursor:pointer;
-    background:linear-gradient(135deg,#d4a840,#a07820);
+    background:linear-gradient(135deg,#00c8ff,#0099cc);
     box-shadow:0 4px 20px rgba(160,120,32,.55),0 1px 0 rgba(255,255,255,.2) inset;
     color:#fff;font-size:1.3rem;display:flex;align-items:center;justify-content:center;
     transition:all .2s;" title="Render / Ściągawka">
@@ -1831,7 +2019,7 @@ body{padding-bottom:72px!important;}
   position:fixed;bottom:0;left:0;right:0;z-index:190;
   height:92vh;
   background:var(--bg2);
-  border-top:2px solid rgba(200,152,64,.35);
+  border-top:2px solid rgba(0,200,255,.3);
   border-radius:18px 18px 0 0;
   box-shadow:0 -8px 48px rgba(0,0,0,.7);
   transform:translateY(100%);
@@ -1916,7 +2104,7 @@ table.rnd-table tr:last-child td{border-bottom:none;}
 .rnd-val-muted{color:rgba(255,255,255,.35);}
 .rnd-no-data{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--muted);font-style:italic;padding:4px 0;}
 .rnd-info-tag{display:inline-block;padding:2px 7px;border-radius:4px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.3);font-family:'JetBrains Mono',monospace;font-size:.57rem;letter-spacing:.04em;margin-bottom:6px;}
-.rnd-summary{padding:14px 16px;background:rgba(200,152,64,.05);border:1px solid rgba(200,152,64,.18);border-radius:9px;display:flex;gap:20px;flex-wrap:wrap;align-items:center;margin-top:20px;}
+.rnd-summary{padding:14px 16px;background:rgba(0,200,255,.04);border:1px solid rgba(0,200,255,.15);border-radius:9px;display:flex;gap:20px;flex-wrap:wrap;align-items:center;margin-top:20px;}
 .rnd-sum-stat{text-align:center;}
 .rnd-sum-num{font-size:1.6rem;font-weight:800;color:var(--accent2);line-height:1;display:block;}
 .rnd-sum-lbl{font-family:'JetBrains Mono',monospace;font-size:.54rem;color:var(--muted);letter-spacing:.1em;display:block;margin-top:2px;}
@@ -2263,7 +2451,7 @@ function autoLogic(){
     if(!_ti){
       _ti=document.createElement('div');
       _ti.id='_typoInfo';
-      _ti.style.cssText='font-size:.68rem;color:var(--accent2);padding:5px 10px;background:rgba(200,152,64,.07);border-left:2px solid rgba(0,200,255,.5);border-radius:0 6px 6px 0;margin:4px 0 6px;font-family:monospace;line-height:1.4;';
+      _ti.style.cssText='font-size:.68rem;color:var(--accent2);padding:5px 10px;background:rgba(0,200,255,.05);border-left:2px solid rgba(0,200,255,.5);border-radius:0 6px 6px 0;margin:4px 0 6px;font-family:monospace;line-height:1.4;';
       const hEl=document.getElementById('height');
       if(hEl&&hEl.closest('.dim-card')){
         hEl.closest('.dim-card').before(_ti);
@@ -2482,7 +2670,7 @@ function alAutoHinges(){
     el=document.createElement('div');
     el.id='al_hinge_hint';
     el.style.cssText='font-size:.65rem;font-family:"JetBrains Mono",monospace;'+
-      'margin:3px 0 0;padding:3px 7px;border-radius:4px;background:rgba(200,152,64,.07);'+
+      'margin:3px 0 0;padding:3px 7px;border-radius:4px;background:rgba(0,200,255,.05);'+
       'border-left:2px solid rgba(0,200,255,.5);color:var(--accent2);';
     hEl.parentNode && hEl.parentNode.appendChild(el);
   }
@@ -2612,7 +2800,7 @@ function alAutoCokolSum(){
     el=document.createElement('div');
     el.id='al_cokol_sum';
     el.style.cssText='margin:8px 0;padding:8px 12px;border-radius:6px;'+
-      'background:rgba(200,152,64,.07);border:1px solid rgba(200,152,64,.2);'+
+      'background:rgba(0,200,255,.05);border:1px solid rgba(0,200,255,.15);'+
       'font-family:"JetBrains Mono",monospace;font-size:.7rem;color:var(--accent2);';
     var pv=document.getElementById('projectView');
     if(pv) pv.appendChild(el);
@@ -2738,7 +2926,7 @@ function alAutoPlecySize(){
     el.id='al_plecy';
     el.style.cssText='font-size:.66rem;font-family:"JetBrains Mono",monospace;'+
       'margin:4px 0 0;padding:5px 9px;border-radius:5px;'+
-      'background:rgba(200,152,64,.07);border-left:2px solid rgba(0,200,255,.5);color:var(--accent2);'+
+      'background:rgba(0,200,255,.05);border-left:2px solid rgba(0,200,255,.5);color:var(--accent2);'+
       'line-height:1.7;';
     wEl.parentNode && wEl.parentNode.appendChild(el);
   }
@@ -2874,7 +3062,7 @@ function alProjectEdgeLength(){
     el.id='al_edge_length';
     el.style.cssText='margin:4px 0;padding:8px 12px;border-radius:6px;'+
       'font-family:"JetBrains Mono",monospace;font-size:.68rem;'+
-      'background:rgba(200,152,64,.06);border:1px solid rgba(200,152,64,.18);'+
+      'background:rgba(0,200,255,.04);border:1px solid rgba(0,200,255,.15);'+
       'color:var(--accent2);line-height:1.8;';
     var pv=document.getElementById('projectView');
     if(pv) pv.appendChild(el);
@@ -4078,7 +4266,7 @@ function calculate(){
 
     document.getElementById("result").innerHTML=`
       <div class="result-card">
-        <div onclick="closeAllPanels();window.scrollTo({top:0,behavior:'smooth'});" style="display:flex;align-items:center;gap:10px;padding:12px 14px;margin-bottom:14px;background:rgba(231,76,60,.1);border:1px solid rgba(231,76,60,.35);border-radius:8px;cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:.9rem;letter-spacing:.1em;color:#e74c3c;"><span style="font-size:1.1rem;">✕</span> ZAMKNIJ / WRÓĆ</div>
+        <div onclick="closeAllPanels();window.scrollTo({top:0,behavior:'smooth'});" style="display:flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;margin-bottom:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:8px;cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);"><span style="font-size:.7rem;opacity:.5;">✕</span> ZAMKNIJ</div>
         <h2>Wynik – ${cfg.type} ${cfg.width}×${cfg.height}×${cfg.depth}${noteStr2}</h2>
         ${clientStr2}
         ${weightHtml}
@@ -4523,7 +4711,7 @@ function showProject(){
         <div onclick="viewModule(${i})" style="flex:1;display:flex;align-items:center;justify-content:space-between;
           padding:8px 12px;border-radius:8px 0 0 8px;border:1px solid var(--border);border-right:none;
           background:var(--surface2);cursor:pointer;transition:all .15s;min-width:0;"
-          onmouseenter="this.style.borderColor='rgba(200,152,64,.5)';this.style.background='rgba(200,152,64,.06)'"
+          onmouseenter="this.style.borderColor='rgba(0,200,255,.45)';this.style.background='rgba(0,200,255,.04)'"
           onmouseleave="this.style.borderColor='var(--border)';this.style.background='var(--surface2)'">
           <div style="font-size:.78rem;font-family:'JetBrains Mono',monospace;flex:1;min-width:0;">
             <span style="color:var(--muted);font-size:.65rem;">${i+1}.</span>
@@ -4581,7 +4769,7 @@ function showProject(){
   </tr>`).join('');
 
   const priceCard=`<div style="margin-top:16px;padding:0;background:var(--bg);border:1px solid var(--border);border-radius:10px;overflow:hidden;">
-    <div style="padding:10px 14px;background:rgba(200,152,64,.1);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;">
+    <div style="padding:10px 14px;background:rgba(0,200,255,.08);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;">
       <div style="font-size:.75rem;font-weight:800;letter-spacing:.1em;color:var(--accent);">💰 KOSZTORYS (rynek PL 2025/2026)</div>
       <div style="font-size:.6rem;color:var(--muted);">ceny netto · płyty: hurtownia śr. · okucia: Blum 2025</div>
     </div>
@@ -4631,11 +4819,11 @@ function showProject(){
           <td colspan="3" style="padding:7px 8px;font-size:.72rem;color:var(--muted);">🪵 Materiały razem</td>
           <td style="padding:7px 8px;font-family:'JetBrains Mono',monospace;font-weight:900;text-align:right;color:var(--text);">${costMat.toFixed(2)} zł</td>
         </tr>
-        ${costOkucia>0?`<tr style="border-top:1px dashed rgba(200,152,64,.3);">
+        ${costOkucia>0?`<tr style="border-top:1px dashed rgba(0,200,255,.25);">
           <td colspan="3" style="padding:7px 8px;font-size:.72rem;color:var(--muted);">🔩 Akcesoria (zawiasy/szuflady)</td>
           <td style="padding:7px 8px;font-family:'JetBrains Mono',monospace;font-weight:900;text-align:right;color:var(--text);">${costOkucia.toFixed(2)} zł</td>
         </tr>`:''}
-        ${markup>0?`<tr style="border-top:1px dashed rgba(200,152,64,.3);">
+        ${markup>0?`<tr style="border-top:1px dashed rgba(0,200,255,.25);">
           <td colspan="3" style="padding:5px 8px;font-size:.72rem;color:var(--muted);">Narzut ${markup}%</td>
           <td style="padding:5px 8px;font-family:'JetBrains Mono',monospace;font-weight:700;text-align:right;color:var(--accent2);">+${costMarkup.toFixed(2)} zł</td>
         </tr>`:''}
@@ -4647,7 +4835,7 @@ function showProject(){
     </table>
 
     <!-- suma -->
-    <div style="padding:12px 14px;background:rgba(200,152,64,.12);border-top:2px solid var(--accent);">
+    <div style="padding:12px 14px;background:rgba(0,200,255,.1);border-top:2px solid var(--accent);">
       <div style="display:flex;justify-content:space-between;align-items:center;">
         <div>
           <div style="font-size:.62rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;">ŁĄCZNA WYCENA NETTO</div>
@@ -4683,13 +4871,13 @@ function showProject(){
   /* ── cokoł zbiorczy ── */
   const cokolSummary = calcProjectCokol();
   const cokolHtml = cokolSummary
-    ? `<div style="margin-top:8px;padding:8px 12px;background:rgba(200,152,64,.08);border:1px solid rgba(200,152,64,.3);border-radius:6px;font-size:.76rem;font-family:'JetBrains Mono',monospace;">
+    ? `<div style="margin-top:8px;padding:8px 12px;background:rgba(0,200,255,.06);border:1px solid rgba(0,200,255,.25);border-radius:6px;font-size:.76rem;font-family:'JetBrains Mono',monospace;">
         ▬ Cokoł: <strong>${cokolSummary.totalMm}mm</strong> (${(cokolSummary.totalMm/1000).toFixed(2)}m) · H=${cokolSummary.cokolH}mm · ${cokolSummary.cokolMat} · ${cokolSummary.modules} szt. szafek
       </div>` : '';
 
   /* ── render ── */
   const out=`<div class="result-card">
-    <div onclick="closeAllPanels();window.scrollTo({top:0,behavior:'smooth'});" style="display:flex;align-items:center;gap:10px;padding:12px 14px;margin-bottom:14px;background:rgba(231,76,60,.1);border:1px solid rgba(231,76,60,.35);border-radius:8px;cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:.9rem;letter-spacing:.1em;color:#e74c3c;"><span style="font-size:1.1rem;">✕</span> ZAMKNIJ / WRÓĆ</div>
+    <div onclick="closeAllPanels();window.scrollTo({top:0,behavior:'smooth'});" style="display:flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;margin-bottom:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:8px;cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);"><span style="font-size:.7rem;opacity:.5;">✕</span> ZAMKNIJ</div>
     <h2>\ud83d\udcca PROJEKT — ${project.length} modu\u0142\u00f3w</h2>
     ${clientHdr}
 
@@ -5448,7 +5636,7 @@ function renderKartaOtworow(cfg, runners){
   const holes=[];
   const xF=37,xB=D-37;
   for(let y=37;y<=H-37;y+=32){holes.push({x:xF,y,r:2.5,color:'#aaa',type:'perf'});holes.push({x:xB,y,r:2.5,color:'#aaa',type:'perf'});}
-  [T/2+9,H-T/2-9].forEach(y=>[xF,xB].forEach(x=>holes.push({x,y,r:4,color:'#c49a3c',type:'konf',label:Math.round(y)+'mm'})));
+  [T/2+9,H-T/2-9].forEach(y=>[xF,xB].forEach(x=>holes.push({x,y,r:4,color:'#00b8e6',type:'konf',label:Math.round(y)+'mm'})));
   if(cfg.config==='Drzwi'){
     const hc=typeof cfg.hingeQty==='number'?cfg.hingeQty:(H<=900?2:H<=1400?3:4);
     const sp=(H-200)/(hc-1||1);
@@ -6014,8 +6202,8 @@ function showAutoKitchen() {
     'background:var(--bg2);border-radius:14px 14px 0 0;border:1px solid var(--border);overflow:hidden;">'+
 
     // Header
-    '<div style="background:linear-gradient(135deg,#1a1408,#2a1e0a);padding:14px 16px;'+
-    'border-bottom:1px solid rgba(200,152,64,.3);display:flex;align-items:center;gap:10px;flex-shrink:0;">'+
+    '<div style="background:linear-gradient(135deg,#07080c,#0b0c12);padding:14px 16px;'+
+    'border-bottom:1px solid rgba(0,200,255,.25);display:flex;align-items:center;gap:10px;flex-shrink:0;">'+
     '<span style="font-size:1.4rem;">🏗</span>'+
     '<div style="flex:1;">'+
     '<div style="font-family:\'Barlow Condensed\',sans-serif;font-weight:800;font-size:1rem;'+
@@ -6057,7 +6245,7 @@ function akAddMsg(html, isUser) {
   avatar.style.cssText = 'width:28px;height:28px;border-radius:50%;flex-shrink:0;'+
     'display:flex;align-items:center;justify-content:center;font-size:.8rem;'+
     (isUser
-      ? 'background:rgba(200,152,64,.2);border:1px solid rgba(200,152,64,.4);'
+      ? 'background:rgba(0,200,255,.15);border:1px solid rgba(0,200,255,.35);'
       : 'background:rgba(74,159,234,.15);border:1px solid rgba(74,159,234,.3);');
   avatar.textContent = isUser ? '👤' : '🤖';
   var bubble = document.createElement('div');
@@ -6065,7 +6253,7 @@ function akAddMsg(html, isUser) {
     (isUser ? '12px 4px 12px 12px' : '4px 12px 12px 12px')+';'+
     'font-family:\'JetBrains Mono\',monospace;font-size:.72rem;line-height:1.7;'+
     (isUser
-      ? 'background:rgba(200,152,64,.12);border:1px solid rgba(200,152,64,.25);color:var(--accent2);'
+      ? 'background:rgba(0,200,255,.1);border:1px solid rgba(0,200,255,.2);color:var(--accent2);'
       : 'background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--text2);');
   bubble.innerHTML = html;
   msg.appendChild(avatar);
@@ -6115,7 +6303,7 @@ function akRenderInput(q) {
     input.onkeydown = function(e) { if(e.key==='Enter') akSubmitNumber(input, q); };
     var btn = document.createElement('button');
     btn.textContent = '→';
-    btn.style.cssText = 'padding:10px 16px;background:linear-gradient(160deg,#d4a840,#a07820);'+
+    btn.style.cssText = 'padding:10px 16px;background:linear-gradient(160deg,#00c8ff,#0099cc);'+
       'border:none;border-radius:8px;color:#fff;font-size:1.1rem;cursor:pointer;font-weight:900;';
     btn.onclick = function() { akSubmitNumber(input, q); };
     row.appendChild(input);
@@ -6134,7 +6322,7 @@ function akRenderInput(q) {
         'border:1px solid var(--border);border-radius:8px;color:var(--text2);'+
         'font-family:\'Barlow Condensed\',sans-serif;font-weight:700;font-size:.88rem;'+
         'letter-spacing:.05em;cursor:pointer;text-align:left;transition:all .15s;';
-      btn.onmouseover = function(){ this.style.borderColor='rgba(200,152,64,.5)'; this.style.color='var(--accent2)'; };
+      btn.onmouseover = function(){ this.style.borderColor='rgba(0,200,255,.45)'; this.style.color='var(--accent2)'; };
       btn.onmouseout  = function(){ this.style.borderColor='var(--border)'; this.style.color='var(--text2)'; };
       btn.onclick = function() { akSubmitChoice(opt, q); };
       grid.appendChild(btn);
@@ -6162,12 +6350,12 @@ function akRenderInput(q) {
           container.querySelectorAll('button').forEach(function(b){
             b.style.background='rgba(255,255,255,.04)';b.style.borderColor='var(--border)';b.style.color='var(--text2)';
           });
-          this.style.background='rgba(200,152,64,.15)';this.style.borderColor='var(--accent)';this.style.color='var(--accent2)';
+          this.style.background='rgba(0,200,255,.12)';this.style.borderColor='var(--accent)';this.style.color='var(--accent2)';
         } else {
           var idx=selected.indexOf('brak'); if(idx>=0) selected.splice(idx,1);
           idx=selected.indexOf(v);
           if(idx>=0){ selected.splice(idx,1); this.style.background='rgba(255,255,255,.04)';this.style.borderColor='var(--border)';this.style.color='var(--text2)'; }
-          else { selected.push(v); this.style.background='rgba(200,152,64,.15)';this.style.borderColor='var(--accent)';this.style.color='var(--accent2)'; }
+          else { selected.push(v); this.style.background='rgba(0,200,255,.12)';this.style.borderColor='var(--accent)';this.style.color='var(--accent2)'; }
         }
         confirmBtn.style.opacity = selected.length > 0 ? '1' : '.4';
       };
@@ -6176,7 +6364,7 @@ function akRenderInput(q) {
 
     var confirmBtn = document.createElement('button');
     confirmBtn.textContent = '✅ Dalej';
-    confirmBtn.style.cssText = 'margin-top:6px;padding:11px;background:linear-gradient(160deg,#d4a840,#a07820);'+
+    confirmBtn.style.cssText = 'margin-top:6px;padding:11px;background:linear-gradient(160deg,#00c8ff,#0099cc);'+
       'border:none;border-radius:8px;color:#fff;font-family:\'Barlow Condensed\',sans-serif;'+
       'font-weight:800;font-size:.9rem;cursor:pointer;opacity:.4;letter-spacing:.08em;';
     confirmBtn.onclick = function() {
@@ -6240,7 +6428,7 @@ function akShowResult() {
     (s.diffB !== null ? '&nbsp;• Ściana B: <span style="color:'+(s.diffB===0?'var(--success)':'var(--warn)')+'">'+
       (s.diffB===0?'✅ idealne':(s.diffB>0?'reszta +'+s.diffB+'mm':'przekroczona o '+Math.abs(s.diffB)+'mm'))+'</span><br>' : '')+
     '<br>'+
-    '<div style="background:rgba(200,152,64,.08);border:1px solid rgba(200,152,64,.2);'+
+    '<div style="background:rgba(0,200,255,.06);border:1px solid rgba(0,200,255,.15);'+
     'border-radius:6px;padding:8px;margin-top:4px;font-size:.68rem;">'+
     proposal.mods.map(function(m,i){
       var icon = m.tag==='wiszace'?'📦': m.tag==='slupki'?'🗼': m.type==='Pod zmywarkę'?'🚰': m.cfg==='Szuflady'?'🗄':'🍳';
@@ -6262,7 +6450,7 @@ function akShowResult() {
 
     var btnAdd = document.createElement('button');
     btnAdd.innerHTML = '✅ DODAJ DO PROJEKTU';
-    btnAdd.style.cssText = 'padding:13px 8px;background:linear-gradient(160deg,#d4a840,#a07820);'+
+    btnAdd.style.cssText = 'padding:13px 8px;background:linear-gradient(160deg,#00c8ff,#0099cc);'+
       'border:none;border-radius:8px;color:#fff;font-family:\'Barlow Condensed\',sans-serif;'+
       'font-weight:800;font-size:.82rem;letter-spacing:.08em;cursor:pointer;grid-column:1/-1;';
     btnAdd.onclick = akConfirmGenerate;
@@ -6464,7 +6652,7 @@ function viewModule(idx){
 
     // Statystyki
     '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;">'+
-    '<div style="background:rgba(200,152,64,.07);border:1px solid rgba(200,152,64,.2);border-radius:8px;padding:10px;text-align:center;">'+
+    '<div style="background:rgba(0,200,255,.05);border:1px solid rgba(0,200,255,.15);border-radius:8px;padding:10px;text-align:center;">'+
     '<div style="font-size:1.1rem;font-weight:800;color:var(--accent2);font-family:"JetBrains Mono",monospace;">'+parts.length+'</div>'+
     '<div style="font-size:.58rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:2px;">detali</div>'+
     '</div>'+
@@ -6587,8 +6775,8 @@ function showScanCabinet(){
     'border:1px solid var(--border);overflow:hidden;">'+
 
     // Header
-    '<div style="background:linear-gradient(135deg,#0d1a10,#1a2e10);padding:13px 16px;'+
-    'border-bottom:1px solid rgba(46,204,113,.3);display:flex;align-items:center;gap:10px;flex-shrink:0;">'+
+    '<div style="background:linear-gradient(135deg,#05060a,#07080c);padding:13px 16px;'+
+    'border-bottom:1px solid rgba(0,200,255,.25);display:flex;align-items:center;gap:10px;flex-shrink:0;">'+
     '<span style="font-size:1.4rem;">📷</span>'+
     '<div style="flex:1;">'+
     '<div style="font-family:\'Barlow Condensed\',sans-serif;font-weight:800;font-size:1rem;'+
@@ -6772,7 +6960,7 @@ function scRenderStep2_Photo(){
     // Kamera — label for="sc_inp_cam"
     '<label for="sc_inp_cam" style="display:flex;flex-direction:column;align-items:center;'+
     'justify-content:center;gap:10px;padding:24px 10px;'+
-    'background:rgba(46,204,113,.1);border:2px solid rgba(46,204,113,.4);'+
+    'background:rgba(46,204,113,.1);border:2px solid rgba(0,200,255,.35);'+
     'border-radius:12px;cursor:pointer;'+
     'font-family:\"Barlow Condensed\",sans-serif;font-weight:800;'+
     'font-size:.95rem;letter-spacing:.08em;color:#2ecc71;text-align:center;">'+
@@ -6793,7 +6981,7 @@ function scRenderStep2_Photo(){
 
     '</div>'+
 
-    '<div style="background:rgba(200,152,64,.06);border:1px solid rgba(200,152,64,.2);'+
+    '<div style="background:rgba(0,200,255,.04);border:1px solid rgba(0,200,255,.15);'+
     'border-radius:8px;padding:10px 12px;font-family:\"JetBrains Mono\",monospace;'+
     'font-size:.62rem;color:var(--muted);line-height:1.8;">'+
     '💡 <b style="color:var(--accent2);">Wskazówki:</b><br>'+
@@ -6988,39 +7176,39 @@ var SC_OVERLAYS = {
   kuchnia: [
     {x:0.00, w:0.08, label:'słupek',  icon:'🗼', color:'rgba(156,89,182,.4)',  h:1.0,  dashed:false},
     {x:0.08, w:0.20, label:'600',     icon:'🚰', color:'rgba(74,159,234,.35)', h:0.55, dashed:false},
-    {x:0.28, w:0.18, label:'500',     icon:'🗄', color:'rgba(46,204,113,.35)', h:0.55, dashed:true},
-    {x:0.46, w:0.22, label:'600',     icon:'🍳', color:'rgba(46,204,113,.35)', h:0.55, dashed:false},
-    {x:0.68, w:0.22, label:'600',     icon:'🗄', color:'rgba(200,152,64,.35)', h:0.55, dashed:true},
+    {x:0.28, w:0.18, label:'500',     icon:'🗄', color:'rgba(0,200,255,.3)', h:0.55, dashed:true},
+    {x:0.46, w:0.22, label:'600',     icon:'🍳', color:'rgba(0,200,255,.3)', h:0.55, dashed:false},
+    {x:0.68, w:0.22, label:'600',     icon:'🗄', color:'rgba(0,200,255,.3)', h:0.55, dashed:true},
     {x:0.90, w:0.10, label:'300',     icon:'📋', color:'rgba(74,159,234,.3)',  h:0.55, dashed:false},
   ],
   lazienka: [
     {x:0.00, w:0.22, label:'szafka',  icon:'🚿', color:'rgba(74,159,234,.35)', h:0.45, dashed:false},
-    {x:0.22, w:0.28, label:'umyw.',   icon:'🚰', color:'rgba(46,204,113,.35)', h:0.45, dashed:false},
+    {x:0.22, w:0.28, label:'umyw.',   icon:'🚰', color:'rgba(0,200,255,.3)', h:0.45, dashed:false},
     {x:0.50, w:0.22, label:'szafka',  icon:'🗄', color:'rgba(74,159,234,.35)', h:0.45, dashed:true},
     {x:0.72, w:0.28, label:'słupek',  icon:'🗼', color:'rgba(156,89,182,.4)',  h:0.85, dashed:false},
   ],
   garderoba: [
     {x:0.00, w:0.25, label:'szafa',   icon:'👗', color:'rgba(156,89,182,.35)', h:0.95, dashed:false},
     {x:0.25, w:0.25, label:'szafa',   icon:'👔', color:'rgba(156,89,182,.3)',  h:0.95, dashed:false},
-    {x:0.50, w:0.25, label:'szuflady',icon:'🗄', color:'rgba(200,152,64,.35)', h:0.95, dashed:true},
+    {x:0.50, w:0.25, label:'szuflady',icon:'🗄', color:'rgba(0,200,255,.3)', h:0.95, dashed:true},
     {x:0.75, w:0.25, label:'szafa',   icon:'👗', color:'rgba(156,89,182,.35)', h:0.95, dashed:false},
   ],
   salon: [
-    {x:0.00, w:0.20, label:'regał',   icon:'📚', color:'rgba(46,204,113,.35)', h:0.90, dashed:false},
+    {x:0.00, w:0.20, label:'regał',   icon:'📚', color:'rgba(0,200,255,.3)', h:0.90, dashed:false},
     {x:0.20, w:0.30, label:'TV',      icon:'📺', color:'rgba(74,159,234,.35)', h:0.35, dashed:false},
     {x:0.50, w:0.30, label:'TV',      icon:'📺', color:'rgba(74,159,234,.3)',  h:0.35, dashed:true},
-    {x:0.80, w:0.20, label:'regał',   icon:'📚', color:'rgba(46,204,113,.35)', h:0.90, dashed:false},
+    {x:0.80, w:0.20, label:'regał',   icon:'📚', color:'rgba(0,200,255,.3)', h:0.90, dashed:false},
   ],
   sypialnia: [
     {x:0.00, w:0.28, label:'szafa',   icon:'🧥', color:'rgba(156,89,182,.35)', h:0.95, dashed:false},
-    {x:0.28, w:0.22, label:'noc.',    icon:'🌙', color:'rgba(200,152,64,.3)',  h:0.30, dashed:false},
-    {x:0.50, w:0.22, label:'noc.',    icon:'🌙', color:'rgba(200,152,64,.3)',  h:0.30, dashed:true},
+    {x:0.28, w:0.22, label:'noc.',    icon:'🌙', color:'rgba(0,200,255,.25)',  h:0.30, dashed:false},
+    {x:0.50, w:0.22, label:'noc.',    icon:'🌙', color:'rgba(0,200,255,.25)',  h:0.30, dashed:true},
     {x:0.72, w:0.28, label:'szafa',   icon:'🧥', color:'rgba(156,89,182,.35)', h:0.95, dashed:false},
   ],
   przedpokoj: [
     {x:0.00, w:0.30, label:'szafa',   icon:'👗', color:'rgba(46,170,168,.35)', h:0.95, dashed:false},
-    {x:0.30, w:0.20, label:'ławka',   icon:'🪑', color:'rgba(200,152,64,.35)', h:0.30, dashed:false},
-    {x:0.50, w:0.20, label:'ławka',   icon:'🪑', color:'rgba(200,152,64,.3)',  h:0.30, dashed:true},
+    {x:0.30, w:0.20, label:'ławka',   icon:'🪑', color:'rgba(0,200,255,.3)', h:0.30, dashed:false},
+    {x:0.50, w:0.20, label:'ławka',   icon:'🪑', color:'rgba(0,200,255,.25)',  h:0.30, dashed:true},
     {x:0.70, w:0.30, label:'szafa',   icon:'👗', color:'rgba(46,170,168,.35)', h:0.95, dashed:false},
   ],
 };
@@ -7044,7 +7232,7 @@ function scDrawOverlay(){
   octx.beginPath(); octx.moveTo(0,H*0.9); octx.lineTo(W,H*0.9); octx.stroke();
   // Linia blatu (kuchnia)
   if(room==='kuchnia'){
-    octx.strokeStyle='rgba(200,152,64,.3)';
+    octx.strokeStyle='rgba(0,200,255,.25)';
     octx.beginPath(); octx.moveTo(0,H*0.35); octx.lineTo(W,H*0.35); octx.stroke();
   }
   octx.restore();
@@ -7099,7 +7287,7 @@ function scToggleOverlay(){
   var btn=document.getElementById('scOverlayBtn');
   if(btn){
     btn.textContent='👁 WZORZEC: '+(SC.overlayOn?'ON':'OFF');
-    btn.style.background=SC.overlayOn?'rgba(46,204,113,.3)':'rgba(0,0,0,.65)';
+    btn.style.background=SC.overlayOn?'rgba(0,200,255,.25)':'rgba(0,0,0,.65)';
     btn.style.borderColor=SC.overlayOn?'rgba(46,204,113,.5)':'rgba(255,255,255,.3)';
   }
 }
@@ -7128,7 +7316,7 @@ function scTextHints(){
   var tips=[
     {icon:'📍', color:'rgba(46,204,113,.8)',
      text:'Klikaj <b>krawędzie pionowe</b> szafek od lewej do prawej'},
-    {icon:'📏', color:'rgba(200,152,64,.8)',
+    {icon:'📏', color:'rgba(0,200,255,.75)',
      text:'Im więcej punktów → dokładniejsze wymiary segmentów'},
     {icon:'💡', color:'rgba(74,159,234,.8)',
      text:room.icon+' '+room.label+': typowe szerokości '+
@@ -7175,8 +7363,8 @@ function scAddPoint(x,y){
   // Podswietl przycisk Dalej po 2+ punktach
   var nextBtn=document.getElementById('scNextBtn');
   if(nextBtn && SC.points.length>=2){
-    nextBtn.style.boxShadow='0 0 12px rgba(46,204,113,.4)';
-    nextBtn.style.border='1px solid rgba(46,204,113,.3)';
+    nextBtn.style.boxShadow='0 0 12px rgba(0,200,255,.35)';
+    nextBtn.style.border='1px solid rgba(0,200,255,.25)';
   }
 }
 
@@ -7213,7 +7401,7 @@ function scDrawCanvas(){
   // Pozioma linia referencyjna (blat)
   if(pts.length>=2){
     ctx.save();
-    ctx.strokeStyle='rgba(200,152,64,.5)';
+    ctx.strokeStyle='rgba(0,200,255,.45)';
     ctx.lineWidth=1;
     ctx.setLineDash([6,4]);
     ctx.beginPath();
@@ -7223,7 +7411,7 @@ function scDrawCanvas(){
     ctx.restore();
 
     // Segmenty — kolorowe prostokaty
-    var COLORS=['rgba(46,204,113,.15)','rgba(74,159,234,.15)','rgba(200,152,64,.15)',
+    var COLORS=['rgba(46,204,113,.15)','rgba(74,159,234,.15)','rgba(0,200,255,.12)',
                 'rgba(231,76,60,.12)','rgba(156,89,182,.12)','rgba(241,196,15,.12)'];
     for(var i=0;i<pts.length-1;i++){
       var x1=pts[i].x, x2=pts[i+1].x;
@@ -7244,7 +7432,7 @@ function scDrawCanvas(){
       if(ctx.roundRect) ctx.roundRect(mx-tw/2,avgY-13,tw,13,3);
       else ctx.rect(mx-tw/2,avgY-13,tw,13);
       ctx.fill();
-      ctx.fillStyle='#e8b84a';
+      ctx.fillStyle='#40d8ff';
       ctx.font='bold 10px monospace';
       ctx.textAlign='center';
       ctx.fillText(px+'px',mx,avgY-3);
@@ -7399,7 +7587,7 @@ function scSegmentsPreview(){
   for(var i=0;i<pts.length-1;i++){
     var px=Math.round(pts[i+1].x-pts[i].x);
     var pct=(px/(pts[pts.length-1].x-pts[0].x)*100).toFixed(1);
-    var colors=['rgba(200,152,64,.3)','rgba(74,159,234,.3)','rgba(46,204,113,.3)',
+    var colors=['rgba(0,200,255,.25)','rgba(74,159,234,.3)','rgba(0,200,255,.25)',
                 'rgba(231,76,60,.3)','rgba(156,89,182,.3)'];
     var col=colors[i%colors.length];
     html+='<div style="flex:'+pct+';background:'+col+';padding:4px 2px;text-align:center;'+
@@ -7450,7 +7638,7 @@ function scStep4Next(){
 // ── DEFINICJE POMIESZCZEŃ ─────────────────────────────────────────
 var SC_ROOMS = {
   kuchnia: {
-    label:'🍳 Kuchnia', color:'rgba(200,152,64,.15)', border:'rgba(200,152,64,.4)',
+    label:'🍳 Kuchnia', color:'rgba(0,200,255,.12)', border:'rgba(0,200,255,.35)',
     icon:'🍳',
     types:[
       {v:'Dolna',              l:'🍳 Dolna',         tag:'dolne',   h:720, d:560, cfg:'Drzwi'},
@@ -7519,7 +7707,7 @@ var SC_ROOMS = {
   },
 
   salon: {
-    label:'🛋 Salon/TV', color:'rgba(46,204,113,.15)', border:'rgba(46,204,113,.4)',
+    label:'🛋 Salon/TV', color:'rgba(46,204,113,.15)', border:'rgba(0,200,255,.35)',
     icon:'🛋',
     types:[
       {v:'Dolna',        l:'📺 Szafka RTV/TV',      tag:'dolne',   h:400, d:450, cfg:'Drzwi'},
@@ -8245,7 +8433,7 @@ function scModRowV2(p,i){
                   p.type.includes('Wisz')?'📦':'🍳';
 
   return '<div id="scRow'+i+'" style="background:var(--surface2);border:1px solid '+
-    (p.confidence>0.7?'rgba(46,204,113,.25)':p.confidence>0.5?'rgba(200,152,64,.2)':'rgba(231,76,60,.2)')+
+    (p.confidence>0.7?'rgba(46,204,113,.25)':p.confidence>0.5?'rgba(0,200,255,.15)':'rgba(231,76,60,.2)')+
     ';border-radius:8px;padding:10px 12px;transition:all .2s;">'+
 
     // Header wiersza
@@ -8324,7 +8512,7 @@ function scBuildViz(proposed){
   if(!active.length) return '<div style="color:var(--muted);font-size:.65rem;font-family:\'JetBrains Mono\',monospace;">Brak aktywnych segmentów</div>';
 
   var total=active.reduce(function(s,p){return s+p.snapMm;},0);
-  var COLORS=['rgba(200,152,64,.5)','rgba(74,159,234,.5)','rgba(46,204,113,.5)',
+  var COLORS=['rgba(0,200,255,.45)','rgba(74,159,234,.5)','rgba(46,204,113,.5)',
               'rgba(231,76,60,.4)','rgba(156,89,182,.4)','rgba(241,196,15,.4)'];
 
   var html='<div style="display:flex;height:50px;border-radius:6px;overflow:hidden;gap:1px;">';
@@ -8464,7 +8652,7 @@ function scConfirm(){
 
   b.innerHTML=
     // Sukces banner
-    '<div style="background:rgba(46,204,113,.1);border:1px solid rgba(46,204,113,.35);'+
+    '<div style="background:rgba(46,204,113,.1);border:1px solid rgba(0,200,255,.3);'+
     'border-radius:10px;padding:12px 14px;margin-bottom:12px;text-align:center;">'+
     '<div style="font-size:1.4rem;margin-bottom:4px;">✅</div>'+
     '<div style="font-family:\"Barlow Condensed\",sans-serif;font-weight:800;font-size:1rem;'+
@@ -8475,7 +8663,7 @@ function scConfirm(){
 
     // Statystyki
     '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:12px;">'+
-    '<div style="background:rgba(200,152,64,.07);border:1px solid rgba(200,152,64,.2);border-radius:7px;padding:8px;text-align:center;">'+
+    '<div style="background:rgba(0,200,255,.05);border:1px solid rgba(0,200,255,.15);border-radius:7px;padding:8px;text-align:center;">'+
     '<div style="font-size:.95rem;font-weight:800;color:var(--accent2);font-family:\"JetBrains Mono\",monospace;">'+newMods.length+'</div>'+
     '<div style="font-size:.52rem;color:var(--muted);">modułów</div></div>'+
     '<div style="background:rgba(46,204,113,.07);border:1px solid rgba(46,204,113,.2);border-radius:7px;padding:8px;text-align:center;">'+
@@ -8509,7 +8697,7 @@ function scConfirm(){
     // Główne: Zapisz + Przeglądaj
     '<div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;">'+
     '<button onclick="scSaveAndView()" '+
-    'style="padding:12px 8px;background:linear-gradient(160deg,#d4a840,#a07820);border:none;'+
+    'style="padding:12px 8px;background:linear-gradient(160deg,#00c8ff,#0099cc);border:none;'+
     'border-radius:8px;color:#fff;font-family:\"Barlow Condensed\",sans-serif;font-weight:800;'+
     'font-size:.88rem;letter-spacing:.08em;cursor:pointer;">'+
     '💾 ZAPISZ PROJEKT</button>'+
@@ -8522,7 +8710,7 @@ function scConfirm(){
 
     // Druk
     '<button onclick="scPrintProject()" '+
-    'style="padding:11px;background:rgba(46,204,113,.1);border:1px solid rgba(46,204,113,.3);'+
+    'style="padding:11px;background:rgba(46,204,113,.1);border:1px solid rgba(0,200,255,.25);'+
     'border-radius:8px;color:var(--success);font-family:\"Barlow Condensed\",sans-serif;font-weight:800;'+
     'font-size:.88rem;letter-spacing:.08em;cursor:pointer;">'+
     '🖨 DRUKUJ / PDF</button>'+
@@ -8609,7 +8797,7 @@ function showTemplates(){
   const modal=document.createElement('div');
   modal.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px;';
   modal.innerHTML=`<div style="background:var(--surface);border-radius:12px;padding:20px;max-width:380px;width:100%;max-height:80vh;overflow-y:auto;">
-    <div onclick="closeAllPanels();window.scrollTo({top:0,behavior:'smooth'});" style="display:flex;align-items:center;gap:10px;padding:12px 14px;margin-bottom:14px;background:rgba(231,76,60,.1);border:1px solid rgba(231,76,60,.35);border-radius:8px;cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:.9rem;letter-spacing:.1em;color:#e74c3c;"><span style="font-size:1.1rem;">✕</span> ZAMKNIJ / WRÓĆ</div><h3 style="margin:0 0 14px;font-size:.9rem;letter-spacing:.1em;color:var(--accent);">\uD83D\uDCE6 SZABLONY KUCHNI</h3>
+    <div onclick="closeAllPanels();window.scrollTo({top:0,behavior:'smooth'});" style="display:flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;margin-bottom:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:8px;cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);"><span style="font-size:.7rem;opacity:.5;">✕</span> ZAMKNIJ</div><h3 style="margin:0 0 14px;font-size:.9rem;letter-spacing:.1em;color:var(--accent);">\uD83D\uDCE6 SZABLONY KUCHNI</h3>
     ${tpls.map((t,i)=>`<div onclick="loadTemplate(${i});document.body.removeChild(this.closest('[style*=fixed]'));"
       style="padding:12px;border:1px solid var(--border);border-radius:8px;margin-bottom:10px;cursor:pointer;">
       <div style="font-weight:700;font-size:.85rem;">${t.name}</div>
@@ -9510,10 +9698,23 @@ function loadProject(){
 }
 
 function clearProjectLS(){
-  project=[];
-  document.getElementById('projectView').innerHTML='';
-  document.getElementById('result').innerHTML='';
-  try{ localStorage.removeItem(LS_KEY); } catch(e){}
+  var count = project ? project.length : 0;
+  if(!count){
+    showToast('Projekt jest juz pusty','#ffb400','#7d6010');
+    return;
+  }
+  mpConfirm('Usunąć projekt? ('+count+' modułów)','Usuń','Anuluj','🗑').then(function(ok){
+    if(!ok) return;
+    _historyPush();
+    project=[];
+    var pv=document.getElementById('projectView');
+    var rv=document.getElementById('result');
+    if(pv) pv.innerHTML='';
+    if(rv) rv.innerHTML='';
+    try{ localStorage.removeItem(LS_KEY); }catch(e){}
+    if(typeof updateCounter==='function') updateCounter();
+    showToast('🗑 Projekt wyczyszczony','#ff3d5a','#3a1010');
+  });
 }
 
 
@@ -10630,7 +10831,7 @@ function loadProjektJson(){
       var _d=document.createElement('div');
       _d.className='univ-close-btn';
       _d.setAttribute('onclick',"closeAllPanels();window.scrollTo({top:0,behavior:'smooth'});");
-      _d.style.cssText="display:flex;align-items:center;gap:10px;padding:12px 14px;margin-bottom:14px;background:rgba(231,76,60,.1);border:1px solid rgba(231,76,60,.35);border-radius:8px;cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:.9rem;letter-spacing:.1em;color:#e74c3c;";
+      _d.style.cssText="display:flex;align-items:center;gap:10px;padding:12px 14px;margin-bottom:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:8px;cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:.9rem;letter-spacing:.1em;color:#e74c3c;";
       _d.innerHTML='<span style=\"font-size:1.1rem;\">✕</span> ZAMKNIJ / WRÓĆ';
       _pr.insertBefore(_d,_pr.firstChild);
     }
@@ -10902,7 +11103,7 @@ function toggleRenderDrawer(){
   b.innerHTML = _drawerOpen ? '✕' : '📐';
   b.style.background = _drawerOpen
     ? 'linear-gradient(135deg,#6b2020,#a02828)'
-    : 'linear-gradient(135deg,#d4a840,#a07820)';
+    : 'linear-gradient(135deg,#00c8ff,#0099cc)';
   if(_drawerOpen && !document.getElementById('rndApp').innerHTML){
     document.getElementById('rndApp').innerHTML = '<div class="rnd-empty">📋 Wklej JSON projektu powyżej i kliknij ▶ ZAŁADUJ</div>';
   }
@@ -11059,14 +11260,14 @@ function buildRenderContent(MODULES){
 
   function dimW2(svg,x1,x2,y,lbl,above){
     var yo=above?y-7:y+7,dr=above?-1:1;
-    svgL(x1,y,x1,yo,{stroke:'rgba(200,152,64,.4)','stroke-width':'.6'},svg);
-    svgL(x2,y,x2,yo,{stroke:'rgba(200,152,64,.4)','stroke-width':'.6'},svg);
-    svgL(x1,yo,x2,yo,{stroke:'rgba(200,152,64,.4)','stroke-width':'.6'},svg);
-    svgT((x1+x2)/2,yo+(above?-2:10),lbl,{fill:'#c89840','font-family':'JetBrains Mono,monospace','font-size':'7.5','font-weight':'700','text-anchor':'middle'},svg);
+    svgL(x1,y,x1,yo,{stroke:'rgba(0,200,255,.35)','stroke-width':'.6'},svg);
+    svgL(x2,y,x2,yo,{stroke:'rgba(0,200,255,.35)','stroke-width':'.6'},svg);
+    svgL(x1,yo,x2,yo,{stroke:'rgba(0,200,255,.35)','stroke-width':'.6'},svg);
+    svgT((x1+x2)/2,yo+(above?-2:10),lbl,{fill:'#00c8ff','font-family':'JetBrains Mono,monospace','font-size':'7.5','font-weight':'700','text-anchor':'middle'},svg);
   }
   function floor2(svg,x1,x2,y){svgR(x1,y,x2-x1,6,{fill:'#12131e',stroke:'rgba(255,255,255,.06)','stroke-width':'.5'},svg);svgL(x1,y,x2,y,{stroke:'rgba(255,255,255,.09)','stroke-width':'.7'},svg);}
   function ceil2(svg,x1,x2,y){svgR(x1,y-3,x2-x1,3,{fill:'rgba(255,255,255,.025)'},svg);svgL(x1,y,x2,y,{stroke:'rgba(255,255,255,.04)','stroke-width':'.6','stroke-dasharray':'5,4'},svg);}
-  function counter2(svg,x1,x2,y){svgR(x1,y-8,x2-x1,8,{fill:'#18202e'},svg);svgL(x1,y-8,x2,y-8,{stroke:'rgba(200,152,64,.2)','stroke-width':'.6'},svg);}
+  function counter2(svg,x1,x2,y){svgR(x1,y-8,x2-x1,8,{fill:'#18202e'},svg);svgL(x1,y-8,x2,y-8,{stroke:'rgba(0,200,255,.15)','stroke-width':'.6'},svg);}
   function legs2(svg,x,fy,w,lh){var pp=[x+6,x+w-6];if(w>150)pp.splice(1,0,x+w/2);pp.forEach(function(lx){svgR(lx-2,fy-lh,4,lh,{fill:'rgba(255,255,255,.09)',rx:'1'},svg);});}
 
   // build per-zone elevation SVGs
@@ -11172,7 +11373,7 @@ function buildRenderContent(MODULES){
 
       if(mod.drawers>0){
         var mark=0,GAP=12;
-        html+='<div class="rnd-sh-label" style="color:#e8b84a99;">📍 Koordynaty prowadnic</div>';
+        html+='<div class="rnd-sh-label" style="color:#40d8ff99;">📍 Koordynaty prowadnic</div>';
         html+='<table class="rnd-table"><thead><tr><th>Szuflada</th><th>▲ Dół prow.</th><th>H frontu</th></tr></thead><tbody>';
         for(var di=0;di<mod.drawers;di++){
           html+='<tr><td>Szu.'+(di+1)+'</td><td><span class="rnd-val-gold">'+mark+'</span> mm</td><td><span class="rnd-val-muted">'+mod.drawerH+'</span> mm</td></tr>';
@@ -11199,7 +11400,7 @@ function buildRenderContent(MODULES){
   });
 
   html+='<div class="rnd-summary">';
-  html+='<div style="font-family:JetBrains Mono,monospace;font-size:.54rem;color:rgba(200,152,64,.5);letter-spacing:.15em;">PODSUMOWANIE</div>';
+  html+='<div style="font-family:JetBrains Mono,monospace;font-size:.54rem;color:rgba(0,200,255,.45);letter-spacing:.15em;">PODSUMOWANIE</div>';
   html+='<div class="rnd-sum-stat"><span class="rnd-sum-num">'+MODULES.length+'</span><span class="rnd-sum-lbl">korpusów</span></div>';
   html+='<div class="rnd-sum-stat"><span class="rnd-sum-num" style="color:#e05050">'+totalSh+'</span><span class="rnd-sum-lbl">półek</span></div>';
   html+='<div class="rnd-sum-stat"><span class="rnd-sum-num" style="color:#52d68a">'+(totalSh*2)+'</span><span class="rnd-sum-lbl">otworów</span></div>';
@@ -11433,7 +11634,7 @@ var _APP_CSS = `
 #bottomNav {
   position:fixed;bottom:0;left:0;right:0;z-index:9000;
   background:rgba(10,12,20,.97);
-  border-top:1px solid rgba(200,152,64,.15);
+  border-top:1px solid rgba(0,200,255,.12);
   display:flex;align-items:stretch;
   backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
   box-shadow:0 -4px 24px rgba(0,0,0,.5);
@@ -11489,15 +11690,15 @@ var _APP_CSS = `
 .quick-btn:active { transform:scale(.97); }
 .quick-btn .qi { font-size:1.7rem;line-height:1; }
 .quick-btn.primary {
-  background:linear-gradient(160deg,rgba(200,152,64,.2),rgba(160,120,32,.1));
-  border-color:rgba(200,152,64,.35);color:var(--accent2);
+  background:linear-gradient(160deg,rgba(0,200,255,.15),rgba(160,120,32,.1));
+  border-color:rgba(0,200,255,.3);color:var(--accent2);
   grid-column:1/-1;flex-direction:row;padding:14px 20px;
 }
 .quick-btn.primary .qi { font-size:1.4rem; }
 
 /* Last project card */
 .last-project-card {
-  background:var(--surface2);border:1px solid rgba(200,152,64,.25);
+  background:var(--surface2);border:1px solid rgba(0,200,255,.2);
   border-radius:12px;padding:14px 16px;margin-bottom:18px;cursor:pointer;
   transition:all .15s;
 }
@@ -11593,14 +11794,14 @@ var _APP_CSS = `
 
 /* New project card */
 .proj-card-new {
-  background:rgba(200,152,64,.06);
-  border:2px dashed rgba(200,152,64,.3);
+  background:rgba(0,200,255,.04);
+  border:2px dashed rgba(0,200,255,.25);
   border-radius:12px;min-height:120px;
   display:flex;flex-direction:column;align-items:center;
   justify-content:center;gap:6px;cursor:pointer;
   transition:all .15s;
 }
-.proj-card-new:active { background:rgba(200,152,64,.12); }
+.proj-card-new:active { background:rgba(0,200,255,.1); }
 
 /* Settings */
 .settings-group {
@@ -11822,7 +12023,7 @@ function appRenderHome(){
     '<span class="qi">🗄</span>'+
     '<span>Dodaj szafkę</span>'+
     '<span style="position:absolute;top:6px;right:8px;font-size:.5rem;'+
-    'background:rgba(200,152,64,.3);border-radius:3px;padding:1px 4px;'+
+    'background:rgba(0,200,255,.25);border-radius:3px;padding:1px 4px;'+
     'font-family:\'JetBrains Mono\',monospace;color:var(--accent2);">6 typów</span>'+
     '</button>'+
     '<button class="quick-btn" onclick="appNewProject()">'+
@@ -12129,115 +12330,115 @@ var APP_MODULE_DB = {
   kuchnia: [
     { type:'Dolna', name:'Dolna', sub:'standardowa', dim:'H720 D560',
       cfg:'Drzwi', tag:'dolne', h:720, d:560, w:600,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="5" y="30" width="90" height="26" rx="2" fill="#252a3d" stroke="#c89840" stroke-width=".8"/><rect x="5" y="30" width="90" height="1.5" rx="1" fill="rgba(255,255,255,.2)"/><line x1="50" y1="30" x2="50" y2="56" stroke="#3a3f55" stroke-width=".5"/><rect x="20" y="41" width="12" height="1.5" rx=".75" fill="#c89840" opacity=".7"/><rect x="68" y="41" width="12" height="1.5" rx=".75" fill="#c89840" opacity=".7"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="5" y="30" width="90" height="26" rx="2" fill="var(--surface3)" stroke="#00c8ff" stroke-width=".8"/><rect x="5" y="30" width="90" height="1.5" rx="1" fill="rgba(255,255,255,.2)"/><line x1="50" y1="30" x2="50" y2="56" stroke="rgba(255,255,255,.08)" stroke-width=".5"/><rect x="20" y="41" width="12" height="1.5" rx=".75" fill="#00c8ff" opacity=".7"/><rect x="68" y="41" width="12" height="1.5" rx=".75" fill="#00c8ff" opacity=".7"/>'},
     { type:'Dolna GOLA', name:'Dolna GOLA', sub:'otwarta/na buty', dim:'H720 D560',
       cfg:'Drzwi', tag:'dolne', h:720, d:560, w:600,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="5" y="30" width="90" height="26" rx="2" fill="#252a3d" stroke="#3a3f55" stroke-width=".8"/><rect x="8" y="33" width="84" height="20" rx="1" fill="#1a1e2b"/><rect x="8" y="38" width="84" height=".5" fill="rgba(200,152,64,.3)"/><rect x="8" y="43" width="84" height=".5" fill="rgba(200,152,64,.3)"/><rect x="8" y="48" width="84" height=".5" fill="rgba(200,152,64,.3)"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="5" y="30" width="90" height="26" rx="2" fill="var(--surface3)" stroke="rgba(255,255,255,.08)" stroke-width=".8"/><rect x="8" y="33" width="84" height="20" rx="1" fill="var(--surface)"/><rect x="8" y="38" width="84" height=".5" fill="rgba(0,200,255,.25)"/><rect x="8" y="43" width="84" height=".5" fill="rgba(0,200,255,.25)"/><rect x="8" y="48" width="84" height=".5" fill="rgba(0,200,255,.25)"/>'},
     { type:'Pod zmywarkę', name:'Pod zlew', sub:'szafka pod zlew', dim:'H720 D560',
       cfg:'Drzwi', tag:'dolne', h:720, d:560, w:600,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="5" y="30" width="90" height="26" rx="2" fill="#252a3d" stroke="#3a3f55" stroke-width=".8"/><ellipse cx="50" cy="22" rx="22" ry="8" fill="#1a2a3a" stroke="#3a6f9f" stroke-width=".8"/><line x1="50" y1="14" x2="50" y2="30" stroke="#4a9fea" stroke-width="1.2"/><rect x="28" y="22" width="44" height="34" rx="1" fill="#1a1e2b" stroke="#3a3f55" stroke-width=".5"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="5" y="30" width="90" height="26" rx="2" fill="var(--surface3)" stroke="rgba(255,255,255,.08)" stroke-width=".8"/><ellipse cx="50" cy="22" rx="22" ry="8" fill="#1a2a3a" stroke="#3a6f9f" stroke-width=".8"/><line x1="50" y1="14" x2="50" y2="30" stroke="#4a9fea" stroke-width="1.2"/><rect x="28" y="22" width="44" height="34" rx="1" fill="var(--surface)" stroke="rgba(255,255,255,.08)" stroke-width=".5"/>'},
     { type:'Dolna', name:'Szuflady', sub:'3 szuflady Blum', dim:'H720 D560',
       cfg:'Szuflady', tag:'dolne', h:720, d:560, w:600,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="5" y="30" width="90" height="7" rx="1" fill="#252a3d" stroke="#c89840" stroke-width=".7"/><rect x="5" y="39" width="90" height="7" rx="1" fill="#252a3d" stroke="#3a3f55" stroke-width=".7"/><rect x="5" y="48" width="90" height="8" rx="1" fill="#252a3d" stroke="#3a3f55" stroke-width=".7"/><rect x="38" y="33" width="24" height="1.5" rx=".75" fill="#c89840" opacity=".8"/><rect x="38" y="42" width="24" height="1.5" rx=".75" fill="#c89840" opacity=".5"/><rect x="38" y="51" width="24" height="1.5" rx=".75" fill="#c89840" opacity=".5"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="5" y="30" width="90" height="7" rx="1" fill="var(--surface3)" stroke="#00c8ff" stroke-width=".7"/><rect x="5" y="39" width="90" height="7" rx="1" fill="var(--surface3)" stroke="rgba(255,255,255,.08)" stroke-width=".7"/><rect x="5" y="48" width="90" height="8" rx="1" fill="var(--surface3)" stroke="rgba(255,255,255,.08)" stroke-width=".7"/><rect x="38" y="33" width="24" height="1.5" rx=".75" fill="#00c8ff" opacity=".8"/><rect x="38" y="42" width="24" height="1.5" rx=".75" fill="#00c8ff" opacity=".5"/><rect x="38" y="51" width="24" height="1.5" rx=".75" fill="#00c8ff" opacity=".5"/>'},
     { type:'AGD pod piekarnik + szuflada', name:'Pod piekarnik', sub:'z szufladą', dim:'H820 D560',
       cfg:'Drzwi', tag:'agd', h:820, d:560, w:600,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="5" y="8" width="90" height="38" rx="2" fill="#1a2030" stroke="#c89840" stroke-width=".8"/><rect x="10" y="12" width="80" height="30" rx="1" fill="#13161f" stroke="#3a3f55" stroke-width=".5"/><line x1="15" y1="20" x2="85" y2="20" stroke="#3a3f55" stroke-width=".5"/><line x1="15" y1="27" x2="85" y2="27" stroke="#3a3f55" stroke-width=".5"/><line x1="15" y1="34" x2="85" y2="34" stroke="#3a3f55" stroke-width=".5"/><rect x="35" y="38" width="30" height="2" rx="1" fill="#c89840" opacity=".6"/><rect x="5" y="49" width="90" height="9" rx="2" fill="#252a3d" stroke="#3a3f55" stroke-width=".7"/><rect x="33" y="52" width="34" height="1.5" rx=".75" fill="#c89840" opacity=".5"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="5" y="8" width="90" height="38" rx="2" fill="#1a2030" stroke="#00c8ff" stroke-width=".8"/><rect x="10" y="12" width="80" height="30" rx="1" fill="#13161f" stroke="rgba(255,255,255,.08)" stroke-width=".5"/><line x1="15" y1="20" x2="85" y2="20" stroke="rgba(255,255,255,.08)" stroke-width=".5"/><line x1="15" y1="27" x2="85" y2="27" stroke="rgba(255,255,255,.08)" stroke-width=".5"/><line x1="15" y1="34" x2="85" y2="34" stroke="rgba(255,255,255,.08)" stroke-width=".5"/><rect x="35" y="38" width="30" height="2" rx="1" fill="#00c8ff" opacity=".6"/><rect x="5" y="49" width="90" height="9" rx="2" fill="var(--surface3)" stroke="rgba(255,255,255,.08)" stroke-width=".7"/><rect x="33" y="52" width="34" height="1.5" rx=".75" fill="#00c8ff" opacity=".5"/>'},
     { type:'Wisząca', name:'Wisząca', sub:'standardowa', dim:'H610 D320',
       cfg:'Drzwi', tag:'wiszace', h:610, d:320, w:600,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="5" y="5" width="90" height="35" rx="2" fill="#252a3d" stroke="#c89840" stroke-width=".8"/><rect x="5" y="5" width="90" height="1.5" rx="1" fill="rgba(255,255,255,.2)"/><line x1="50" y1="5" x2="50" y2="40" stroke="#3a3f55" stroke-width=".5"/><rect x="20" y="21" width="12" height="1.5" rx=".75" fill="#c89840" opacity=".7"/><rect x="68" y="21" width="12" height="1.5" rx=".75" fill="#c89840" opacity=".7"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="5" y="5" width="90" height="35" rx="2" fill="var(--surface3)" stroke="#00c8ff" stroke-width=".8"/><rect x="5" y="5" width="90" height="1.5" rx="1" fill="rgba(255,255,255,.2)"/><line x1="50" y1="5" x2="50" y2="40" stroke="rgba(255,255,255,.08)" stroke-width=".5"/><rect x="20" y="21" width="12" height="1.5" rx=".75" fill="#00c8ff" opacity=".7"/><rect x="68" y="21" width="12" height="1.5" rx=".75" fill="#00c8ff" opacity=".7"/>'},
     { type:'Wisząca z klapą', name:'Z klapą', sub:'uchylna klapa', dim:'H400 D350',
       cfg:'Drzwi', tag:'wiszace', h:400, d:350, w:600,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="5" y="8" width="90" height="28" rx="2" fill="#252a3d" stroke="#3a3f55" stroke-width=".8"/><rect x="5" y="8" width="90" height="15" rx="2" fill="#1e2235" stroke="#c89840" stroke-width=".8"/><rect x="25" y="14" width="50" height="1.5" rx=".75" fill="#c89840" opacity=".6"/><line x1="5" y1="23" x2="95" y2="23" stroke="#3a3f55" stroke-width=".5"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="5" y="8" width="90" height="28" rx="2" fill="var(--surface3)" stroke="rgba(255,255,255,.08)" stroke-width=".8"/><rect x="5" y="8" width="90" height="15" rx="2" fill="#1e2235" stroke="#00c8ff" stroke-width=".8"/><rect x="25" y="14" width="50" height="1.5" rx=".75" fill="#00c8ff" opacity=".6"/><line x1="5" y1="23" x2="95" y2="23" stroke="rgba(255,255,255,.08)" stroke-width=".5"/>'},
     { type:'Pod okap', name:'Pod okap', sub:'na okap', dim:'H400 D350',
       cfg:'Drzwi', tag:'wiszace', h:400, d:350, w:600,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="5" y="8" width="90" height="22" rx="2" fill="#252a3d" stroke="#3a3f55" stroke-width=".8"/><rect x="20" y="35" width="60" height="20" rx="2" fill="#1a2030" stroke="#4a9fea" stroke-width=".8"/><line x1="30" y1="40" x2="70" y2="40" stroke="#4a9fea" stroke-width=".5" opacity=".5"/><line x1="50" y1="35" x2="50" y2="55" stroke="#4a9fea" stroke-width=".5" opacity=".5"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="5" y="8" width="90" height="22" rx="2" fill="var(--surface3)" stroke="rgba(255,255,255,.08)" stroke-width=".8"/><rect x="20" y="35" width="60" height="20" rx="2" fill="#1a2030" stroke="#4a9fea" stroke-width=".8"/><line x1="30" y1="40" x2="70" y2="40" stroke="#4a9fea" stroke-width=".5" opacity=".5"/><line x1="50" y1="35" x2="50" y2="55" stroke="#4a9fea" stroke-width=".5" opacity=".5"/>'},
     { type:'Narożna dolna L', name:'Narożna L', sub:'z karuzelą', dim:'H720 D560 W900',
       cfg:'Drzwi', tag:'dolne', h:720, d:560, w:900,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="5" y="28" width="52" height="28" rx="2" fill="#252a3d" stroke="#c89840" stroke-width=".8"/><rect x="55" y="28" width="40" height="28" rx="2" fill="#1e2235" stroke="#c89840" stroke-width=".8"/><circle cx="57" cy="44" r="10" fill="none" stroke="#c89840" stroke-width=".6" stroke-dasharray="3,2"/><circle cx="57" cy="44" r="4" fill="#c89840" opacity=".3"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="5" y="28" width="52" height="28" rx="2" fill="var(--surface3)" stroke="#00c8ff" stroke-width=".8"/><rect x="55" y="28" width="40" height="28" rx="2" fill="#1e2235" stroke="#00c8ff" stroke-width=".8"/><circle cx="57" cy="44" r="10" fill="none" stroke="#00c8ff" stroke-width=".6" stroke-dasharray="3,2"/><circle cx="57" cy="44" r="4" fill="#00c8ff" opacity=".3"/>'},
     { type:'Słupek pod piekarnik', name:'Słupek AGD', sub:'piekarnik w kolumnie', dim:'H2130 D560',
       cfg:'Drzwi', tag:'slupki', h:2130, d:560, w:600,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="30" y="3" width="40" height="54" rx="2" fill="#1a2030" stroke="#c89840" stroke-width=".8"/><rect x="34" y="7" width="32" height="20" rx="1" fill="#13161f" stroke="#3a3f55" stroke-width=".5"/><line x1="36" y1="13" x2="64" y2="13" stroke="#3a3f55" stroke-width=".5"/><line x1="36" y1="18" x2="64" y2="18" stroke="#3a3f55" stroke-width=".5"/><rect x="34" y="30" width="32" height="8" rx="1" fill="#252a3d" stroke="#3a3f55" stroke-width=".5"/><rect x="34" y="40" width="32" height="8" rx="1" fill="#252a3d" stroke="#3a3f55" stroke-width=".5"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="30" y="3" width="40" height="54" rx="2" fill="#1a2030" stroke="#00c8ff" stroke-width=".8"/><rect x="34" y="7" width="32" height="20" rx="1" fill="#13161f" stroke="rgba(255,255,255,.08)" stroke-width=".5"/><line x1="36" y1="13" x2="64" y2="13" stroke="rgba(255,255,255,.08)" stroke-width=".5"/><line x1="36" y1="18" x2="64" y2="18" stroke="rgba(255,255,255,.08)" stroke-width=".5"/><rect x="34" y="30" width="32" height="8" rx="1" fill="var(--surface3)" stroke="rgba(255,255,255,.08)" stroke-width=".5"/><rect x="34" y="40" width="32" height="8" rx="1" fill="var(--surface3)" stroke="rgba(255,255,255,.08)" stroke-width=".5"/>'},
     { type:'Słupek pełny (z półkami)', name:'Słupek', sub:'z półkami', dim:'H2130 D560',
       cfg:'Drzwi', tag:'slupki', h:2130, d:560, w:600,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="30" y="3" width="40" height="54" rx="2" fill="#252a3d" stroke="#3a3f55" stroke-width=".8"/><line x1="32" y1="18" x2="68" y2="18" stroke="#3a3f55" stroke-width=".7"/><line x1="32" y1="33" x2="68" y2="33" stroke="#3a3f55" stroke-width=".7"/><line x1="32" y1="48" x2="68" y2="48" stroke="#3a3f55" stroke-width=".7"/><rect x="45" y="28" width="10" height="1.5" rx=".75" fill="#c89840" opacity=".6"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="30" y="3" width="40" height="54" rx="2" fill="var(--surface3)" stroke="rgba(255,255,255,.08)" stroke-width=".8"/><line x1="32" y1="18" x2="68" y2="18" stroke="rgba(255,255,255,.08)" stroke-width=".7"/><line x1="32" y1="33" x2="68" y2="33" stroke="rgba(255,255,255,.08)" stroke-width=".7"/><line x1="32" y1="48" x2="68" y2="48" stroke="rgba(255,255,255,.08)" stroke-width=".7"/><rect x="45" y="28" width="10" height="1.5" rx=".75" fill="#00c8ff" opacity=".6"/>'},
     { type:'Cargo / Spacetower', name:'Cargo', sub:'szuflady+drzwi', dim:'H2130 D560',
       cfg:'Szuflady', tag:'slupki', h:2130, d:560, w:600,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="30" y="3" width="40" height="54" rx="2" fill="#252a3d" stroke="#3a3f55" stroke-width=".8"/><rect x="32" y="5" width="36" height="8" rx="1" fill="#1e2235" stroke="#c89840" stroke-width=".6"/><rect x="32" y="15" width="36" height="7" rx="1" fill="#1e2235" stroke="#3a3f55" stroke-width=".5"/><rect x="32" y="24" width="36" height="7" rx="1" fill="#1e2235" stroke="#3a3f55" stroke-width=".5"/><rect x="32" y="33" width="36" height="22" rx="1" fill="#252a3d" stroke="#3a3f55" stroke-width=".5"/><rect x="42" y="9" width="16" height="1.2" rx=".6" fill="#c89840" opacity=".6"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="30" y="3" width="40" height="54" rx="2" fill="var(--surface3)" stroke="rgba(255,255,255,.08)" stroke-width=".8"/><rect x="32" y="5" width="36" height="8" rx="1" fill="#1e2235" stroke="#00c8ff" stroke-width=".6"/><rect x="32" y="15" width="36" height="7" rx="1" fill="#1e2235" stroke="rgba(255,255,255,.08)" stroke-width=".5"/><rect x="32" y="24" width="36" height="7" rx="1" fill="#1e2235" stroke="rgba(255,255,255,.08)" stroke-width=".5"/><rect x="32" y="33" width="36" height="22" rx="1" fill="var(--surface3)" stroke="rgba(255,255,255,.08)" stroke-width=".5"/><rect x="42" y="9" width="16" height="1.2" rx=".6" fill="#00c8ff" opacity=".6"/>'},
   ],
 
   lazienka: [
     { type:'Dolna', name:'Pod umywalkę', sub:'szafka dolna', dim:'H600 D450',
       cfg:'Drzwi', tag:'dolne', h:600, d:450, w:600,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="5" y="25" width="90" height="30" rx="2" fill="#252a3d" stroke="#4a9fea" stroke-width=".8"/><rect x="22" y="10" width="56" height="18" rx="12" fill="#1a2a3a" stroke="#4a9fea" stroke-width=".8"/><line x1="50" y1="3" x2="50" y2="12" stroke="#4a9fea" stroke-width="1.2"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="5" y="25" width="90" height="30" rx="2" fill="var(--surface3)" stroke="#4a9fea" stroke-width=".8"/><rect x="22" y="10" width="56" height="18" rx="12" fill="#1a2a3a" stroke="#4a9fea" stroke-width=".8"/><line x1="50" y1="3" x2="50" y2="12" stroke="#4a9fea" stroke-width="1.2"/>'},
     { type:'Dolna', name:'Szuflady', sub:'szafka z szufladami', dim:'H600 D450',
       cfg:'Szuflady', tag:'dolne', h:600, d:450, w:600,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="5" y="25" width="90" height="9" rx="1" fill="#252a3d" stroke="#4a9fea" stroke-width=".7"/><rect x="5" y="36" width="90" height="9" rx="1" fill="#252a3d" stroke="#3a3f55" stroke-width=".7"/><rect x="5" y="47" width="90" height="9" rx="1" fill="#252a3d" stroke="#3a3f55" stroke-width=".7"/><rect x="38" y="28" width="24" height="1.5" rx=".75" fill="#4a9fea" opacity=".7"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="5" y="25" width="90" height="9" rx="1" fill="var(--surface3)" stroke="#4a9fea" stroke-width=".7"/><rect x="5" y="36" width="90" height="9" rx="1" fill="var(--surface3)" stroke="rgba(255,255,255,.08)" stroke-width=".7"/><rect x="5" y="47" width="90" height="9" rx="1" fill="var(--surface3)" stroke="rgba(255,255,255,.08)" stroke-width=".7"/><rect x="38" y="28" width="24" height="1.5" rx=".75" fill="#4a9fea" opacity=".7"/>'},
     { type:'Wisząca', name:'Lustro/szafka', sub:'wisząca z lustrem', dim:'H600 D200',
       cfg:'Drzwi', tag:'wiszace', h:600, d:200, w:600,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="5" y="5" width="90" height="38" rx="2" fill="#1a2a3a" stroke="#4a9fea" stroke-width=".8"/><rect x="8" y="8" width="84" height="32" rx="1" fill="#0d1520" opacity=".9"/><line x1="20" y1="15" x2="35" y2="30" stroke="rgba(74,159,234,.3)" stroke-width="1.5"/><line x1="20" y1="25" x2="40" y2="10" stroke="rgba(74,159,234,.2)" stroke-width="1.2"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="5" y="5" width="90" height="38" rx="2" fill="#1a2a3a" stroke="#4a9fea" stroke-width=".8"/><rect x="8" y="8" width="84" height="32" rx="1" fill="#0d1520" opacity=".9"/><line x1="20" y1="15" x2="35" y2="30" stroke="rgba(74,159,234,.3)" stroke-width="1.5"/><line x1="20" y1="25" x2="40" y2="10" stroke="rgba(74,159,234,.2)" stroke-width="1.2"/>'},
     { type:'Słupek pełny (z półkami)', name:'Słupek', sub:'kolumna lazienkowa', dim:'H1800 D350',
       cfg:'Drzwi', tag:'slupki', h:1800, d:350, w:400,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="35" y="2" width="30" height="56" rx="2" fill="#252a3d" stroke="#4a9fea" stroke-width=".8"/><line x1="37" y1="16" x2="63" y2="16" stroke="#3a3f55" stroke-width=".7"/><line x1="37" y1="30" x2="63" y2="30" stroke="#3a3f55" stroke-width=".7"/><line x1="37" y1="44" x2="63" y2="44" stroke="#3a3f55" stroke-width=".7"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="35" y="2" width="30" height="56" rx="2" fill="var(--surface3)" stroke="#4a9fea" stroke-width=".8"/><line x1="37" y1="16" x2="63" y2="16" stroke="rgba(255,255,255,.08)" stroke-width=".7"/><line x1="37" y1="30" x2="63" y2="30" stroke="rgba(255,255,255,.08)" stroke-width=".7"/><line x1="37" y1="44" x2="63" y2="44" stroke="rgba(255,255,255,.08)" stroke-width=".7"/>'},
     { type:'Pod zmywarkę', name:'Wneka pralka', sub:'na pralkę 60cm', dim:'H850 D600',
       cfg:'Drzwi', tag:'dolne', h:850, d:600, w:600,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="10" y="10" width="80" height="46" rx="2" fill="#1a2030" stroke="#4a9fea" stroke-width=".8"/><circle cx="50" cy="35" r="18" fill="none" stroke="#4a9fea" stroke-width=".8"/><circle cx="50" cy="35" r="10" fill="#0d1520" stroke="#4a9fea" stroke-width=".5"/><rect x="25" y="13" width="30" height="8" rx="4" fill="#1a2030" stroke="#4a9fea" stroke-width=".5"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="10" y="10" width="80" height="46" rx="2" fill="#1a2030" stroke="#4a9fea" stroke-width=".8"/><circle cx="50" cy="35" r="18" fill="none" stroke="#4a9fea" stroke-width=".8"/><circle cx="50" cy="35" r="10" fill="#0d1520" stroke="#4a9fea" stroke-width=".5"/><rect x="25" y="13" width="30" height="8" rx="4" fill="#1a2030" stroke="#4a9fea" stroke-width=".5"/>'},
   ],
 
   garderoba: [
     { type:'Słupek pełny (z półkami)', name:'Szafa', sub:'moduł szafy', dim:'H2200 D600',
       cfg:'Drzwi', tag:'slupki', h:2200, d:600, w:600,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="10" y="3" width="80" height="54" rx="2" fill="#252a3d" stroke="#9b59b6" stroke-width=".8"/><line x1="50" y1="3" x2="50" y2="57" stroke="#3a3f55" stroke-width=".5"/><rect x="22" y="28" width="8" height="1.5" rx=".75" fill="#9b59b6" opacity=".7"/><rect x="70" y="28" width="8" height="1.5" rx=".75" fill="#9b59b6" opacity=".7"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="10" y="3" width="80" height="54" rx="2" fill="var(--surface3)" stroke="#9b59b6" stroke-width=".8"/><line x1="50" y1="3" x2="50" y2="57" stroke="rgba(255,255,255,.08)" stroke-width=".5"/><rect x="22" y="28" width="8" height="1.5" rx=".75" fill="#9b59b6" opacity=".7"/><rect x="70" y="28" width="8" height="1.5" rx=".75" fill="#9b59b6" opacity=".7"/>'},
     { type:'Cargo / Spacetower', name:'Szuflady', sub:'moduł szuflad', dim:'H2200 D600',
       cfg:'Szuflady', tag:'slupki', h:2200, d:600, w:600,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="10" y="3" width="80" height="54" rx="2" fill="#252a3d" stroke="#3a3f55" stroke-width=".8"/><rect x="12" y="5" width="76" height="9" rx="1" fill="#1e2235" stroke="#9b59b6" stroke-width=".6"/><rect x="12" y="16" width="76" height="9" rx="1" fill="#1e2235" stroke="#3a3f55" stroke-width=".5"/><rect x="12" y="27" width="76" height="9" rx="1" fill="#1e2235" stroke="#3a3f55" stroke-width=".5"/><rect x="12" y="38" width="76" height="9" rx="1" fill="#1e2235" stroke="#3a3f55" stroke-width=".5"/><rect x="12" y="49" width="76" height="8" rx="1" fill="#1e2235" stroke="#3a3f55" stroke-width=".5"/><rect x="42" y="9" width="16" height="1.2" rx=".6" fill="#9b59b6" opacity=".6"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="10" y="3" width="80" height="54" rx="2" fill="var(--surface3)" stroke="rgba(255,255,255,.08)" stroke-width=".8"/><rect x="12" y="5" width="76" height="9" rx="1" fill="#1e2235" stroke="#9b59b6" stroke-width=".6"/><rect x="12" y="16" width="76" height="9" rx="1" fill="#1e2235" stroke="rgba(255,255,255,.08)" stroke-width=".5"/><rect x="12" y="27" width="76" height="9" rx="1" fill="#1e2235" stroke="rgba(255,255,255,.08)" stroke-width=".5"/><rect x="12" y="38" width="76" height="9" rx="1" fill="#1e2235" stroke="rgba(255,255,255,.08)" stroke-width=".5"/><rect x="12" y="49" width="76" height="8" rx="1" fill="#1e2235" stroke="rgba(255,255,255,.08)" stroke-width=".5"/><rect x="42" y="9" width="16" height="1.2" rx=".6" fill="#9b59b6" opacity=".6"/>'},
     { type:'Dolna', name:'Szafka dolna', sub:'na buty / dolna', dim:'H500 D550',
       cfg:'Drzwi', tag:'dolne', h:500, d:550, w:800,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="5" y="35" width="90" height="22" rx="2" fill="#252a3d" stroke="#9b59b6" stroke-width=".8"/><line x1="50" y1="35" x2="50" y2="57" stroke="#3a3f55" stroke-width=".5"/><rect x="20" y="44" width="12" height="1.5" rx=".75" fill="#9b59b6" opacity=".6"/><rect x="68" y="44" width="12" height="1.5" rx=".75" fill="#9b59b6" opacity=".6"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="5" y="35" width="90" height="22" rx="2" fill="var(--surface3)" stroke="#9b59b6" stroke-width=".8"/><line x1="50" y1="35" x2="50" y2="57" stroke="rgba(255,255,255,.08)" stroke-width=".5"/><rect x="20" y="44" width="12" height="1.5" rx=".75" fill="#9b59b6" opacity=".6"/><rect x="68" y="44" width="12" height="1.5" rx=".75" fill="#9b59b6" opacity=".6"/>'},
     { type:'Wisząca', name:'Polka', sub:'polka wisząca', dim:'H300 D350',
       cfg:'Drzwi', tag:'wiszace', h:300, d:350, w:800,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="5" y="18" width="90" height="10" rx="2" fill="#252a3d" stroke="#9b59b6" stroke-width=".8"/><line x1="20" y1="28" x2="20" y2="55" stroke="#3a3f55" stroke-width=".7"/><line x1="80" y1="28" x2="80" y2="55" stroke="#3a3f55" stroke-width=".7"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="5" y="18" width="90" height="10" rx="2" fill="var(--surface3)" stroke="#9b59b6" stroke-width=".8"/><line x1="20" y1="28" x2="20" y2="55" stroke="rgba(255,255,255,.08)" stroke-width=".7"/><line x1="80" y1="28" x2="80" y2="55" stroke="rgba(255,255,255,.08)" stroke-width=".7"/>'},
   ],
 
   salon: [
     { type:'Dolna', name:'Szafka RTV', sub:'pod telewizor', dim:'H400 D450',
       cfg:'Drzwi', tag:'dolne', h:400, d:450, w:1200,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="5" y="35" width="90" height="22" rx="2" fill="#252a3d" stroke="#2ecc71" stroke-width=".8"/><rect x="15" y="5" width="70" height="32" rx="2" fill="#1a1e2b" stroke="#3a3f55" stroke-width=".7"/><rect x="17" y="7" width="66" height="28" rx="1" fill="#0a0c12"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="5" y="35" width="90" height="22" rx="2" fill="var(--surface3)" stroke="#2ecc71" stroke-width=".8"/><rect x="15" y="5" width="70" height="32" rx="2" fill="var(--surface)" stroke="rgba(255,255,255,.08)" stroke-width=".7"/><rect x="17" y="7" width="66" height="28" rx="1" fill="#0a0c12"/>'},
     { type:'Dolna GOLA', name:'RTV otwarty', sub:'otwarty blok', dim:'H400 D450',
       cfg:'Drzwi', tag:'dolne', h:400, d:450, w:1000,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="5" y="28" width="90" height="28" rx="2" fill="#1a1e2b" stroke="#2ecc71" stroke-width=".8"/><rect x="8" y="31" width="84" height="22" rx="1" fill="#0e1017"/><line x1="35" y1="31" x2="35" y2="53" stroke="#3a3f55" stroke-width=".5"/><line x1="65" y1="31" x2="65" y2="53" stroke="#3a3f55" stroke-width=".5"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="5" y="28" width="90" height="28" rx="2" fill="var(--surface)" stroke="#2ecc71" stroke-width=".8"/><rect x="8" y="31" width="84" height="22" rx="1" fill="var(--bg)"/><line x1="35" y1="31" x2="35" y2="53" stroke="rgba(255,255,255,.08)" stroke-width=".5"/><line x1="65" y1="31" x2="65" y2="53" stroke="rgba(255,255,255,.08)" stroke-width=".5"/>'},
     { type:'Słupek pełny (z półkami)', name:'Regal', sub:'na książki', dim:'H2200 D350',
       cfg:'Drzwi', tag:'slupki', h:2200, d:350, w:400,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="30" y="3" width="40" height="54" rx="2" fill="#252a3d" stroke="#2ecc71" stroke-width=".8"/><line x1="32" y1="15" x2="68" y2="15" stroke="#3a3f55" stroke-width=".7"/><line x1="32" y1="27" x2="68" y2="27" stroke="#3a3f55" stroke-width=".7"/><line x1="32" y1="39" x2="68" y2="39" stroke="#3a3f55" stroke-width=".7"/><line x1="32" y1="51" x2="68" y2="51" stroke="#3a3f55" stroke-width=".7"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="30" y="3" width="40" height="54" rx="2" fill="var(--surface3)" stroke="#2ecc71" stroke-width=".8"/><line x1="32" y1="15" x2="68" y2="15" stroke="rgba(255,255,255,.08)" stroke-width=".7"/><line x1="32" y1="27" x2="68" y2="27" stroke="rgba(255,255,255,.08)" stroke-width=".7"/><line x1="32" y1="39" x2="68" y2="39" stroke="rgba(255,255,255,.08)" stroke-width=".7"/><line x1="32" y1="51" x2="68" y2="51" stroke="rgba(255,255,255,.08)" stroke-width=".7"/>'},
     { type:'Dolna', name:'Komoda', sub:'z szufladami', dim:'H800 D450',
       cfg:'Szuflady', tag:'dolne', h:800, d:450, w:1000,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="5" y="20" width="90" height="36" rx="2" fill="#252a3d" stroke="#2ecc71" stroke-width=".8"/><rect x="7" y="22" width="86" height="8" rx="1" fill="#1e2235" stroke="#2ecc71" stroke-width=".5"/><rect x="7" y="32" width="86" height="8" rx="1" fill="#1e2235" stroke="#3a3f55" stroke-width=".5"/><rect x="7" y="42" width="86" height="12" rx="1" fill="#1e2235" stroke="#3a3f55" stroke-width=".5"/><rect x="41" y="25" width="18" height="1.2" rx=".6" fill="#2ecc71" opacity=".7"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="5" y="20" width="90" height="36" rx="2" fill="var(--surface3)" stroke="#2ecc71" stroke-width=".8"/><rect x="7" y="22" width="86" height="8" rx="1" fill="#1e2235" stroke="#2ecc71" stroke-width=".5"/><rect x="7" y="32" width="86" height="8" rx="1" fill="#1e2235" stroke="rgba(255,255,255,.08)" stroke-width=".5"/><rect x="7" y="42" width="86" height="12" rx="1" fill="#1e2235" stroke="rgba(255,255,255,.08)" stroke-width=".5"/><rect x="41" y="25" width="18" height="1.2" rx=".6" fill="#2ecc71" opacity=".7"/>'},
   ],
 
   sypialnia: [
     { type:'Słupek pełny (z półkami)', name:'Szafa', sub:'modułowa', dim:'H2200 D600',
       cfg:'Drzwi', tag:'slupki', h:2200, d:600, w:600,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="10" y="3" width="80" height="54" rx="2" fill="#252a3d" stroke="#f1c40f" stroke-width=".8"/><line x1="50" y1="3" x2="50" y2="57" stroke="#3a3f55" stroke-width=".5"/><rect x="22" y="28" width="8" height="1.5" rx=".75" fill="#f1c40f" opacity=".7"/><rect x="70" y="28" width="8" height="1.5" rx=".75" fill="#f1c40f" opacity=".7"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="10" y="3" width="80" height="54" rx="2" fill="var(--surface3)" stroke="#f1c40f" stroke-width=".8"/><line x1="50" y1="3" x2="50" y2="57" stroke="rgba(255,255,255,.08)" stroke-width=".5"/><rect x="22" y="28" width="8" height="1.5" rx=".75" fill="#f1c40f" opacity=".7"/><rect x="70" y="28" width="8" height="1.5" rx=".75" fill="#f1c40f" opacity=".7"/>'},
     { type:'Wisząca', name:'Szafka nocna', sub:'nad łóżkiem', dim:'H400 D350',
       cfg:'Drzwi', tag:'wiszace', h:400, d:350, w:400,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="25" y="8" width="50" height="35" rx="2" fill="#252a3d" stroke="#f1c40f" stroke-width=".8"/><rect x="35" y="20" width="30" height="1.5" rx=".75" fill="#f1c40f" opacity=".7"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="25" y="8" width="50" height="35" rx="2" fill="var(--surface3)" stroke="#f1c40f" stroke-width=".8"/><rect x="35" y="20" width="30" height="1.5" rx=".75" fill="#f1c40f" opacity=".7"/>'},
     { type:'Cargo / Spacetower', name:'Komoda', sub:'szuflady', dim:'H1200 D550',
       cfg:'Szuflady', tag:'slupki', h:1200, d:550, w:800,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="10" y="10" width="80" height="46" rx="2" fill="#252a3d" stroke="#3a3f55" stroke-width=".8"/><rect x="12" y="12" width="76" height="9" rx="1" fill="#1e2235" stroke="#f1c40f" stroke-width=".6"/><rect x="12" y="23" width="76" height="9" rx="1" fill="#1e2235" stroke="#3a3f55" stroke-width=".5"/><rect x="12" y="34" width="76" height="9" rx="1" fill="#1e2235" stroke="#3a3f55" stroke-width=".5"/><rect x="12" y="45" width="76" height="9" rx="1" fill="#1e2235" stroke="#3a3f55" stroke-width=".5"/><rect x="42" y="16" width="16" height="1.2" rx=".6" fill="#f1c40f" opacity=".6"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="10" y="10" width="80" height="46" rx="2" fill="var(--surface3)" stroke="rgba(255,255,255,.08)" stroke-width=".8"/><rect x="12" y="12" width="76" height="9" rx="1" fill="#1e2235" stroke="#f1c40f" stroke-width=".6"/><rect x="12" y="23" width="76" height="9" rx="1" fill="#1e2235" stroke="rgba(255,255,255,.08)" stroke-width=".5"/><rect x="12" y="34" width="76" height="9" rx="1" fill="#1e2235" stroke="rgba(255,255,255,.08)" stroke-width=".5"/><rect x="12" y="45" width="76" height="9" rx="1" fill="#1e2235" stroke="rgba(255,255,255,.08)" stroke-width=".5"/><rect x="42" y="16" width="16" height="1.2" rx=".6" fill="#f1c40f" opacity=".6"/>'},
   ],
 
   przedpokoj: [
     { type:'Słupek pełny (z półkami)', name:'Szafa wejsciowa', sub:'z półkami', dim:'H2200 D600',
       cfg:'Drzwi', tag:'slupki', h:2200, d:600, w:800,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="10" y="3" width="80" height="54" rx="2" fill="#252a3d" stroke="#2eaaa8" stroke-width=".8"/><line x1="50" y1="3" x2="50" y2="57" stroke="#3a3f55" stroke-width=".5"/><rect x="22" y="28" width="8" height="1.5" rx=".75" fill="#2eaaa8" opacity=".7"/><rect x="70" y="28" width="8" height="1.5" rx=".75" fill="#2eaaa8" opacity=".7"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="10" y="3" width="80" height="54" rx="2" fill="var(--surface3)" stroke="#2eaaa8" stroke-width=".8"/><line x1="50" y1="3" x2="50" y2="57" stroke="rgba(255,255,255,.08)" stroke-width=".5"/><rect x="22" y="28" width="8" height="1.5" rx=".75" fill="#2eaaa8" opacity=".7"/><rect x="70" y="28" width="8" height="1.5" rx=".75" fill="#2eaaa8" opacity=".7"/>'},
     { type:'Dolna', name:'Szafka na buty', sub:'dolna na buty', dim:'H500 D350',
       cfg:'Drzwi', tag:'dolne', h:500, d:350, w:800,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="5" y="35" width="90" height="22" rx="2" fill="#252a3d" stroke="#2eaaa8" stroke-width=".8"/><line x1="50" y1="35" x2="50" y2="57" stroke="#3a3f55" stroke-width=".5"/><rect x="20" y="44" width="12" height="1.5" rx=".75" fill="#2eaaa8" opacity=".6"/><rect x="68" y="44" width="12" height="1.5" rx=".75" fill="#2eaaa8" opacity=".6"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="5" y="35" width="90" height="22" rx="2" fill="var(--surface3)" stroke="#2eaaa8" stroke-width=".8"/><line x1="50" y1="35" x2="50" y2="57" stroke="rgba(255,255,255,.08)" stroke-width=".5"/><rect x="20" y="44" width="12" height="1.5" rx=".75" fill="#2eaaa8" opacity=".6"/><rect x="68" y="44" width="12" height="1.5" rx=".75" fill="#2eaaa8" opacity=".6"/>'},
     { type:'Dolna GOLA', name:'Lawka', sub:'ławka z schowkiem', dim:'H450 D400',
       cfg:'Drzwi', tag:'dolne', h:450, d:400, w:1000,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="5" y="38" width="90" height="18" rx="2" fill="#252a3d" stroke="#2eaaa8" stroke-width=".8"/><rect x="5" y="34" width="90" height="5" rx="2" fill="#1e2235" stroke="#2eaaa8" stroke-width=".6"/><rect x="5" y="50" width="10" height="6" fill="#3a3f55"/><rect x="85" y="50" width="10" height="6" fill="#3a3f55"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="5" y="38" width="90" height="18" rx="2" fill="var(--surface3)" stroke="#2eaaa8" stroke-width=".8"/><rect x="5" y="34" width="90" height="5" rx="2" fill="#1e2235" stroke="#2eaaa8" stroke-width=".6"/><rect x="5" y="50" width="10" height="6" fill="rgba(255,255,255,.1)"/><rect x="85" y="50" width="10" height="6" fill="rgba(255,255,255,.1)"/>'},
     { type:'Wisząca', name:'Lustro / polka', sub:'wisząca', dim:'H300 D200',
       cfg:'Drzwi', tag:'wiszace', h:300, d:200, w:800,
-      svg:'<rect width="100" height="60" fill="#0e1017"/><rect x="5" y="8" width="90" height="30" rx="2" fill="#1a2a3a" stroke="#2eaaa8" stroke-width=".8"/><rect x="8" y="11" width="84" height="24" rx="1" fill="#0d1520"/><line x1="18" y1="18" x2="30" y2="30" stroke="rgba(46,170,168,.3)" stroke-width="1.5"/><line x1="18" y1="26" x2="35" y2="14" stroke="rgba(46,170,168,.2)" stroke-width="1.2"/>'},
+      svg:'<rect width="100" height="60" fill="var(--bg)"/><rect x="5" y="8" width="90" height="30" rx="2" fill="#1a2a3a" stroke="#2eaaa8" stroke-width=".8"/><rect x="8" y="11" width="84" height="24" rx="1" fill="#0d1520"/><line x1="18" y1="18" x2="30" y2="30" stroke="rgba(46,170,168,.3)" stroke-width="1.5"/><line x1="18" y1="26" x2="35" y2="14" stroke="rgba(46,170,168,.2)" stroke-width="1.2"/>'},
   ],
 };
 
