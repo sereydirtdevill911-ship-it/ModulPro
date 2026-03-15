@@ -5100,6 +5100,10 @@ function printProject(){
     + '</body></html>';
 
   const w=window.open('','_blank');
+  if(!w){
+    showToast('⚠ Не можна відкрити нове вікно. Перевірте налаштування браузера.','#ffb400','#7d6010');
+    return;
+  }
   w.document.write(html);
   w.document.close();
 }
