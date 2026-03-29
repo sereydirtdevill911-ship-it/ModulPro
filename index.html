@@ -1564,9 +1564,9 @@ body{padding-bottom:72px!important;}
     <div>
       <label>Prowadnica (mm)</label>
       <select id="runner">
-        <option>450</option>
-        <option selected>500</option>
-        <option>550</option>
+        <option value="450">450 mm</option>
+        <option value="500" selected>500 mm</option>
+        <option value="550">550 mm</option>
       </select>
     </div>
   </div>
@@ -2117,24 +2117,39 @@ table.rnd-table tr:last-child td{border-bottom:none;}
 
 <script>
 const systemData={
-  // === BLUM ===
-  // Antaro: offset=37.5mm (zaokr. 38), typy N/M/C/D
-  // Montaz: 2 otwory na boku, odstep 32mm, srodek prowadnicy od wience
+  // ============================================================
+  // === BLUM — формули за офіційною документацією ===
+  // LW = внутрішня ширина корпусу (загальна ширина - 2 × бокова стінка)
+  // Дно шухляди:      LW - dnoOffset   (DSP 16мм)
+  // Задня стінка:     LW - backOffset
+  // Внутр. фасад:     LW - innerFrontOffset (126 або 132 залежно від системи)
+  // Вал синхронізації (TIP-ON BLUMOTION): LW - synchroOffset (224мм)
+  // Дно глибина:      довжина провадниці - 20мм
+  // ============================================================
+
+  // --- TANDEMBOX Antaro (металеві бокові стінки, DSP дно) ---
   Antaro:{
     brand:'Blum',
     types:{N:68, M:84, C:148, D:196},
-    // presets[qty] = tablica wariantów, każdy = types[] od górnego do dolnego
     presets:{
       1:[['C'],['M'],['D']],
       2:[['N','C'],['M','C'],['N','D'],['C','C']],
       3:[['N','C','C'],['N','M','C'],['M','C','C'],['N','C','D']],
       4:[['N','N','C','C'],['N','M','C','C'],['N','N','M','C']]
     },
-    offset:38, minWidth:270, maxWidth:700,
+    offset:38,
+    dnoOffset:75,           // дно: LW - 75 мм (бокові стінки 12,5мм×2 + пази 25мм = ~75мм)
+    backOffset:87,          // задня стінка: LW - 87 мм
+    innerFrontOffset:126,   // внутр. фасад: LW - 126 мм
+    synchroOffset:224,      // вал TIP-ON BLUMOTION: LW - 224 мм
+    dnoDepthCorrection:24,  // глибина дна: довжина провадниці - 24мм
+    minWidth:270, maxWidth:700,
     lengths:[270,300,350,400,450,500,550,600],
     drillX:37, drillY:32, sideOffset:0, pushOpen:false,
     note:'Blumotion/TipOn opcjonalnie'
   },
+
+  // --- TANDEMBOX Plus (стандартна версія, ті ж константи) ---
   Tandembox:{
     brand:'Blum',
     types:{N:68, M:84, C:148, D:196},
@@ -2144,11 +2159,19 @@ const systemData={
       3:[['N','C','C'],['N','M','C'],['M','C','C'],['N','C','D']],
       4:[['N','N','C','C'],['N','M','C','C'],['N','N','M','C']]
     },
-    offset:38, minWidth:270, maxWidth:700,
+    offset:38,
+    dnoOffset:75,           // дно: LW - 75 мм (DSP 16мм)
+    backOffset:87,          // задня стінка: LW - 87 мм
+    innerFrontOffset:126,   // внутр. фасад: LW - 126 мм
+    synchroOffset:224,      // вал TIP-ON BLUMOTION: LW - 224 мм
+    dnoDepthCorrection:24,  // глибина дна: довжина провадниці - 24мм
+    minWidth:270, maxWidth:700,
     lengths:[270,300,350,400,450,500,550,600],
     drillX:37, drillY:32, sideOffset:0, pushOpen:false,
     note:'Wersja ze sciankami metalowymi'
   },
+
+  // --- MERIVOBOX (повністю металева, вищі бокові стінки = більший offset дна) ---
   Merivobox:{
     brand:'Blum',
     types:{E:90, M:130, K:180, H:250},
@@ -2158,11 +2181,19 @@ const systemData={
       3:[['E','K','K'],['E','M','K'],['M','K','K'],['E','K','H']],
       4:[['E','E','K','K'],['E','M','K','K'],['E','E','M','K']]
     },
-    offset:42, minWidth:350, maxWidth:800,
+    offset:42,
+    dnoOffset:84,           // дно: LW - 84 мм (товщі металеві стінки ~42мм×2)
+    backOffset:87,          // задня стінка: LW - 87 мм
+    innerFrontOffset:132,   // внутр. фасад: LW - 132 мм (більший виступ металу)
+    synchroOffset:224,      // вал TIP-ON BLUMOTION: LW - 224 мм
+    dnoDepthCorrection:24,  // глибина дна: довжина провадниці - 24мм
+    minWidth:350, maxWidth:800,
     lengths:[270,300,350,400,450,500,550,600],
     drillX:42, drillY:32, sideOffset:0, pushOpen:false,
     note:'System pelnometalowy, wysokie boki'
   },
+
+  // --- LEGRABOX (Pure/Free — конструкція як Tandembox, ті ж константи) ---
   Legrabox:{
     brand:'Blum',
     types:{N:66, M:90, C:177, F:241},
@@ -2172,7 +2203,13 @@ const systemData={
       3:[['N','C','C'],['N','M','C'],['M','C','C'],['N','C','F']],
       4:[['N','N','C','C'],['N','M','C','C'],['N','N','M','C']]
     },
-    offset:38, minWidth:270, maxWidth:700,
+    offset:38,
+    dnoOffset:75,           // дно: LW - 75 мм
+    backOffset:87,          // задня стінка: LW - 87 мм
+    innerFrontOffset:126,   // внутр. фасад: LW - 126 мм
+    synchroOffset:224,      // вал TIP-ON BLUMOTION: LW - 224 мм
+    dnoDepthCorrection:24,  // глибина дна: довжина провадниці - 24мм
+    minWidth:270, maxWidth:700,
     lengths:[270,300,350,400,450,500,550,600],
     drillX:37, drillY:32, sideOffset:0, pushOpen:false,
     note:'Legrabox Pure / Free'
@@ -2920,7 +2957,7 @@ function alAutoPlecySize(){
   var el  = document.getElementById('al_plecy');
   if(!wEl||!hEl) return;
   var W=parseInt(wEl.value)||600, H=parseInt(hEl.value)||720, T=18;
-  var plW=W-T*2, plH=H-T; // plecy: szerokość minus 2 boki, wysokość minus wieniec górny
+  var plW=W-2, plH=H-2; // plecy nakładane: (W-2)×(H-2) — luz 1mm z każdej strony
   if(!el){
     el=document.createElement('div');
     el.id='al_plecy';
@@ -2932,8 +2969,8 @@ function alAutoPlecySize(){
   }
   el.style.display='block';
   el.innerHTML=
-    '➤ Plecy HDF 3mm: <b>'+plW+'×'+plH+'mm</b><br>'+
-    'Plecy wiórowa 18mm: <b>'+plW+'×'+(H-T*2)+'mm</b> (bez wience dolnego)';
+    '➤ Plecy HDF 3mm (nakładane): <b>'+plW+'×'+plH+'mm</b><br>'+
+    'Plecy wiórowa 18mm (nakładane): <b>'+plW+'×'+plH+'mm</b>';
 }
 
 // -- 13. Auto-luz między szufladami ───────────────────────────────────
@@ -3595,7 +3632,7 @@ function generateModuleData(cfg){
     parts.push({name:"Dno",     w:light, h:cfg.depth, t:18});
     parts.push({name:"Wieniec", w:light, h:cfg.depth, t:18});
     // Plecy
-    parts.push({name:"Plecy", w:cfg.width-36, h:cfg.height-36, t:3});
+    parts.push({name:"Plecy", w:cfg.width-2, h:cfg.height-2, t:3, desc:'Nakładane: (W-2)×(H-2) — luz 1mm z każdej strony'});
 
     if(cfg.type==="S\u0142upek pod piekarnik"){
       // Typowy: szuflada na dole (~200mm) + piekarnik 600mm + miejsce na mikrofal\u00f3wk\u0119
@@ -3681,7 +3718,7 @@ function generateModuleData(cfg){
     parts.push({name:"Bok", w:cfg.height, h:cfg.depth, t:18});
     parts.push({name:"Dno",     w:light, h:cfg.depth, t:18});
     parts.push({name:"Wieniec", w:light, h:cfg.depth, t:18});
-    parts.push({name:"Plecy", w:cfg.width-36, h:cfg.height-36, t:3});
+    parts.push({name:"Plecy", w:cfg.width-2, h:cfg.height-2, t:3, desc:'Nakładane: (W-2)×(H-2) — luz 1mm z każdej strony'});
     // Cargo: szuflady na ca\u0142\u0105 wysoko\u015b\u0107 (Spacetower)
     const cargoQty = cfg.qty || 5;
     const availH   = cfg.height - 36;
@@ -3701,7 +3738,7 @@ function generateModuleData(cfg){
     parts.push({name:"Bok", w:cfg.height, h:cfg.depth, t:18});
     parts.push({name:"Dno",     w:light, h:cfg.depth, t:18});
     parts.push({name:"Wieniec", w:light, h:cfg.depth, t:18});
-    parts.push({name:"Plecy", w:cfg.width-36, h:cfg.height-36, t:3});
+    parts.push({name:"Plecy", w:cfg.width-2, h:cfg.height-2, t:3, desc:'Nakładane: (W-2)×(H-2) — luz 1mm z każdej strony'});
     // P\u00f3\u0142ki wewn\u0119trzne (0 jezeli nie wybrano)
     const sc=cfg.shelfCount||0;
     for(let i=1;i<=sc;i++) parts.push({name:`P\u00f3\u0142ka ${i}`, w:light, h:cfg.depth-20, t:18});
@@ -3724,7 +3761,7 @@ function generateModuleData(cfg){
     parts.push({name:"Bok", w:cfg.height, h:cfg.depth, t:18});
     parts.push({name:"Dno",     w:light, h:cfg.depth, t:18});
     parts.push({name:"Wieniec", w:light, h:cfg.depth, t:18});
-    parts.push({name:"Plecy", w:cfg.width-36, h:cfg.height-36, t:3});
+    parts.push({name:"Plecy", w:cfg.width-2, h:cfg.height-2, t:3, desc:'Nakładane: (W-2)×(H-2) — luz 1mm z każdej strony'});
     // Podzia\u0142: 1/3 szuflady (d\u00f3\u0142) + 2/3 drzwi (g\u00f3ra)
     const mixDrawH = Math.floor((cfg.height-36)*0.35);
     const mixDoorH = cfg.height-36 - mixDrawH;
@@ -3763,8 +3800,8 @@ function generateModuleData(cfg){
     parts.push({name:"Wieniec A", w:lightA, h:depthA, t:18});
     parts.push({name:"Wieniec B", w:lightB, h:depthB, t:18});
     // Plecy (2 ramiona)
-    parts.push({name:"Plecy A", w:widthA-36, h:cfg.height-36, t:3});
-    parts.push({name:"Plecy B", w:widthB-36, h:cfg.height-36, t:3});
+    parts.push({name:"Plecy A", w:widthA-2, h:cfg.height-2, t:3, desc:'Nakładane: (W-2)×(H-2) — luz 1mm z każdej strony'});
+    parts.push({name:"Plecy B", w:widthB-2, h:cfg.height-2, t:3, desc:'Nakładane: (W-2)×(H-2) — luz 1mm z każdej strony'});
 
     if(cfg.type==="Naro\u017cna dolna \u015alepa"){
       // Slepa narozna: ramie A z frontem, ramie B zaslepione
@@ -3820,7 +3857,7 @@ function generateModuleData(cfg){
   }
 
   /* === PLECY === */
-  parts.push({name:"Plecy", w:cfg.width-36, h:cfg.height-36, t:3});
+  parts.push({name:"Plecy", w:cfg.width-2, h:cfg.height-2, t:3, desc:'Nakładane: (W-2)×(H-2) — luz 1mm z każdej strony'});
 
   /* === P\u00d3\u0141KI dla Wisz\u0105ca i Dolna === */
   if(cfg.type==="Wisz\u0105ca"||cfg.type==="Dolna"||cfg.type==="Dolna GOLA"){
@@ -3911,24 +3948,129 @@ function generateModuleData(cfg){
       const _typeKey=cfg.drawerTypes[i]||(Object.keys(sysInfo.types)[0]);
       const backH=sysInfo.types[_typeKey]||68;
 
-      if(frontH<backH+20)
-        throw `Szuflada ${i+1}: front za niski dla typu (${_typeKey}) – min ${backH+20}mm`;
+      // ════════════════════════════════════════════════════════════════
+      // ULEPSZONA WALIDACJA: Prawidłowa wysokość panelu tylnego (backH)
+      // ════════════════════════════════════════════════════════════════
+      
+      const MIN_INTERNAL_SPACE = 30;  // mm — minimalna przestrzeń wewnętrzna
+      const MAX_INTERNAL_SPACE = 60;  // mm — rekomendacja dla stabilności
+      const minFrontH = backH + MIN_INTERNAL_SPACE;
+      
+      // Sprawdzenie 1: Front musi być wystarczająco wysoki dla tego typu
+      if(frontH < minFrontH)
+        throw `Szuflada ${i+1}: front ${frontH}mm za niski dla typu (${_typeKey}) – wymagane minimum ${minFrontH}mm (backH=${backH}mm + internal=${MIN_INTERNAL_SPACE}mm)`;
 
-      const internal=frontH-backH-20;
-      if(internal<30)
-        throw `Szuflada ${i+1}: za ma\u0142a wysoko\u015b\u0107 wewn\u0119trzna (${internal} mm)`;
+      // Rzeczywista przestrzeń wewnętrzna
+      const internalSpace = frontH - backH - MIN_INTERNAL_SPACE;
+      
+      // Sprawdzenie 2: Maksimum dla stabilności konstrukcji
+      if(internalSpace > MAX_INTERNAL_SPACE) {
+        console.warn(`⚠ Szuflada ${i+1}: front ${frontH}mm jest bardzo wysoki dla typu (${_typeKey}). Wewnętrzny skok = ${internalSpace}mm (rekomendacja max = ${MAX_INTERNAL_SPACE}mm). Rozważ wyższy typ.`);
+      }
 
-      const dnoW=light-sysInfo.offset;
+      // ════════════════════════════════════════════════════════════════
+      // РОЗРАХУНОК ДЕТАЛЕЙ ШУХЛЯДИ — формули Blum (LW = light = W - 2×бік)
+      //   Дно:               LW - dnoOffset         (LW-75 для Tandembox/Antaro/Legrabox)
+      //   Задня стінка:      LW - backOffset         (LW-87 для всіх Blum)
+      //   Внутр. фасад:      LW - innerFrontOffset   (LW-126 або LW-132)
+      //   Вал синхронізації: LW - synchroOffset      (LW-224, тільки TIP-ON BLUMOTION)
+      //   Глибина дна:       провадниця - dnoDepthCorrection (20мм)
+      // ════════════════════════════════════════════════════════════════
+      const _dnoOff    = sysInfo.dnoOffset          || sysInfo.offset || 75;
+      const _backOff   = sysInfo.backOffset         || sysInfo.offset || 87;
+      const _depthCorr = sysInfo.dnoDepthCorrection || 20;
+      const dnoW    = light - _dnoOff;               // ширина дна шухляди
+      const backW   = light - _backOff;              // ширина задньої стінки
+      const dnoDepth= cfg.runner - 24; // глибина дна шухляди: довжина провадниці - 24мм (Blum)
       const runnerY = runnerYs[i];
 
-      parts.push({name:`Front ${i+1}`,        w:cfg.width-4, h:frontH, t:18});
-      parts.push({name:`Ty\u0142 szuflady ${i+1}`,  w:dnoW,        h:backH,  t:16});
-      parts.push({name:`Dno szuflady ${i+1}`,  w:dnoW,        h:cfg.runner, t:16});
-      runners.push({length:cfg.runner, drawerNum:i+1, y:runnerY, frontH, backH, system:cfg.system});
+      // ► ЗОВНІШНІЙ ФАСАД
+      parts.push({
+        name:`Front ${i+1}`,
+        w:cfg.width-4,
+        h:frontH,
+        t:18,
+        desc:`${cfg.width}-4=${cfg.width-4}mm szer. | Wys.: ${frontH}mm`
+      });
+      
+      // ► ЗАДНЯ СТІНКА — LW - backOffset
+      parts.push({
+        name:`Tył szuflady ${i+1}`,
+        w:backW,
+        h:backH,
+        t:16,
+        material:'16mm DSP',
+        type:_typeKey,
+        desc:`Typ: ${_typeKey}, Wys.: ${backH}mm | LW(${light})-${_backOff}=${backW}mm`
+      });
+      
+      // ► ДНО — ширина = LW-dnoOffset, глибина = провадниця-dnoDepthCorrection
+      parts.push({
+        name:`Dno szuflady ${i+1}`,
+        w:dnoW,
+        h:dnoDepth,
+        t:16,
+        desc:`LW(${light})-${_dnoOff}=${dnoW}mm (szer.) × runner(${cfg.runner})-24=${dnoDepth}mm (głęb.)`
+      });
+
+      // ► ВАЛ СИНХРОНІЗАЦІЇ TIP-ON BLUMOTION (один на корпус, виводимо при першій шухляді)
+      if(i===0 && sysInfo.synchroOffset){
+        const synchroLen = light - sysInfo.synchroOffset;
+        if(synchroLen > 0){
+          parts.push({
+            name:'Wał synchronizacji (TIP-ON)',
+            w:synchroLen,
+            h:0,
+            t:0,
+            desc:`LW(${light})-${sysInfo.synchroOffset}=${synchroLen}mm — tylko dla TIP-ON BLUMOTION`
+          });
+        }
+      }
+      
+      // ► ПРОВАДНИЦІ
+      runners.push({
+        length:cfg.runner,
+        drawerNum:i+1,
+        y:runnerY,
+        frontH:frontH,
+        backH:backH,
+        internalSpace:internalSpace,
+        system:cfg.system,
+        type:_typeKey,
+        offset:sysInfo.offset,
+        dnoOffset:_dnoOff,
+        backOffset:_backOff
+      });
 
       curFromTop += frontH + 3;
+
     }
   }
+
+
+    // ════════════════════════════════════════════════════════════════
+    // ANALIZA KONFIGURACJI SZUFŁAD
+    // ════════════════════════════════════════════════════════════════
+    
+    if(cfg.qty > 0 && config==='Szuflady'){
+      console.group(`📦 Analiza konfiguracji szufład — ${cfg.system}`);
+      let totalInternalSpace = 0;
+      
+      runners.forEach((r) => {
+        totalInternalSpace += r.internalSpace;
+        console.log(
+          `  Szuflada ${r.drawerNum}: ` +
+          `Front=${r.frontH}mm, ` +
+          `Back=${r.backH}mm (typ ${r.type}), ` +
+          `Wewnętrzny=${r.internalSpace}mm, ` +
+          `Prowadnica=${r.length}mm`
+        );
+      });
+      
+      console.log(`  Łącznie wewnętrznie: ${totalInternalSpace}mm across ${runners.length} szufład`);
+      console.log(`  System: ${cfg.system} (offset=${runners[0]?.offset || 'N/A'}mm)`);
+      console.groupEnd();
+    }
 
   /* === AKCESORIA (n\u00f3\u017cki, zawiasy, klapa) === */
   const acc=[];
@@ -4125,7 +4267,11 @@ function renderTable(parts, runners, cfg){
 
   if(runners.length>0){
     const rg={};
-    runners.forEach(r=>{if(!rg[r.length])rg[r.length]=0;rg[r.length]++;});
+    runners.forEach(r=>{
+      const key=`${r.system||''}__${r.length}`;
+      if(!rg[key]) rg[key]={sys:r.system||'',len:r.length,qty:0};
+      rg[key].qty+=2; // para (lewa+prawa)
+    });
     Object.values(rg).forEach(({sys,len,qty})=>{
       out+=`<tr><td>Prowadnica ${sys?sys+" ":""}${len} mm</td><td colspan="2">—</td><td>×${qty}</td></tr>`;
     });
@@ -4142,25 +4288,33 @@ function renderTable(parts, runners, cfg){
         <th>Szuflada</th>
         <th>D\u00f3\u0142 prowadnicy<br><span style="font-weight:400;font-size:.7rem;color:var(--muted)">od wie\u0144ca dolnego</span></th>
         <th>D\u0142ugo\u015b\u0107</th>
-        <th>Typ</th>
-        <th>Front</th>
+        <th>Typ systemu</th>
+        <th>Tył (mm)</th>
+        <th>Front (mm)</th>
+        <th>Wewnętrzna (mm)</th>
       </tr>`;
 
     // runners[0]=dolny (szuflada 1), runners[qty-1]=gorny — wyswietlamy od dolu
     runners.forEach((r,idx)=>{
       const numOdDolu=idx+1;
+      const internalH = r.internalSpace || (r.frontH - r.backH - 30);
       out+=`<tr>
         <td>Szuflada ${numOdDolu} <span style="color:var(--muted);font-size:.72rem;">(od do\u0142u)</span></td>
         <td><strong style="color:var(--accent2);">${r.y} mm</strong></td>
         <td>${r.length} mm</td>
-        <td>${r.backH} mm</td>
+        <td><strong style="color:#7c3aed;">${r.type || 'N/A'}</strong></td>
+        <td><strong style="color:var(--accent2);">${r.backH} mm</strong></td>
         <td>${r.frontH} mm</td>
+        <td style="font-family:'JetBrains Mono',monospace;color:var(--muted);">${internalH} mm</td>
       </tr>`;
     });
 
     out+=`</table>
-    <div style="margin-top:8px;padding:8px 12px;background:var(--surface2);border-radius:6px;font-size:.75rem;color:var(--muted);font-family:'JetBrains Mono',monospace;">
-      ℹ Koordinata = d\u00f3\u0142 prowadnicy od g\u00f3rnej powierzchni wie\u0144ca dolnego (wewn\u0119trzne dno korpusu)
+    <div style="margin-top:8px;padding:8px 12px;background:var(--surface2);border-radius:6px;font-size:.75rem;color:var(--muted);font-family:'JetBrains Mono',monospace;line-height:1.6;">
+      ℹ <strong style="color:var(--text);">Y (Koordinata)</strong> = dół prowadnicy od górnej powierzchni więńca dolnego (wewnętrzne dno korpusu)<br>
+      ℹ <strong style="color:var(--text);">Typ systemu</strong> = oznaczenie typu szuflady (N/M/C/D/E/F/K/H itp.)<br>
+      ℹ <strong style="color:var(--text);">Tył</strong> = wysokość panelu tylnego (określona przez typ systemu)<br>
+      ℹ <strong style="color:var(--text);">Wewnętrzna</strong> = przestrzeń między front a tył (minimum 30mm dla Blum)
     </div>`;
   }
 
@@ -4579,7 +4733,11 @@ function showProject(){
     grouped[key].qty++;
   });
   const rg={};
-  allRunners.forEach(r=>{if(!rg[r.length])rg[r.length]=0;rg[r.length]++;});
+  allRunners.forEach(r=>{
+    const key=`${r.system||''}__${r.length}`;
+    if(!rg[key]) rg[key]={sys:r.system||'',len:r.length,qty:0};
+    rg[key].qty+=2; // para L+P
+  });
 
   /* ── cena ── */
   // ── WM-Format price catalog ──
@@ -4977,7 +5135,11 @@ function printProject(){
     grouped[key].qty++;
   });
   const rg={};
-  allRunners.forEach(r=>{if(!rg[r.length])rg[r.length]=0;rg[r.length]++;});
+  allRunners.forEach(r=>{
+    const key=`${r.system||''}__${r.length}`;
+    if(!rg[key]) rg[key]={sys:r.system||'',len:r.length,qty:0};
+    rg[key].qty+=2; // para L+P
+  });
 
   const _selBoard=localStorage.getItem('kosztorys_board')||'BIAŁY W960 18mm';
   const _WMF_boards={'BIAŁY W960 18mm':24.20,'KASIMIR U702 ST9':32.80,'JESION H1225 ST12':42.32,'DĄB H2033 ST10':51.86,'BEŻ U220 ST9':42.75,'SZARY U963 ST9':42.75,'CZERWONY U335':52.64,'GRENOBY U241':45.30,'BIAŁY W960 16mm':20.34};
