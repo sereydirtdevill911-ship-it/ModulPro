@@ -1176,7 +1176,7 @@ body{padding-bottom:72px!important;}
 
 <!-- G&#322;&#243;wne zak&#322;adki -->
 <div class="main-tabs" style="margin-top:0;margin-bottom:16px;margin-left:-12px;margin-right:-12px;padding-left:8px;">
-  <button id="mainTabKonfig" class="main-tab-btn active" onclick="switchMainTab('konfig')">&#9881; Konfig</button>
+  <button id="mainTabKonfig" class="main-tab-btn active" onclick="switchMainTab('konfig')" style="display:flex;">&#9881; Konfig</button>
   <button id="mainTabRozm" class="main-tab-btn" onclick="switchMainTab('rozm')">&#128208; Rozmiarka</button>
   <button id="mainTabRozkroj" class="main-tab-btn" onclick="switchMainTab('rozkroj')">&#9986; Rozkr&#243;j</button>
 
@@ -1605,7 +1605,7 @@ body{padding-bottom:72px!important;}
 </div>
 
 <!-- === AKCESORIA === -->
-<div class="card" id="akcCard" style="margin-bottom:16px;">
+<div class="card" id="akcCard" style="margin-bottom:16px;display:none;">
   <h3>Akcesoria</h3>
   <div class="grid" id="legRow">
     <div>
@@ -1613,7 +1613,7 @@ body{padding-bottom:72px!important;}
       <select id="legType">
         <option value="none">Bez n&#243;&#380;ek</option>
         <option value="uni_h100" selected>Uniwersalna H100</option>
-        <option value="uni_h150">Uniwersalna H150</option>
+        <option value="uni_h150">Univerzalna H150</option>
         <option value="axilo_h100">Axilo H100 (rozst.64mm)</option>
         <option value="axilo_h150">Axilo H150 (rozst.64mm)</option>
         <option value="multileg_h100">Multileg H100 (rozst.64mm)</option>
@@ -1677,67 +1677,7 @@ body{padding-bottom:72px!important;}
      GŁÓWNE AKCJE
      ═══════════════════════════════════════════════════════ -->
 
-<!-- GŁÓWNY PRZYCISK -->
-<button class="btn-primary" onclick="calcAndAdd()"
-  style="width:100%;padding:18px;font-size:1.15rem;letter-spacing:.14em;margin-bottom:10px;border-radius:12px;">
-  + DODAJ SZAFKĘ
-</button>
-
-<!-- RZĄD AKCJI: Powtórz | Nowa | Projekt | Zapisz | Cofnij -->
-<div style="display:grid;grid-template-columns:1fr 1fr 1fr auto auto;gap:6px;margin-bottom:14px;align-items:stretch;">
-
-  <!-- Powtórz -->
-  <button onclick="repeatLast()"
-    style="padding:11px 4px;background:rgba(0,230,118,.08);border:1px solid rgba(0,230,118,.2);
-    border-radius:10px;color:var(--success);font-family:'Barlow Condensed',sans-serif;
-    font-weight:700;font-size:.72rem;letter-spacing:.06em;cursor:pointer;
-    display:flex;flex-direction:column;align-items:center;gap:2px;">
-    <span style="font-size:1rem;">&#8635;</span>
-    <span>POWT.</span>
-  </button>
-
-  <!-- Nowa -->
-  <button onclick="resetForm()"
-    style="padding:11px 4px;background:var(--surface2);border:1px solid var(--border2);
-    border-radius:10px;color:var(--text2);font-family:'Barlow Condensed',sans-serif;
-    font-weight:700;font-size:.72rem;letter-spacing:.06em;cursor:pointer;
-    display:flex;flex-direction:column;align-items:center;gap:2px;">
-    <span style="font-size:1rem;">&#8635;</span>
-    <span>NOWA</span>
-  </button>
-
-  <!-- Projekt -->
-  <button onclick="showProject()"
-    style="padding:11px 4px;background:var(--surface2);border:1px solid var(--border2);
-    border-radius:10px;color:var(--text2);font-family:'Barlow Condensed',sans-serif;
-    font-weight:700;font-size:.72rem;letter-spacing:.06em;cursor:pointer;
-    display:flex;flex-direction:column;align-items:center;gap:2px;position:relative;">
-    <span style="font-size:1rem;">📊</span>
-    <span>PROJ.</span>
-    <span id="projCountBadge" style="position:absolute;top:4px;right:4px;
-    background:var(--accent2);color:#000;border-radius:3px;
-    padding:0px 4px;font-size:.52rem;font-weight:900;display:none;line-height:1.4;">0</span>
-  </button>
-
-  <!-- Zapisz -->
-  <button id="btnSaveProject" onclick="saveProject()"
-    style="padding:11px 10px;background:rgba(0,200,255,.07);
-    border:1px solid rgba(0,200,255,.2);border-radius:10px;
-    color:var(--accent2);font-size:.95rem;cursor:pointer;
-    display:flex;align-items:center;justify-content:center;"
-    title="Zapisz projekt">💾</button>
-
-  <!-- Cofnij — bez trash, bezpieczny -->
-  <button id="btnUndo" onclick="_historyUndo()" disabled
-    style="padding:11px 10px;background:rgba(255,255,255,.04);
-    border:1px solid rgba(255,255,255,.08);border-radius:10px;
-    color:var(--muted);font-size:.95rem;cursor:pointer;opacity:.4;
-    display:flex;align-items:center;justify-content:center;"
-    title="Cofnij ostatnią akcję">↩</button>
-
-</div>
-
-
+<!-- GŁÓWNY PRZYCISK — USUNIĘTY -->
 
 
 
@@ -1930,39 +1870,172 @@ body{padding-bottom:72px!important;}
 
 </div><!-- /sectionKonfig -->
 
-<!-- SEKCJA ROZMIARKA -->
+<!-- SEKCJA ROZMIARKA + SZPARGAŁKA -->
 <div id="sectionRozm" style="display:none;">
 
-  <div class="card">
-    <h3>📏 Rozmiarka boku</h3>
-    <p style="font-size:.75rem;color:var(--muted);margin-bottom:12px;">R&#1091;&#1083;&#1077;&#1090;&#1082;&#1072; od wie&#324;ca dolnego (0mm) do g&#243;rnego. Wpisz wymiary → dostaniesz list&#281; metek.</p>
+  <!-- TAB 1: ROZMIARKA (Default content) -->
+  <div id="tab-rozmiarka" class="szparg-tab-content" style="display:block;">
+    <div class="card">
+      <h3>📏 Rozmiarka boku</h3>
+      <p style="font-size:.75rem;color:var(--muted);margin-bottom:12px;">Рулетка од внизу (0mm) до верху. Вводите размеры → получите список меток.</p>
 
-    <label>Wysoko&#347;&#263; formatki (boku)</label>
-    <input type="number" id="rm_height" value="760" min="300" max="2400" oninput="calcRozm()">
+      <label>Высота форматки (боку)</label>
+      <input type="number" id="rm_height" value="760" min="300" max="2400" oninput="calcRozm()">
 
-    <label style="margin-top:14px;">Szuflady — wysoko&#347;ci front&#243;w (od do&#322;u, przez spacj&#281; lub przecinek)</label>
-    <input type="text" id="rm_drawers" placeholder="np. 304 304 141" oninput="calcRozm()"
-      style="width:100%;padding:9px 12px;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:.9rem;outline:none;">
-    <div id="rm_drawer_preview" style="font-size:.72rem;color:var(--muted);margin-top:4px;"></div>
+      <label style="margin-top:14px;">Ящики — высоты фронтов (от низу, через пробел или запятую)</label>
+      <input type="text" id="rm_drawers" placeholder="напр. 304 304 141" oninput="calcRozm()"
+        style="width:100%;padding:9px 12px;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:.9rem;outline:none;">
+      <div id="rm_drawer_preview" style="font-size:.72rem;color:var(--muted);margin-top:4px;"></div>
 
-    <label style="margin-top:14px;">P&#243;&#322;ki — pozycje od wie&#324;ca dolnego (przez spacj&#281; lub przecinek)</label>
-    <input type="text" id="rm_shelves" placeholder="np. 200 400" oninput="calcRozm()"
-      style="width:100%;padding:9px 12px;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:.9rem;outline:none;">
+      <label style="margin-top:14px;">Полки — позиции от внизу (через пробел или запятую)</label>
+      <input type="text" id="rm_shelves" placeholder="напр. 200 400" oninput="calcRozm()"
+        style="width:100%;padding:9px 12px;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:.9rem;outline:none;">
 
-    <div class="grid2" style="margin-top:12px;gap:10px;">
-      <div>
-        <label>Zazor mi&#281;dzy frontami</label>
-        <input type="number" id="rm_gap_front" value="3" min="0" max="10" oninput="calcRozm()">
-      </div>
-      <div>
-        <label>Luz techniczny</label>
-        <input type="number" id="rm_gap_tech" value="9" min="0" max="20" oninput="calcRozm()">
+      <div class="grid2" style="margin-top:12px;gap:10px;">
+        <div>
+          <label>Зазор между фронтами</label>
+          <input type="number" id="rm_gap_front" value="3" min="0" max="10" oninput="calcRozm()">
+        </div>
+        <div>
+          <label>Люфт технический</label>
+          <input type="number" id="rm_gap_tech" value="9" min="0" max="20" oninput="calcRozm()">
+        </div>
       </div>
     </div>
+
+    <!-- Результат Rozmiarka -->
+    <div id="rm_result"></div>
   </div>
 
-  <!-- Wynik -->
-  <div id="rm_result"></div>
+  <!-- TAB 2: SZPARGAŁKA WIZARD -->
+  <div id="tab-szpargalka" class="szparg-tab-content" style="display:none;">
+    
+    <!-- Progress Indicator -->
+    <div class="card" style="background:var(--surface2);border-color:rgba(0,200,255,.2);padding:16px 18px;margin-bottom:16px;">
+      <div style="display:flex;gap:8px;justify-content:space-between;align-items:center;">
+        <div style="flex:1;height:6px;background:var(--bg2);border-radius:3px;overflow:hidden;">
+          <div id="sp-progress" style="height:100%;background:linear-gradient(90deg,var(--accent),var(--accent3));width:25%;transition:width .3s;"></div>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--accent2);font-weight:700;letter-spacing:.1em;">
+          KROK <span id="sp-step-num">1</span>/4
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 1: WYMIARY -->
+    <div id="sp-step-1" class="szparg-step" style="display:block;">
+      <div class="card">
+        <h3>📏 Krok 1: Wymiary szafki</h3>
+        <p style="font-size:.75rem;color:var(--muted);margin-bottom:16px;line-height:1.6;">Podaj wymiary szafki. Wszystkie wartości w milimetrach.</p>
+        
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+          <div>
+            <label style="margin:0 0 8px;">Wysokość</label>
+            <input type="number" id="sp_height" value="800" min="300" max="2500" step="10" style="width:100%;padding:10px 12px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:.9rem;outline:none;box-shadow:inset 0 2px 6px rgba(0,0,0,.3);">
+            <div style="font-size:.65rem;color:var(--muted);margin-top:4px;">mm</div>
+          </div>
+          <div>
+            <label style="margin:0 0 8px;">Szerokość</label>
+            <input type="number" id="sp_width" value="600" min="200" max="3000" step="10" style="width:100%;padding:10px 12px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:.9rem;outline:none;box-shadow:inset 0 2px 6px rgba(0,0,0,.3);">
+            <div style="font-size:.65rem;color:var(--muted);margin-top:4px;">mm</div>
+          </div>
+          <div>
+            <label style="margin:0 0 8px;">Głębokość</label>
+            <input type="number" id="sp_depth" value="500" min="200" max="800" step="10" style="width:100%;padding:10px 12px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:.9rem;outline:none;box-shadow:inset 0 2px 6px rgba(0,0,0,.3);">
+            <div style="font-size:.65rem;color:var(--muted);margin-top:4px;">mm</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card" style="background:var(--surface2);border-color:rgba(0,200,255,.2);">
+        <button onclick="spGoToStep(2)" class="btn-primary" style="width:100%;margin:0;">➜ Dalej</button>
+      </div>
+    </div>
+
+    <!-- STEP 2: TYP SZAFKI -->
+    <div id="sp-step-2" class="szparg-step" style="display:none;">
+      <div class="card">
+        <h3>⚙ Krok 2: Typ wypełnienia</h3>
+        <p style="font-size:.75rem;color:var(--muted);margin-bottom:16px;line-height:1.6;">Wybierz typ szafki. Każdy typ oblicza się inaczej.</p>
+        
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <button onclick="spSetType('DRZWI')" id="sp-btn-drzwi" class="sp-type-btn-wizard" style="padding:16px;background:var(--surface2);border:2px solid var(--border2);border-radius:10px;color:var(--text2);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .2s;text-align:center;">
+            🚪<br>DRZWI
+          </button>
+          <button onclick="spSetType('SZUFLADY')" id="sp-btn-szuflady" class="sp-type-btn-wizard" style="padding:16px;background:var(--surface2);border:2px solid var(--border2);border-radius:10px;color:var(--text2);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .2s;text-align:center;">
+            📦<br>SZUFLADY
+          </button>
+          <button onclick="spSetType('COMBO')" id="sp-btn-combo" class="sp-type-btn-wizard" style="padding:16px;background:var(--surface2);border:2px solid var(--border2);border-radius:10px;color:var(--text2);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .2s;text-align:center;">
+            🔀<br>COMBO
+          </button>
+          <button onclick="spSetType('POLKI')" id="sp-btn-polki" class="sp-type-btn-wizard" style="padding:16px;background:var(--surface2);border:2px solid var(--border2);border-radius:10px;color:var(--text2);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .2s;text-align:center;">
+            📚<br>PÓŁKI
+          </button>
+        </div>
+      </div>
+
+      <div class="card" style="background:var(--surface2);border-color:rgba(0,200,255,.2);">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <button onclick="spGoToStep(1)" style="padding:12px;background:var(--surface3);border:1px solid var(--border2);border-radius:8px;color:var(--text2);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .2s;">← Wstecz</button>
+          <button onclick="spGoToStep(3)" class="btn-primary" style="padding:12px;margin:0;">➜ Dalej</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3: PRZESZCZEPY -->
+    <div id="sp-step-3" class="szparg-step" style="display:none;">
+      <div class="card">
+        <h3>🔧 Krok 3: Przeszczepy</h3>
+        <p style="font-size:.75rem;color:var(--muted);margin-bottom:16px;line-height:1.6;">Skonfiguruj przeszczepy. Możesz mieć wiele przeszczepów różnych typów.</p>
+        
+        <div id="sp_compartments_container" style="margin-bottom:12px;"></div>
+        
+        <button onclick="spAddCompartment()" style="width:100%;padding:12px;background:var(--surface2);border:2px dashed var(--border2);border-radius:8px;color:var(--accent2);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .2s;">
+          + Dodaj przeszczep
+        </button>
+      </div>
+
+      <div class="card" style="background:var(--surface2);border-color:rgba(0,200,255,.2);">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <button onclick="spGoToStep(2)" style="padding:12px;background:var(--surface3);border:1px solid var(--border2);border-radius:8px;color:var(--text2);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .2s;">← Wstecz</button>
+          <button onclick="spGoToStep(4)" class="btn-primary" style="padding:12px;margin:0;">➜ Rezultat</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4: REZULTAT -->
+    <div id="sp-step-4" class="szparg-step" style="display:none;">
+      <div class="card">
+        <h3>📊 Krok 4: BOM Kalkulator</h3>
+        <p style="font-size:.75rem;color:var(--muted);margin-bottom:16px;line-height:1.6;"><strong id="sp-config-summary"></strong></p>
+        
+        <div id="sp_result_table" style="margin-bottom:12px;"></div>
+      </div>
+
+      <!-- OPERACJE BLOCK -->
+      <div class="card" style="background:var(--surface2);border-color:rgba(0,200,255,.2);">
+        <h3>💾 Operacje</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;">
+          <button onclick="spExportJSON()" style="padding:12px;background:var(--surface3);border:1px solid var(--border2);border-radius:8px;color:var(--text2);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .2s;">📥 JSON</button>
+          <button onclick="spSaveConfig()" style="padding:12px;background:var(--surface3);border:1px solid var(--border2);border-radius:8px;color:var(--text2);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .2s;">💾 Zapisz</button>
+          <button onclick="spLoadConfig()" style="padding:12px;background:var(--surface3);border:1px solid var(--border2);border-radius:8px;color:var(--text2);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .2s;">📂 Wczytaj</button>
+          <button onclick="spClearConfig()" style="padding:12px;background:rgba(255,61,90,.1);border:1px solid rgba(255,61,90,.3);border-radius:8px;color:#ff3d5a;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .2s;">🗑️ Wyczyść</button>
+        </div>
+        <div id="sp_export_msg" style="font-size:.7rem;color:var(--success);margin-top:10px;text-align:center;min-height:14px;"></div>
+      </div>
+
+      <div class="card" style="background:var(--surface2);border-color:rgba(0,200,255,.2);">
+        <button onclick="spGoToStep(3)" style="width:100%;padding:12px;background:var(--surface3);border:1px solid var(--border2);border-radius:8px;color:var(--text2);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all .2s;">← Wstecz do konfiguracji</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TABS AT BOTTOM -->
+  <div style="display:flex;gap:0;background:var(--surface);border-top:1px solid var(--border);margin-top:12px;border-radius:0 0 12px 12px;padding:0 12px;">
+    <button class="szparg-tab-btn active" onclick="switchSzpargTab('rozmiarka')" style="flex:1;padding:14px 20px;border:none;background:transparent;color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.88rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border-top:2px solid transparent;transition:all .2s;margin-top:0;position:relative;color:var(--accent2);border-top-color:var(--accent2);">📏 Rozmiarka</button>
+    <button class="szparg-tab-btn" onclick="switchSzpargTab('szpargalka')" style="flex:1;padding:14px 20px;border:none;background:transparent;color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.88rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border-top:2px solid transparent;transition:all .2s;margin-top:0;position:relative;">⚡ Szpargałka</button>
+  </div>
 
 </div><!-- /sectionRozm -->
 
@@ -2353,6 +2426,49 @@ const systemData={
 let project=[];
 
 /* ===== AUTO LOGIC ===== */
+// ── Підказка стандартних розмірів ──────────────────────────────────
+function alStdHint(){
+  var tEl = document.getElementById('type');
+  var el  = document.getElementById('al_std_hint');
+  if(!tEl) return;
+  var t = tEl.value||'';
+
+  var standards = {
+    // Нижні шафи
+    'Dolna': { h:'720–870',  d:'510–560', w:'150–1200', note:'Висота без стільниці 820мм. Зі стільницею 850–900мм.' },
+    // Верхні
+    'Wisząca':         { h:'300–1000', d:'300–350', w:'150–1000', note:'Відстань від стільниці: 550–600мм.' },
+    'Wisząca z klapą': { h:'300–600',  d:'300–350', w:'400–1000', note:'Клапан: рекомендована висота 300–500мм.' },
+    'Pod okap':        { h:'600–900',  d:'300–350', w:'600–900',  note:'Стандарт під витяжку 60см.' },
+    // Слупки
+    'upek':            { h:'1800–2400', d:'510–580', w:'300–600', note:'Стандарт під духовку/холодильник 210–240см.' },
+  };
+
+  var match = null;
+  for(var k in standards){
+    if(t.includes(k)){ match = standards[k]; break; }
+  }
+  if(!match) match = standards['Dolna']; // default
+
+  if(!el){
+    el = document.createElement('div');
+    el.id = 'al_std_hint';
+    el.style.cssText = 'font-size:.65rem;font-family:"JetBrains Mono",monospace;'+
+      'margin:8px 0 0;padding:6px 10px;border-radius:6px;'+
+      'background:rgba(0,200,255,.05);border-left:2px solid rgba(0,200,255,.3);'+
+      'color:var(--text2);line-height:1.7;';
+    var dimCard = document.getElementById('dimCard');
+    if(dimCard) dimCard.appendChild(el);
+  }
+  el.style.display = 'block';
+  el.innerHTML =
+    '<span style="color:var(--accent2);">📐 Стандарт PL</span> &nbsp;'+
+    'H: <b>'+match.h+'</b>мм &nbsp;'+
+    'D: <b>'+match.d+'</b>мм &nbsp;'+
+    'W: <b>'+match.w+'</b>мм<br>'+
+    '<span style="color:var(--muted);">'+match.note+'</span>';
+}
+
 function autoLogic(){
   try{ var _c=document.getElementById("config"),_z=document.getElementById("zawRow");
     if(_z&&_c) _z.style.display=_c.value==="Szuflady"?"none":""; }catch(e){}
@@ -2360,7 +2476,6 @@ function autoLogic(){
   const cfgEl=document.getElementById("config");
   const heightEl=document.getElementById("height");
   const depthEl=document.getElementById("depth");
-  const shelvesCard=document.getElementById("shelvesCard");
 
   // Typy bez szuflad
   const noDrawerTypes=["Wisz\u0105ca","Wisz\u0105ca z klap\u0105","Pod okap","Pod zmywark\u0119",
@@ -2564,6 +2679,26 @@ function autoLogic(){
     }
   }
 
+  // ===== ДИНАМИЧЕСКОЕ ПОКАЗ ПОЛКИ И AKCESORIA =====
+  // Показывать когда: Шафка с дверями, Полка, Опорная полка
+  const shelvesCard = document.getElementById("shelvesCard");
+  const akcCard = document.getElementById("akcCard");
+  
+  const showPolkiAkcesoria = (
+    t.includes("Dolna") || 
+    t.includes("Górna") || 
+    t.includes("Wisz") || 
+    t.includes("Pod") || 
+    t.includes("Półka") || 
+    t.includes("Słupek") ||
+    t === "Narożna górna" ||
+    t === "Narożna dolna \u015alepa" ||
+    t === "Narożna dolna L"
+  );
+  
+  if(shelvesCard) shelvesCard.style.display = showPolkiAkcesoria ? "" : "none";
+  if(akcCard) akcCard.style.display = showPolkiAkcesoria ? "" : "none";
+
   updateDrawerSelectors();
 }
 
@@ -2750,6 +2885,41 @@ function alCheckCollisions(){
   if(runner>D-10)        warns.push('Prowadnica '+runner+'mm za dluga dla D='+D+'mm');
   if(H>2400)             warns.push('Wysokosc '+H+'mm przekracza standard 2400mm');
   if(W>1200)             warns.push('Szerokosc '+W+'mm — rozważ podział na 2 moduły');
+
+  // ── Standardy kuchenne PL / UA ──────────────────────────────────
+  var typeVal = (document.getElementById('type')||{}).value||'';
+  var isDolna  = typeVal.includes('Dolna') || typeVal.includes('dolna') || typeVal==='' ;
+  var isWisz   = typeVal.includes('Wisz') || typeVal.includes('okap');
+  var isSlupek = typeVal.includes('upek') || typeVal.includes('Cargo');
+
+  // Стандартні ширини кухонних шаф (крок 50 або 100мм)
+  var stdWidths = [150,200,300,400,450,500,600,800,900,1000,1200];
+  var nearestW  = stdWidths.reduce(function(a,b){ return Math.abs(b-W)<Math.abs(a-W)?b:a; });
+  if(Math.abs(nearestW-W)>5 && Math.abs(nearestW-W)<50){
+    warns.push('Szer. '+W+'mm — нестандарт (найближча: '+nearestW+'мм)');
+  }
+
+  if(isDolna && !isSlupek){
+    // Нижні шафи: висота 720–870мм, глибина 510–560мм
+    if(H<720)  warns.push('Нижня шафа: висота '+H+'мм < стандарт 720мм');
+    if(H>870)  warns.push('Нижня шафа: висота '+H+'мм > стандарт 870мм (без стільниці 820мм)');
+    if(D<510)  warns.push('Нижня шафа: глибина '+D+'мм < стандарт 510мм');
+    if(D>580)  warns.push('Нижня шафа: глибина '+D+'мм > стандарт 580мм');
+  }
+
+  if(isWisz){
+    // Верхні шафи: висота 300–1000мм, глибина 300–350мм
+    if(H<300)  warns.push('Верхня шафа: висота '+H+'мм < мін 300мм');
+    if(H>1000) warns.push('Верхня шафа: висота '+H+'мм > стандарт 1000мм');
+    if(D<280)  warns.push('Верхня шафа: глибина '+D+'мм < стандарт 300мм');
+    if(D>380)  warns.push('Верхня шафа: глибина '+D+'мм > стандарт 350мм');
+  }
+
+  if(isSlupek){
+    // Слупки: висота 2100–2400мм, глибина 510–600мм
+    if(H<1800) warns.push('Слупок: висота '+H+'мм < стандарт 1800мм');
+    if(D<510)  warns.push('Слупок: глибина '+D+'мм < стандарт 510мм');
+  }
   if(!el){
     el=document.createElement('div');
     el.id='al_collision_hint';
@@ -3209,6 +3379,7 @@ function runAllAutoLogics(){
   try { alAutoWieniec();       } catch(e){}
   try { alAutoPlecySize();     } catch(e){}
   try { alAutoDrawerGap();     } catch(e){}
+  try { alStdHint();           } catch(e){}
   try { alAutoSplit();         } catch(e){}
   try { alProjectBoardArea();  } catch(e){}
   try { alProjectEdgeLength(); } catch(e){}
@@ -4629,6 +4800,10 @@ function closeAllPanels(){
 /* scroll listener moved to appBackBarForScroll */
 
 function toggleToolsPanel(){
+  if(typeof toggleToolsPanel.inProgress !== 'undefined' && toggleToolsPanel.inProgress) return;
+  toggleToolsPanel.inProgress = true;
+  setTimeout(function(){ toggleToolsPanel.inProgress = false; }, 100);
+  
   var p=document.getElementById('toolsPanel');
   var a=document.getElementById('toolsPanelArrow');
   var bar=document.getElementById('fixedCloseBar');
@@ -12082,6 +12257,13 @@ function appNav(screen){
     var mainTabBar=document.getElementById('mainTabBar');
     if(mainTabBar) mainTabBar.style.display='';
     switchMainTab('konfig');
+    document.getElementById('mainTabKonfig').style.display='flex';
+    document.querySelector('.main-tabs').style.display='flex';
+  }
+  
+  // Hide ALL top buttons in rozm and rozkroj sections
+  if(screen==='rozm'||screen==='rozkroj'){
+    document.querySelector('.main-tabs').style.display='none';
   }
 
   APP.screen=screen;
@@ -13143,6 +13325,236 @@ document.addEventListener('DOMContentLoaded',function(){
 window.addEventListener('load',function(){
   if(!window._appShellReady) setTimeout(appShellInit, 100);
 });
+
+/* ===== SZPARGAŁKA WIZARD KALKULATOR ===== */
+var spState = {
+  height: 800,
+  width: 600,
+  depth: 500,
+  type: 'DRZWI',
+  compartments: [{id:1,type:'DRZWI',height:null}],
+  nextId: 2,
+  currentStep: 1
+};
+
+function switchSzpargTab(tab) {
+  document.querySelectorAll('.szparg-tab-btn').forEach(b => {
+    b.style.borderTopColor = 'transparent';
+    b.style.color = 'var(--muted)';
+  });
+  document.querySelectorAll('.szparg-tab-content').forEach(c => c.style.display = 'none');
+  
+  event.target.style.borderTopColor = 'var(--accent2)';
+  event.target.style.color = 'var(--accent2)';
+  document.getElementById('tab-' + tab).style.display = 'block';
+  if(tab === 'szpargalka') spGoToStep(1);
+}
+
+function spGoToStep(n) {
+  spState.currentStep = n;
+  document.querySelectorAll('.szparg-step').forEach(s => s.style.display = 'none');
+  document.getElementById('sp-step-' + n).style.display = 'block';
+  
+  var pct = (n / 4) * 100;
+  document.getElementById('sp-progress').style.width = pct + '%';
+  document.getElementById('sp-step-num').textContent = n;
+  
+  if(n === 4) spRenderResult();
+}
+
+function spSetType(t) {
+  spState.type = t;
+  
+  // Update button styles
+  document.querySelectorAll('.sp-type-btn-wizard').forEach(b => {
+    b.style.background = 'var(--surface2)';
+    b.style.borderColor = 'var(--border2)';
+    b.style.color = 'var(--text2)';
+    b.style.boxShadow = 'none';
+  });
+  
+  document.getElementById('sp-btn-' + t.toLowerCase()).style.background = 'linear-gradient(135deg,rgba(0,200,255,.18),rgba(0,200,255,.06))';
+  document.getElementById('sp-btn-' + t.toLowerCase()).style.borderColor = 'rgba(0,200,255,.35)';
+  document.getElementById('sp-btn-' + t.toLowerCase()).style.color = 'var(--accent2)';
+  document.getElementById('sp-btn-' + t.toLowerCase()).style.boxShadow = '0 0 20px rgba(0,200,255,.1)';
+  
+  spState.compartments = [{id:1,type:t,height:null}];
+  spState.nextId = 2;
+}
+
+function spRenderCompartments() {
+  var html = '';
+  spState.compartments.forEach(function(c, i) {
+    html += '<div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:10px;">' +
+      '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">' +
+      '<span style="font-family:\'JetBrains Mono\',monospace;font-size:.75rem;color:var(--accent2);font-weight:700;">Przeszczep ' + (i+1) + '</span>' +
+      '<button onclick="spRemoveComp('+c.id+')" style="padding:4px 8px;background:rgba(255,61,90,.1);border:1px solid rgba(255,61,90,.3);border-radius:6px;color:#ff3d5a;font-size:.7rem;font-weight:700;cursor:pointer;">✕</button>' +
+      '</div>' +
+      '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:8px;">' +
+      '<button onclick="spSetCompType('+c.id+',\'DRZWI\')" style="padding:6px;background:' + (c.type==='DRZWI'?'linear-gradient(135deg,rgba(0,200,255,.18),rgba(0,200,255,.06))':'var(--surface3)') + ';border:1px solid ' + (c.type==='DRZWI'?'rgba(0,200,255,.35)':'var(--border3)') + ';border-radius:6px;color:' + (c.type==='DRZWI'?'var(--accent2)':'var(--text2)') + ';font-size:.7rem;font-weight:700;cursor:pointer;transition:all .15s;">🚪</button>' +
+      '<button onclick="spSetCompType('+c.id+',\'SZUFLADY\')" style="padding:6px;background:' + (c.type==='SZUFLADY'?'linear-gradient(135deg,rgba(0,200,255,.18),rgba(0,200,255,.06))':'var(--surface3)') + ';border:1px solid ' + (c.type==='SZUFLADY'?'rgba(0,200,255,.35)':'var(--border3)') + ';border-radius:6px;color:' + (c.type==='SZUFLADY'?'var(--accent2)':'var(--text2)') + ';font-size:.7rem;font-weight:700;cursor:pointer;transition:all .15s;">📦</button>' +
+      '<button onclick="spSetCompType('+c.id+',\'POLKI\')" style="padding:6px;background:' + (c.type==='POLKI'?'linear-gradient(135deg,rgba(0,200,255,.18),rgba(0,200,255,.06))':'var(--surface3)') + ';border:1px solid ' + (c.type==='POLKI'?'rgba(0,200,255,.35)':'var(--border3)') + ';border-radius:6px;color:' + (c.type==='POLKI'?'var(--accent2)':'var(--text2)') + ';font-size:.7rem;font-weight:700;cursor:pointer;transition:all .15s;">📚</button>' +
+      '</div>' +
+      '<div>' +
+      '<label style="margin:0 0 6px;font-size:.65rem;display:block;">Wysokość (opt.)</label>' +
+      '<input type="number" id="sp_ch_'+c.id+'" value="' + (c.height || '') + '" placeholder="auto" min="50" max="2000" step="10" style="width:100%;padding:6px 8px;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:\'JetBrains Mono\',monospace;font-size:.8rem;outline:none;" oninput="spUpdateCompHeight('+c.id+',this.value)">' +
+      '</div>' +
+      '</div>';
+  });
+  document.getElementById('sp_compartments_container').innerHTML = html;
+}
+
+function spSetCompType(id, t) {
+  var c = spState.compartments.find(x => x.id === id);
+  if(c) c.type = t;
+  spRenderCompartments();
+}
+
+function spUpdateCompHeight(id, val) {
+  var c = spState.compartments.find(x => x.id === id);
+  if(c) c.height = val ? parseInt(val) : null;
+}
+
+function spRemoveComp(id) {
+  spState.compartments = spState.compartments.filter(x => x.id !== id);
+  if(spState.compartments.length === 0) spState.compartments = [{id:spState.nextId++,type:'DRZWI',height:null}];
+  spRenderCompartments();
+}
+
+function spAddCompartment() {
+  spState.compartments.push({id:spState.nextId++,type:spState.type,height:null});
+  spRenderCompartments();
+}
+
+function spRenderResult() {
+  spState.height = parseInt(document.getElementById('sp_height').value) || 800;
+  spState.width = parseInt(document.getElementById('sp_width').value) || 600;
+  spState.depth = parseInt(document.getElementById('sp_depth').value) || 500;
+  
+  var bomData = spCalcBOM(spState.type, spState.height, spState.width, spState.depth, spState.compartments);
+  
+  // Summary
+  document.getElementById('sp-config-summary').innerHTML = 
+    '<strong>' + spState.type + '</strong> · H:' + spState.height + 'mm W:' + spState.width + 'mm D:' + spState.depth + 'mm · ' + spState.compartments.length + ' przeszczepów';
+  
+  // BOM Table
+  var html = '<table style="width:100%;border-collapse:collapse;font-family:\'JetBrains Mono\',monospace;font-size:.75rem;">';
+  html += '<thead><tr style="background:rgba(255,255,255,.04);border-bottom:1px solid var(--border2);"><th style="padding:8px 10px;text-align:left;color:var(--accent2);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;">Komponent</th><th style="padding:8px 10px;text-align:left;color:var(--accent2);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;">Ilość</th><th style="padding:8px 10px;text-align:left;color:var(--accent2);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;">Wymiary</th><th style="padding:8px 10px;text-align:left;color:var(--accent2);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;">Uwaga</th></tr></thead>';
+  html += '<tbody>';
+  bomData.forEach(function(item) {
+    html += '<tr style="border-bottom:1px solid var(--border);"><td style="padding:8px 10px;color:var(--text);">'+item.name+'</td><td style="padding:8px 10px;color:var(--text);">'+item.qty+'</td><td style="padding:8px 10px;color:var(--text);">'+item.size+'</td><td style="padding:8px 10px;color:var(--muted);">'+item.note+'</td></tr>';
+  });
+  html += '</tbody></table>';
+  document.getElementById('sp_result_table').innerHTML = html;
+}
+
+function spCalcBOM(type, h, w, d, comps) {
+  var bom = [];
+  if(type === 'DRZWI') {
+    bom.push({name:'Górny panel',qty:1,size:w+'×'+d,note:'DSP 18mm'});
+    bom.push({name:'Dolny panel',qty:1,size:w+'×'+d,note:'DSP 18mm'});
+    bom.push({name:'Lewy słupek',qty:1,size:h+'×'+d,note:'DSP 18mm'});
+    bom.push({name:'Prawy słupek',qty:1,size:h+'×'+d,note:'DSP 18mm'});
+    bom.push({name:'Ściana tylna',qty:1,size:w+'×'+h,note:'Sklejka 4mm'});
+    bom.push({name:'Drzwiczka',qty:1,size:(w-2)+'×'+(h-2),note:'DSP 16mm'});
+    bom.push({name:'Zawiasy',qty:2,size:'—',note:'Wcinane'});
+  } else if(type === 'SZUFLADY') {
+    bom.push({name:'Górny panel',qty:1,size:w+'×'+d,note:'DSP 18mm'});
+    bom.push({name:'Dolny panel',qty:1,size:w+'×'+d,note:'DSP 18mm'});
+    bom.push({name:'Lewy słupek',qty:1,size:h+'×'+d,note:'DSP 18mm'});
+    bom.push({name:'Prawy słupek',qty:1,size:h+'×'+d,note:'DSP 18mm'});
+    bom.push({name:'Ściana tylna',qty:1,size:w+'×'+h,note:'Sklejka 4mm'});
+    bom.push({name:'Front szuflady',qty:comps.length,size:(w-2)+'×~'+(Math.floor(h/comps.length)-2),note:'DSP 16mm'});
+    bom.push({name:'Prowadnice',qty:comps.length*2,size:(w-4)+'mm',note:'Metal'});
+  } else if(type === 'COMBO') {
+    bom.push({name:'Górny panel',qty:1,size:w+'×'+d,note:'DSP 18mm'});
+    bom.push({name:'Dolny panel',qty:1,size:w+'×'+d,note:'DSP 18mm'});
+    bom.push({name:'Lewy słupek',qty:1,size:h+'×'+d,note:'DSP 18mm'});
+    bom.push({name:'Prawy słupek',qty:1,size:h+'×'+d,note:'DSP 18mm'});
+    bom.push({name:'Ściana tylna',qty:1,size:w+'×'+h,note:'Sklejka 4mm'});
+    var drzwiCount = comps.filter(c => c.type === 'DRZWI').length;
+    var szuladyCount = comps.filter(c => c.type === 'SZUFLADY').length;
+    if(drzwiCount > 0) {
+      bom.push({name:'Drzwiczka',qty:drzwiCount,size:'zmienne',note:'DSP 16mm'});
+      bom.push({name:'Zawiasy',qty:drzwiCount*2,size:'—',note:'Wcinane'});
+    }
+    if(szuladyCount > 0) {
+      bom.push({name:'Front szuflady',qty:szuladyCount,size:'zmienne',note:'DSP 16mm'});
+      bom.push({name:'Prowadnice',qty:szuladyCount*2,size:'zmienne',note:'Metal'});
+    }
+  } else if(type === 'POLKI') {
+    bom.push({name:'Górny panel',qty:1,size:w+'×'+d,note:'DSP 18mm'});
+    bom.push({name:'Dolny panel',qty:1,size:w+'×'+d,note:'DSP 18mm'});
+    bom.push({name:'Lewy słupek',qty:1,size:h+'×'+d,note:'DSP 18mm'});
+    bom.push({name:'Prawy słupek',qty:1,size:h+'×'+d,note:'DSP 18mm'});
+    bom.push({name:'Półka',qty:comps.length,size:w+'×'+d,note:'DSP 16mm'});
+    bom.push({name:'Końcówki podporowe',qty:comps.length*4,size:'—',note:'Metal'});
+  }
+  return bom;
+}
+
+function spExportJSON() {
+  var data = {
+    timestamp:new Date().toISOString(),
+    config:{type:spState.type,h:spState.height,w:spState.width,d:spState.depth,compartments:spState.compartments.length},
+    bom:spCalcBOM(spState.type,spState.height,spState.width,spState.depth,spState.compartments)
+  };
+  var blob = new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = 'szpargalka-'+Date.now()+'.json';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  spShowMsg('✓ JSON eksportowany');
+}
+
+function spSaveConfig() {
+  try {
+    spState.height = parseInt(document.getElementById('sp_height').value) || 800;
+    spState.width = parseInt(document.getElementById('sp_width').value) || 600;
+    spState.depth = parseInt(document.getElementById('sp_depth').value) || 500;
+    localStorage.setItem('sp_config',JSON.stringify(spState));
+    spShowMsg('✓ Konfiguracja zapisana');
+  } catch(e) {
+    spShowMsg('✗ Błąd zapisu');
+  }
+}
+
+function spLoadConfig() {
+  try {
+    var saved = localStorage.getItem('sp_config');
+    if(!saved) { spShowMsg('✗ Brak zapisanej konfiguracji'); return; }
+    spState = JSON.parse(saved);
+    document.getElementById('sp_height').value = spState.height;
+    document.getElementById('sp_width').value = spState.width;
+    document.getElementById('sp_depth').value = spState.depth;
+    spRenderCompartments();
+    spShowMsg('✓ Konfiguracja wczytana');
+  } catch(e) {
+    spShowMsg('✗ Błąd wczytania');
+  }
+}
+
+function spClearConfig() {
+  try {
+    localStorage.removeItem('sp_config');
+    spShowMsg('✓ Dane usunięte');
+  } catch(e) {
+    spShowMsg('✗ Błąd usuwania');
+  }
+}
+
+function spShowMsg(msg) {
+  var el = document.getElementById('sp_export_msg');
+  if(el) { el.textContent = msg; setTimeout(function(){ el.textContent = ''; },3000); }
+}
+
+// Initialize
+spSetType('DRZWI');
+spRenderCompartments();
 
 </script>
 </body>
