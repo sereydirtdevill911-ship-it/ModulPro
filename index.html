@@ -1995,6 +1995,7 @@ body{padding-bottom:72px!important;}
       <option value="tandembox">TANDEMBOX / ANTARO (метал)</option>
       <option value="legrabox">LEGRABOX (метал)</option>
       <option value="merivobox">MERIVOBOX (метал)</option>
+      <option value="metabox">METABOX (простіша система)</option>
     </select>
 
     <!-- Input: LW (Internal Width) -->
@@ -2012,11 +2013,9 @@ body{padding-bottom:72px!important;}
     <select id="szuflHeight" onchange="calcSzuflady();" style="margin-bottom:14px;">
       <option value="N">N (69 мм)</option>
       <option value="M" selected>M (84 мм)</option>
-      <option value="K">K (101-115 мм)</option>
+      <option value="K">K (101 мм)</option>
       <option value="C">C (148 мм)</option>
       <option value="D">D (199 мм)</option>
-      <option value="E">E (192 мм) — MERIVOBOX</option>
-      <option value="F">F (211 мм) — LEGRABOX</option>
     </select>
 
     <!-- Tip-on для TANDEM -->
@@ -2048,6 +2047,51 @@ body{padding-bottom:72px!important;}
     <label>Висота корпусу (внутрішня) — mm</label>
     <input type="number" id="szuflCorpusHeight" value="720" min="300" max="2400" oninput="calcSzuflady()"
       style="margin-bottom:14px;">
+
+    <!-- Тип шухляди -->
+    <label>Тип шухляди</label>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;">
+      <button id="drawerTypeRegular" onclick="document.getElementById('drawerTypeInner').classList.remove('active');this.classList.add('active');calcSzuflady();" style="padding:10px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text2);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;cursor:pointer;transition:all .2s;" class="active">📦 Звичайна</button>
+      <button id="drawerTypeInner" onclick="document.getElementById('drawerTypeRegular').classList.remove('active');this.classList.add('active');calcSzuflady();" style="padding:10px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text2);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;cursor:pointer;transition:all .2s;">📂 Внутрішня</button>
+    </div>
+    <style>
+      button.active { background:var(--accent)!important; color:#fff!important; border-color:var(--accent)!important; }
+    </style>
+
+    <!-- Опції внутрішньої шухляди (показуються тільки при виборі "Внутрішня") -->
+    <div id="innerDrawerOptions" style="display:none;background:rgba(0,150,200,.05);border:1px solid rgba(0,150,200,.2);border-radius:8px;padding:12px 8px;margin-bottom:14px;">
+      <label style="color:var(--info);font-weight:700;font-size:.8rem;">Компоненти внутрішньої шухляди:</label>
+      
+      <!-- Передня панель -->
+      <div style="margin-top:10px;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <input type="checkbox" id="innerDrawerPanel" checked style="width:18px;height:18px;cursor:pointer;" onchange="calcSzuflady();">
+          <label for="innerDrawerPanel" style="cursor:pointer;color:var(--text);font-size:.8rem;">✓ Передня панель (алюміній)</label>
+        </div>
+        <div style="font-size:.7rem;color:var(--muted);margin-left:26px;">LW - 132 мм</div>
+      </div>
+      
+      <!-- Рейлінги (приховуються для METABOX) -->
+      <div id="innerDrawerRails">
+        <!-- Поперечний рейлінг -->
+        <div style="margin-top:10px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+            <input type="checkbox" id="innerDrawerCrossRail" checked style="width:18px;height:18px;cursor:pointer;" onchange="calcSzuflady();">
+            <label for="innerDrawerCrossRail" style="cursor:pointer;color:var(--text);font-size:.8rem;">✓ Поперечний рейлінг (ORGA-LINE)</label>
+          </div>
+          <div style="font-size:.7rem;color:var(--muted);margin-left:26px;">LW - 91 мм</div>
+        </div>
+        
+        <!-- Поздовжний рейлінг -->
+        <div style="margin-top:10px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+            <input type="checkbox" id="innerDrawerLongRail" checked style="width:18px;height:18px;cursor:pointer;" onchange="calcSzuflady();">
+            <label for="innerDrawerLongRail" style="cursor:pointer;color:var(--text);font-size:.8rem;">✓ Поздовжний рейлінг</label>
+          </div>
+          <div style="font-size:.7rem;color:var(--muted);margin-left:26px;">= NL мм (глибина шухляди)</div>
+        </div>
+      </div>
+    </div>
 
     <button onclick="calcSzuflady()" style="width:100%;padding:12px;background:var(--accent);border:none;border-radius:8px;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;cursor:pointer;margin-bottom:14px;letter-spacing:.08em;">
       📊 OBLICZ SZUFLADY
@@ -9293,6 +9337,9 @@ function updateSzuflForm(){
   const tipOnDiv = document.getElementById('tandemTipOnDiv');
   const thicknessSelect = document.getElementById('szuflThickness');
   const customDiv = document.getElementById('customThicknessDiv');
+  const heightSelect = document.getElementById('szuflHeight');
+  const isInnerDrawer = document.getElementById('drawerTypeInner').classList.contains('active');
+  const innerDrawerOptions = document.getElementById('innerDrawerOptions');
   
   // Показуємо Tip-on тільки для TANDEM
   if(system === 'tandem'){
@@ -9308,6 +9355,36 @@ function updateSzuflForm(){
     customDiv.style.display = 'none';
   }
   
+  // Показуємо опції внутрішніх шухляд тільки якщо вибрана "Внутрішня"
+  if(isInnerDrawer){
+    innerDrawerOptions.style.display = 'block';
+    // Приховуємо рейлінги для METABOX
+    const railsDiv = document.getElementById('innerDrawerRails');
+    if(system === 'metabox'){
+      railsDiv.style.display = 'none';
+    } else {
+      railsDiv.style.display = 'block';
+    }
+  } else {
+    innerDrawerOptions.style.display = 'none';
+  }
+  
+  // Оновляємо опції висоти залежно від системи
+  let heightOptions = '';
+  if(system === 'tandem'){
+    heightOptions = '<option value="N">N (69 мм)</option><option value="M" selected>M (84 мм)</option><option value="K">K (101 мм)</option><option value="C">C (148 мм)</option><option value="D">D (199 мм)</option>';
+  } else if(system === 'tandembox'){
+    heightOptions = '<option value="N">N (69 мм)</option><option value="M" selected>M (84 мм)</option><option value="K">K (101 мм)</option><option value="C">C (148 мм)</option><option value="D">D (199 мм)</option>';
+  } else if(system === 'legrabox'){
+    heightOptions = '<option value="N">N (43 мм)</option><option value="M" selected>M (70 мм)</option><option value="K">K (101 мм)</option><option value="C">C (143 мм)</option><option value="F">F (211 мм)</option>';
+  } else if(system === 'merivobox'){
+    heightOptions = '<option value="N">N (51 мм)</option><option value="M" selected>M (71 мм)</option><option value="K">K (112 мм)</option><option value="E">E (192 мм)</option>';
+  } else if(system === 'metabox'){
+    heightOptions = '<option value="N">N (50 мм)</option><option value="M" selected>M (70 мм)</option><option value="K">K (90 мм)</option>';
+  }
+  
+  heightSelect.innerHTML = heightOptions;
+  
   calcSzuflady();
 }
 
@@ -9317,6 +9394,12 @@ function calcSzuflady(){
   const NL = parseInt(document.getElementById('szuflNL').value) || 500;
   const heightType = document.getElementById('szuflHeight').value || 'M';
   
+  // Сохраняемо параметры
+  localStorage.setItem('szufl_system', system);
+  localStorage.setItem('szufl_lw', LW);
+  localStorage.setItem('szufl_nl', NL);
+  localStorage.setItem('szufl_height', heightType);
+  
   // Получаємо товщину
   const thicknessSelect = document.getElementById('szuflThickness').value;
   let thickness = 16;
@@ -9325,15 +9408,33 @@ function calcSzuflady(){
   } else {
     thickness = parseInt(thicknessSelect);
   }
+  localStorage.setItem('szufl_thickness', thickness);
   
   const corpusHeight = parseInt(document.getElementById('szuflCorpusHeight').value) || 720;
+  localStorage.setItem('szufl_corpus_height', corpusHeight);
+  
+  // Тип шухляди
+  const isInnerDrawer = document.getElementById('drawerTypeInner').classList.contains('active');
+  localStorage.setItem('szufl_drawer_type', isInnerDrawer ? 'inner' : 'regular');
+  
+  // Збережено стан checkboxes для внутрішніх компонентів
+  if(isInnerDrawer){
+    const hasPanel = document.getElementById('innerDrawerPanel').checked;
+    const hasCrossRail = document.getElementById('innerDrawerCrossRail').checked;
+    const hasLongRail = document.getElementById('innerDrawerLongRail').checked;
+    
+    localStorage.setItem('szufl_has_panel', hasPanel);
+    localStorage.setItem('szufl_has_cross_rail', hasCrossRail);
+    localStorage.setItem('szufl_has_long_rail', hasLongRail);
+  }
   
   // Таблиця висот для кожної серії
   const heightsDB = {
     tandem: { N: 69, M: 84, K: 101, C: 148, D: 199 },
     tandembox: { N: 69, M: 84, K: 101, C: 148, D: 199 },
     legrabox: { N: 43, M: 70, K: 101, C: 143, F: 211 },
-    merivobox: { N: 51, M: 71, K: 112, E: 192 }
+    merivobox: { N: 51, M: 71, K: 112, E: 192 },
+    metabox: { N: 50, M: 70, K: 90 }
   };
   
   let bottomW, bottomL, backW, backH;
@@ -9343,12 +9444,42 @@ function calcSzuflady(){
   const GAP_BOTTOM = 2;   // зазор від внизу
   const GAP_BETWEEN = 3;  // зазор між шухлядами (3mm паз провідника)
   
+  // Валідація мінімальних значень
+  if(LW < 300){
+    const resultEl = document.getElementById('szuflResult');
+    let html = '<div style="background:rgba(255,107,107,.15);border:1px solid rgba(255,107,107,.4);border-radius:8px;padding:10px 8px;margin-bottom:16px;"><div style="font-size:.7rem;color:#ff6b6b;font-weight:700;">⚠️ Помилка: LW мінімум 300 mm</div></div>';
+    resultEl.innerHTML = html;
+    return;
+  }
+  
+  if(NL < 270){
+    const resultEl = document.getElementById('szuflResult');
+    let html = '<div style="background:rgba(255,107,107,.15);border:1px solid rgba(255,107,107,.4);border-radius:8px;padding:10px 8px;margin-bottom:16px;"><div style="font-size:.7rem;color:#ff6b6b;font-weight:700;">⚠️ Помилка: NL мінімум 270 mm</div></div>';
+    resultEl.innerHTML = html;
+    return;
+  }
+  
+  if(corpusHeight < 300){
+    const resultEl = document.getElementById('szuflResult');
+    let html = '<div style="background:rgba(255,107,107,.15);border:1px solid rgba(255,107,107,.4);border-radius:8px;padding:10px 8px;margin-bottom:16px;"><div style="font-size:.7rem;color:#ff6b6b;font-weight:700;">⚠️ Помилка: Висота корпусу мінімум 300 mm</div></div>';
+    resultEl.innerHTML = html;
+    return;
+  }
+  
+  const resultEl = document.getElementById('szuflResult');
+  let html = '<div class="result-card" style="margin-top:12px;">';
+  html += '<h2 style="margin-bottom:12px;">📊 Розрахунок шухляд</h2>';
+  
+  // Таблиця розмірів
+  html += '<table style="width:100%;border-collapse:collapse;margin-bottom:16px;font-size:.8rem;">';
+  html += '<tr style="border-bottom:2px solid var(--accent);"><th style="text-align:left;padding:8px 3px;color:var(--accent);font-size:.75rem;letter-spacing:.06em;">Parametr</th><th style="text-align:right;padding:8px 3px;color:var(--accent);font-size:.75rem;">Wartość</th></tr>';
+  
   if(system === 'tandem'){
     // TANDEM (дерев'яний) — з або без Tip-on
     const hasTipOn = document.getElementById('tandemWithTipOn').classList.contains('active');
     
     // Формули залежать від товщини ДСП
-    let bottomW, innerWidth, backW;
+    let innerWidth;
     
     if(thickness === 19){
       // ДСП 19 мм
@@ -9362,9 +9493,9 @@ function calcSzuflady(){
       backW = LW - 42; // Задня стінка ширина
     }
     
-    const bottomL = NL; // Довжина = NL
+    bottomL = NL; // Довжина = NL
     const extWidth = LW - 10; // Зовн. ширина = LW - 10
-    const backH = heightsDB.tandem[heightType] || 84;
+    backH = heightsDB.tandem[heightType] || 84;
     
     const tipOnStr = hasTipOn ? ' (з Tip-on)' : '';
     const thicknessLabel = thickness === 19 ? '19 мм (ДСП 19 мм)' : '16 мм (ДСП 16 мм)';
@@ -9428,15 +9559,119 @@ function calcSzuflady(){
     html += `<tr style="background:rgba(0,200,255,.05);"><td style="padding:8px 3px;color:var(--info);font-weight:700;">Дно довжина (NL-24)</td><td style="text-align:right;padding:8px 3px;font-weight:700;color:var(--info);">${bottomL}</td></tr>`;
     html += `<tr style="background:rgba(0,230,118,.05);"><td style="padding:8px 3px;color:var(--success);font-weight:700;">Тил ширина (LW-87)</td><td style="text-align:right;padding:8px 3px;font-weight:700;color:var(--success);">${backW}</td></tr>`;
     html += `<tr style="background:rgba(0,230,118,.05);"><td style="padding:8px 3px;color:var(--success);font-weight:700;">Тил висота</td><td style="text-align:right;padding:8px 3px;font-weight:700;color:var(--success);">${backH}</td></tr>`;
+    
+  } else if(system === 'metabox'){
+    // METABOX - простіша система
+    bottomW = LW - 50; // Дерев'яне дно (стандартно)
+    bottomL = NL - 20;
+    backW = LW - 50;
+    backH = heightsDB.metabox[heightType] || 70;
+    
+    html += `<tr><td style="padding:8px 3px;color:var(--text);">System</td><td style="text-align:right;padding:8px 3px;font-weight:700;color:var(--accent2);">METABOX</td></tr>`;
+    html += `<tr><td style="padding:8px 3px;color:var(--text);">LW (світло)</td><td style="text-align:right;padding:8px 3px;">${LW}</td></tr>`;
+    html += `<tr><td style="padding:8px 3px;color:var(--text);">NL (довжина)</td><td style="text-align:right;padding:8px 3px;">${NL}</td></tr>`;
+    html += `<tr><td style="padding:8px 3px;color:var(--text);">Тип висоти</td><td style="text-align:right;padding:8px 3px;font-weight:700;">${heightType} (${backH}mm)</td></tr>`;
+    html += `<tr style="background:rgba(0,200,255,.05);"><td style="padding:8px 3px;color:var(--info);font-weight:700;">Дно ширина (LW-50)</td><td style="text-align:right;padding:8px 3px;font-weight:700;color:var(--info);">${bottomW}</td></tr>`;
+    html += `<tr style="background:rgba(0,200,255,.05);"><td style="padding:8px 3px;color:var(--info);font-weight:700;">Дно довжина (NL-20)</td><td style="text-align:right;padding:8px 3px;font-weight:700;color:var(--info);">${bottomL}</td></tr>`;
+    html += `<tr style="background:rgba(0,230,118,.05);"><td style="padding:8px 3px;color:var(--success);font-weight:700;">Тил ширина (LW-50)</td><td style="text-align:right;padding:8px 3px;font-weight:700;color:var(--success);">${backW}</td></tr>`;
+    html += `<tr style="background:rgba(0,230,118,.05);"><td style="padding:8px 3px;color:var(--success);font-weight:700;">Тил висота</td><td style="text-align:right;padding:8px 3px;font-weight:700;color:var(--success);">${backH}</td></tr>`;
   }
   
   html += '</table>';
   
+  // ===== РОЗРАХУНОК ВНУТРІШНІХ ШУХЛЯД (якщо вибрано) =====
+  if(isInnerDrawer){
+    // Отримуємо стан checkboxes
+    const hasPanel = document.getElementById('innerDrawerPanel').checked;
+    const hasCrossRail = document.getElementById('innerDrawerCrossRail').checked;
+    const hasLongRail = document.getElementById('innerDrawerLongRail').checked;
+    
+    html += '<div style="background:rgba(0,150,200,.08);border:1px solid rgba(0,150,200,.3);border-radius:8px;padding:12px 8px;margin-bottom:16px;">';
+    html += '<div style="font-size:.8rem;color:var(--info);font-weight:700;margin-bottom:8px;">📋 РОЗРАХУНОК ВНУТРІШНЬОЇ ШУХЛЯДИ</div>';
+    html += '<table style="width:100%;border-collapse:collapse;font-size:.75rem;">';
+    html += '<tr style="border-bottom:1px solid rgba(0,150,200,.2);"><td style="padding:6px 3px;color:var(--text);">Елемент</td><td style="text-align:right;padding:6px 3px;color:var(--text);">Формула</td><td style="text-align:right;padding:6px 3px;color:var(--info);font-weight:700;">Розмір</td><td style="padding:6px 3px;color:var(--muted);font-size:.65rem;">Статус</td></tr>';
+    
+    if(system === 'metabox'){
+      // METABOX - ДСП за замовчуванням (без рейлінгів)
+      if(hasPanel){
+        html += `<tr style="background:rgba(0,150,200,.1);"><td style="padding:6px 3px;color:var(--text);">Дно/Передня</td><td style="text-align:right;padding:6px 3px;color:var(--text);">= LW</td><td style="text-align:right;padding:6px 3px;font-weight:700;color:var(--info);">${LW} mm</td><td style="padding:6px 3px;color:var(--muted);font-size:.65rem;">✓ ДСП</td></tr>`;
+      } else {
+        html += `<tr style="background:rgba(200,200,200,.05);"><td style="padding:6px 3px;color:var(--muted);">Дно/Передня</td><td style="text-align:right;padding:6px 3px;color:var(--muted);">= LW</td><td style="text-align:right;padding:6px 3px;color:var(--muted);">— mm</td><td style="padding:6px 3px;color:var(--muted);font-size:.65rem;">✗ Не вибрано</td></tr>`;
+      }
+      html += `<tr><td colspan="4" style="padding:6px 3px;color:var(--muted);font-size:.65rem;">ℹ️ METABOX - рейлінги не використовуються</td></tr>`;
+    } else {
+      // Для інших систем
+      
+      // Передня панель
+      if(hasPanel){
+        const innerPanelLength = LW - 132;
+        html += `<tr style="background:rgba(0,150,200,.1);"><td style="padding:6px 3px;color:var(--text);">Передня панель</td><td style="text-align:right;padding:6px 3px;color:var(--text);">LW - 132</td><td style="text-align:right;padding:6px 3px;font-weight:700;color:var(--info);">${innerPanelLength} mm</td><td style="padding:6px 3px;color:var(--muted);font-size:.65rem;">✓ Алюміній</td></tr>`;
+        
+        if(innerPanelLength < 50){
+          html += `<tr style="background:rgba(255,107,107,.15);"><td colspan="4" style="padding:6px 3px;color:#ff6b6b;font-size:.65rem;text-align:center;">⚠️ LW занадто малий (мінімум 182 mm)</td></tr>`;
+        }
+      } else {
+        html += `<tr style="background:rgba(200,200,200,.05);"><td style="padding:6px 3px;color:var(--muted);">Передня панель</td><td style="text-align:right;padding:6px 3px;color:var(--muted);">LW - 132</td><td style="text-align:right;padding:6px 3px;color:var(--muted);">— mm</td><td style="padding:6px 3px;color:var(--muted);font-size:.65rem;">✗ Не вибрано</td></tr>`;
+      }
+      
+      // Поперечний рейлінг
+      if(hasCrossRail){
+        const crossRailLength = LW - 91;
+        html += `<tr><td style="padding:6px 3px;color:var(--text);">Поперечний рейлінг</td><td style="text-align:right;padding:6px 3px;color:var(--text);">LW - 91</td><td style="text-align:right;padding:6px 3px;font-weight:700;color:var(--info);">${crossRailLength} mm</td><td style="padding:6px 3px;color:var(--muted);font-size:.65rem;">✓ ORGA-LINE</td></tr>`;
+      } else {
+        html += `<tr style="background:rgba(200,200,200,.05);"><td style="padding:6px 3px;color:var(--muted);">Поперечний рейлінг</td><td style="text-align:right;padding:6px 3px;color:var(--muted);">LW - 91</td><td style="text-align:right;padding:6px 3px;color:var(--muted);">— mm</td><td style="padding:6px 3px;color:var(--muted);font-size:.65rem;">✗ Не вибрано</td></tr>`;
+      }
+      
+      // Поздовжний рейлінг
+      if(hasLongRail){
+        html += `<tr><td style="padding:6px 3px;color:var(--text);">Поздовжний рейлінг</td><td style="text-align:right;padding:6px 3px;color:var(--text);">= NL</td><td style="text-align:right;padding:6px 3px;font-weight:700;color:var(--info);">${NL} mm</td><td style="padding:6px 3px;color:var(--muted);font-size:.65rem;">✓ Глибина</td></tr>`;
+      } else {
+        html += `<tr style="background:rgba(200,200,200,.05);"><td style="padding:6px 3px;color:var(--muted);">Поздовжний рейлінг</td><td style="text-align:right;padding:6px 3px;color:var(--muted);">= NL</td><td style="text-align:right;padding:6px 3px;color:var(--muted);">— mm</td><td style="padding:6px 3px;color:var(--muted);font-size:.65rem;">✗ Не вибрано</td></tr>`;
+      }
+    }
+    
+    html += '</table>';
+    html += '<div style="margin-top:8px;padding:8px;background:rgba(0,150,200,.05);border-radius:6px;font-size:.65rem;color:var(--muted);">💡 Рекомендація: Використовуйте офіційний Конфігуратор виробів Blum для точної специфікації та креслення розпилу.</div>';
+    html += '</div>';
+  }
+  
   // ===== РОЗРАХУНОК КІЛЬКОСТІ ШУХЛЯД =====
+  // Висота провідника залежить від системи
+  let railHeight = 12; // default TANDEM/TANDEMBOX
+  if(system === 'legrabox') railHeight = 10;
+  if(system === 'merivobox') railHeight = 12;
+  if(system === 'metabox') railHeight = 8; // METABOX простіша система
+  
   const availableHeight = corpusHeight - GAP_TOP - GAP_BOTTOM;
-  const heightPerDrawer = backH + GAP_BETWEEN;
-  const qty = Math.floor(availableHeight / heightPerDrawer);
-  const usedHeight = qty * heightPerDrawer;
+  
+  // Розрахунок кількості шухляд
+  // Першая: backH + railHeight
+  // Наступні: GAP_BETWEEN + backH + railHeight
+  // Остання шухляда не має рейла внизу, але це враховується у висоті корпусу
+  
+  let totalUsed = 0;
+  let count = 0;
+  
+  while(true){
+    let heightNeeded;
+    if(count === 0){
+      // Перша шухляда
+      heightNeeded = backH + railHeight;
+    } else {
+      // Наступні шухляди
+      heightNeeded = GAP_BETWEEN + backH + railHeight;
+    }
+    
+    if(totalUsed + heightNeeded <= availableHeight){
+      totalUsed += heightNeeded;
+      count++;
+    } else {
+      break;
+    }
+  }
+  
+  const qty = count;
+  const usedHeight = totalUsed;
   const remainingHeight = availableHeight - usedHeight;
   
   html += '<div style="background:rgba(0,230,118,.08);border:2px solid rgba(0,230,118,.3);border-radius:8px;padding:12px 8px;margin-bottom:16px;">';
@@ -9444,7 +9679,8 @@ function calcSzuflady(){
   html += '<table style="width:100%;border-collapse:collapse;font-size:.75rem;">';
   html += '<tr style="border-bottom:1px solid rgba(0,230,118,.2);"><td style="padding:6px 3px;color:var(--text);">Висота корпусу</td><td style="text-align:right;padding:6px 3px;font-weight:700;color:var(--success);">${corpusHeight} mm</td></tr>';
   html += `<tr style="border-bottom:1px solid rgba(0,230,118,.2);"><td style="padding:6px 3px;color:var(--text);">Доступна висота (мінус зазори)</td><td style="text-align:right;padding:6px 3px;color:var(--text);">${availableHeight} mm</td></tr>`;
-  html += `<tr style="border-bottom:1px solid rgba(0,230,118,.2);"><td style="padding:6px 3px;color:var(--text);">Висота шухляди + зазор</td><td style="text-align:right;padding:6px 3px;color:var(--text);">${backH} + ${GAP_BETWEEN} = ${heightPerDrawer} mm</td></tr>`;
+  html += `<tr style="border-bottom:1px solid rgba(0,230,118,.2);"><td style="padding:6px 3px;color:var(--text);">Висота шухляди</td><td style="text-align:right;padding:6px 3px;color:var(--text);">${backH} mm</td></tr>`;
+  html += `<tr style="border-bottom:1px solid rgba(0,230,118,.2);"><td style="padding:6px 3px;color:var(--text);">Висота провідника</td><td style="text-align:right;padding:6px 3px;color:var(--text);">${railHeight} mm</td></tr>`;
   html += `<tr style="background:rgba(0,230,118,.1);border-bottom:2px solid rgba(0,230,118,.4);"><td style="padding:8px 3px;color:var(--success);font-weight:700;font-size:.85rem;">✓ КІЛЬКІСТЬ ШУХЛЯД</td><td style="text-align:right;padding:8px 3px;font-weight:900;color:var(--success);font-size:1.2rem;">${qty} шт</td></tr>`;
   html += `<tr><td style="padding:6px 3px;color:var(--muted);font-size:.7rem;">Займано висоти</td><td style="text-align:right;padding:6px 3px;color:var(--muted);font-size:.7rem;">${usedHeight} mm</td></tr>`;
   html += `<tr><td style="padding:6px 3px;color:var(--muted);font-size:.7rem;">Залишок</td><td style="text-align:right;padding:6px 3px;color:var(--muted);font-size:.7rem;">${remainingHeight} mm</td></tr>`;
@@ -9476,8 +9712,12 @@ function calcSzuflady(){
   html += '<strong style="color:var(--info);">LEGRABOX:</strong><br>';
   html += '• N(43), M(70), K(101), C(143), F(211)<br><br>';
   html += '<strong style="color:var(--info);">MERIVOBOX:</strong><br>';
-  html += '• N(51), M(71), K(112), E(192)<br>';
-  html += '</div></div>';
+  html += '• N(51), M(71), K(112), E(192)<br><br>';
+  html += '<strong style="color:var(--info);">METABOX:</strong><br>';
+  html += '• N(50), M(70), K(90)<br>';
+  html += '• Простіша система, внутрішня шухляда зазвичай з ДСП<br>';
+  html += '• Металева панель (якщо є): LW - 68 мм<br>';
+  html += '• Провідник нижче (8 mm)<br>';
   
   html += '</div>';
   resultEl.innerHTML = html;
@@ -13386,12 +13626,52 @@ function showToast(msg, bg, textColor){
 }
 
 
+function loadSzufladyParams(){
+  const system = localStorage.getItem('szufl_system') || 'tandembox';
+  const lw = localStorage.getItem('szufl_lw') || '564';
+  const nl = localStorage.getItem('szufl_nl') || '500';
+  const height = localStorage.getItem('szufl_height') || 'M';
+  const thickness = localStorage.getItem('szufl_thickness') || '16';
+  const corpusHeight = localStorage.getItem('szufl_corpus_height') || '720';
+  const drawerType = localStorage.getItem('szufl_drawer_type') || 'regular';
+  
+  document.getElementById('szuflSystemSelect').value = system;
+  document.getElementById('szuflLW').value = lw;
+  document.getElementById('szuflNL').value = nl;
+  document.getElementById('szuflHeight').value = height;
+  document.getElementById('szuflThickness').value = thickness;
+  document.getElementById('szuflCorpusHeight').value = corpusHeight;
+  
+  // Встановляємо тип шухляди
+  if(drawerType === 'inner'){
+    document.getElementById('drawerTypeRegular').classList.remove('active');
+    document.getElementById('drawerTypeInner').classList.add('active');
+  } else {
+    document.getElementById('drawerTypeRegular').classList.add('active');
+    document.getElementById('drawerTypeInner').classList.remove('active');
+  }
+  
+  // Завантажуємо checkboxes для компонентів внутрішніх шухляд
+  const hasPanel = localStorage.getItem('szufl_has_panel') !== 'false';
+  const hasCrossRail = localStorage.getItem('szufl_has_cross_rail') !== 'false';
+  const hasLongRail = localStorage.getItem('szufl_has_long_rail') !== 'false';
+  
+  document.getElementById('innerDrawerPanel').checked = hasPanel;
+  document.getElementById('innerDrawerCrossRail').checked = hasCrossRail;
+  document.getElementById('innerDrawerLongRail').checked = hasLongRail;
+  
+  updateSzuflForm();
+}
+
 function appShellInit(){
   if(window._appShellReady) return; // guard —   
   window._appShellReady = true;
 
   appCreateScreens();
   appRebuildNav();
+  
+  // Загружаємо збережені параметри калькулятора шухляд
+  loadSzufladyParams();
 
   //  bnav
   window.bnav=function(tab){
