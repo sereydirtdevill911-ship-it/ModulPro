@@ -2043,11 +2043,6 @@ body{padding-bottom:72px!important;}
         style="width:100%;padding:10px;background:var(--bg2);border:1px solid var(--border);border-radius:6px;color:var(--text);">
     </div>
 
-    <!-- Висота корпусу -->
-    <label>Висота корпусу (внутрішня) — mm</label>
-    <input type="number" id="szuflCorpusHeight" value="720" min="300" max="2400" oninput="calcSzuflady()"
-      style="margin-bottom:14px;">
-
     <!-- Тип шухляди -->
     <label>Тип шухляди</label>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;">
@@ -2092,6 +2087,11 @@ body{padding-bottom:72px!important;}
         </div>
       </div>
     </div>
+
+    <!-- Висота корпусу -->
+    <label>Висота корпусу (внутрішня) — mm</label>
+    <input type="number" id="szuflCorpusHeight" value="720" min="300" max="2400" oninput="calcSzuflady()"
+      style="margin-bottom:14px;">
 
     <button onclick="calcSzuflady()" style="width:100%;padding:12px;background:var(--accent);border:none;border-radius:8px;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;cursor:pointer;margin-bottom:14px;letter-spacing:.08em;">
       📊 OBLICZ SZUFLADY
